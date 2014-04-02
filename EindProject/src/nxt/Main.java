@@ -13,7 +13,7 @@ public class Main {
 		LightSensor ls = new LightSensor(SensorPort.S2, Position.Right);
 		UltraSonicSensor us = new UltraSonicSensor(SensorPort.S4);
 		new CalibreerController(cs, ls);
-		new LineFollowController(cs, ls);
+		//new LineFollowController(cs, ls);
 		/*ArrayList<UpdatingSensor> sensors = new ArrayList<UpdatingSensor>();
 		sensors.add(cs);
 		sensors.add(ls);

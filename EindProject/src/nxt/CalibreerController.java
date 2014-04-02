@@ -38,7 +38,7 @@ public class CalibreerController {
 		
 		while(MotorController.moving()){
 			lightValues.add(ls.getNormalizedLightValue());
-			colorValues.add(cs.getRawLightValue());
+			colorValues.add(1023-cs.getRawLightValue());
 		}
 		
 		ls.setHigh(getHighestValue(lightValues));
