@@ -47,7 +47,7 @@ public class ColorSensor extends lejos.nxt.ColorSensor implements
 		}
 	}
 	
-	public void calibrateLow(int low) {
+	/*public void calibrateLow(int low) {
 		zero = low;
 	}
 	
@@ -59,7 +59,7 @@ public class ColorSensor extends lejos.nxt.ColorSensor implements
 		if (hundred == zero)
 			return 0;
 		return 100 * (getRawLightValue() - zero) / (hundred - zero);
-	}
+	}*/
 
 	/**
 	 * 
