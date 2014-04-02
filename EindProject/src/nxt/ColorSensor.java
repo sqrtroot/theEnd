@@ -21,7 +21,7 @@ public class ColorSensor extends lejos.nxt.ColorSensor implements
 	}
 
 	public void updateState() {
-		float tmp = this.getNormalizedLightValue();
+		float tmp = this.getLightValue();
 		if (tmp != value) {
 			if (listeners.size() > 0) {
 				for (LightSensorListener listener : listeners) {
