@@ -6,7 +6,7 @@ public class LineFollowController extends Thread implements LightSensorListener 
 	private boolean leftOnRoute;
 	private boolean rightOnRoute;
 	private boolean nothingInTheWay;
-	private static float TRESHOLD = 20;
+	private static float TRESHOLD = 50;
 
 	private static boolean pause = false;
 
