@@ -62,4 +62,7 @@ public class MotorController {
 	public static void rotate(int degrees, boolean immediateReturn){
 		differentialPilot.rotate(degrees, immediateReturn);
 	}
+	public static void setRotateSpeed(int degrees){
+		differentialPilot.setRotateSpeed(degrees);
+	}
 }
