@@ -23,19 +23,19 @@ public class LineFollowController extends Thread implements LightSensorListener 
 
 			if (!pause) {
 				if (!leftOnRoute) {
-					LCD.drawString(""+leftOnRoute, 0, 0);
+					/*LCD.drawString(""+leftOnRoute, 0, 0);
 					LCD.drawString(""+rightOnRoute, 0, 2);
-					LCD.drawString("ERROR", 0, 5);
+					LCD.drawString("ERROR", 0, 5);*/
 					MotorController.turnOnPlace(-5, false);
 				} else if (!rightOnRoute) {
-					LCD.drawString(""+leftOnRoute, 0, 0);
+/*					LCD.drawString(""+leftOnRoute, 0, 0);
 					LCD.drawString(""+rightOnRoute, 0, 2);
-					LCD.drawString("ERROR", 0, 5);
+					LCD.drawString("ERROR", 0, 5);*/
 					MotorController.turnOnPlace(5, false);
 				} else {
-					LCD.drawString(""+leftOnRoute, 0, 0);
+/*					LCD.drawString(""+leftOnRoute, 0, 0);
 					LCD.drawString(""+rightOnRoute, 0, 2);
-					LCD.drawString("Forward", 0, 5);
+					LCD.drawString("Forward", 0, 5);*/
 					MotorController.driveForward();
 				}
 			} else {
@@ -50,14 +50,14 @@ public class LineFollowController extends Thread implements LightSensorListener 
 			UpdatingSensor updatingsensor, float oldValue, float newValue) {
 		LCD.drawInt((int) newValue, 0, 7);
 		if (position == Position.Left) {
-			if (newValue > TRESHOLD ) {
+			if (newValue < TRESHOLD ) {
 				leftOnRoute = false;
 			} else {
 				leftOnRoute = true;
 			}
 		}
 		if (position == Position.Right) {
-			if (newValue > TRESHOLD) {
+			if (newValue < TRESHOLD) {
 				rightOnRoute = false;
 			} else {
 				rightOnRoute = true;
