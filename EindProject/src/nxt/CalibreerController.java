@@ -46,6 +46,8 @@ public class CalibreerController {
 		cs.setHigh(getHighestValue(colorValues));
 		cs.setLow(getLowestValue(colorValues));
 		
+		MotorController.rotate(CIRCLE, true);
+		
 		while(MotorController.moving()){
 			
 			System.out.println("L: "+ls.getLightValue()+" C: "+cs.getLightValue());
