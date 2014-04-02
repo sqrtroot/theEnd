@@ -46,7 +46,7 @@ public class LightSensor extends lejos.nxt.LightSensor implements
 		}
 	}
 	
-	public void calibrateLow(int low) {
+/*	public void calibrateLow(int low) {
 		zero = low;
 	}
 
@@ -54,11 +54,11 @@ public class LightSensor extends lejos.nxt.LightSensor implements
 		hundred = high;
 	}
 
-	public int getNormalizedLightValue() {
+	public int getLightValue() {
 		if (hundred == zero)
 			return 0;
 		return 100 * (getLightValue() - zero) / (hundred - zero);
-	}
+	}*/
 		 
 	/**
 	* 
