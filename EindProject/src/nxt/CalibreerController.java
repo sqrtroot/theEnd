@@ -2,52 +2,70 @@ package nxt;
 
 import java.util.ArrayList;
 
-import lejos.nxt.Button;
+import lejos.nxt.ColorSensor.Color;
 
 public class CalibreerController {
-	// private ArrayList<UpdatingSensor> sensors;
-
-	public CalibreerController() {
-		// this.sensors = sensors;
+	
+	private ColorSensor cs;
+	private LightSensor ls;
+	
+	private ArrayList<Integer> lightValues;
+	private ArrayList<Integer> colorValues;
+	
+	private final int CIRCLE = 360;
+	private final int MEDIAN = 50;
+	
+	public CalibreerController(ColorSensor col, LightSensor lig) {
+		
+		this.cs = col;
+		this.ls = lig;
+		
+		lightValues = new ArrayList<Integer>();
+		colorValues = new ArrayList<Integer>();
+		
+		calibrateAllSensors();		
 	}
-
-	public ArrayList<UpdatingSensor> calibreer(ArrayList<UpdatingSensor> sensors) {
-		ArrayList<UpdatingSensor> returnArrayList = sensors;
-		int meetWaarde;
-		int position = 0;
-		MotorController.turnOnPlace(360, true);
-
-		while (MotorController.moving()) {
-			for (UpdatingSensor sensor : returnArrayList) {
-
-				if (sensor.getSensorType() == SensorType.Colorsensor) {
-					ColorSensor tmp = (ColorSensor) sensor;
-					meetWaarde = tmp.getRawLightValue();
-					System.out.println(meetWaarde);
-					System.out.println(tmp.getLow());
-					if (meetWaarde < tmp.getLow()) {
-						tmp.calibrateLow(meetWaarde);
-						returnArrayList.set(position, tmp);
-					} else if (meetWaarde > tmp.getHigh()) {
-						tmp.calibrateHigh(meetWaarde);
-						returnArrayList.set(position, tmp);
-					}
-					System.out.println(tmp.getLow());
-					Button.waitForAnyPress();
-
-				}
-				if (sensor.getSensorType() == SensorType.Lightsensor) {
-					LightSensor tmp = (LightSensor) sensor;
-					meetWaarde = tmp.getLightValue();
-					if (meetWaarde < tmp.getLow()) {
-						tmp.setLow(meetWaarde);
-					} else if (meetWaarde > tmp.getHigh()) {
-						tmp.setHigh(meetWaarde);
-					}
-				}
-				position++;
+	
+	public void calibrateAllSensors(){
+		
+		cs.setFloodlight(Color.RED);
+		cs.setFloodlight(true);				
+		ls.setFloodlight(true);
+		
+		MotorController.rotate(CIRCLE, true);
+		
+		while(MotorController.moving()){
+			lightValues.add(ls.getNormalizedLightValue());
+			colorValues.add(cs.getRawLightValue());
+		}
+		
+		ls.setHigh(getHighestValue(lightValues));
+		ls.setLow(getLowestValue(lightValues));
+		cs.setHigh(getHighestValue(colorValues));
+		cs.setLow(getLowestValue(colorValues));
+		
+		while(MotorController.moving()){
+			if(ls.getLightValue() < MEDIAN && cs.getLightValue() > MEDIAN){
+				MotorController.stop();
 			}
 		}
-		return returnArrayList;
+		
 	}
+	
+	public int getHighestValue(ArrayList<Integer> al){
+		int highestValue = 0;
+		for(int currentValue : al){
+			if(currentValue > highestValue)highestValue = currentValue;
+		}
+		return highestValue;
+	}
+	
+	public int getLowestValue(ArrayList<Integer> al){
+		int lowestValue = 1023;
+		for(int currentValue : al){
+			if(currentValue < lowestValue)lowestValue = currentValue;
+		}
+		return lowestValue;
+	}
+	
 }
