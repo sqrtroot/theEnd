@@ -5,15 +5,14 @@ import lejos.nxt.NXTRegulatedMotor;
 import lejos.robotics.navigation.DifferentialPilot;
 
 public class MotorController {
-	 private final static float wheelDiameter = (float) 29;
-	 private final static float wheelSpace = 178;
+	 private final static float wheelDiameter = (float) 32;
+	 private final static float wheelSpace = 170;
 
 	// private final static float wheelDiameter = 32;
 	// private final static float wheelSpace = 170;
 
 	private final static NXTRegulatedMotor leftMotor = Motor.A;
 	private final static NXTRegulatedMotor rightMotor = Motor.B;
-	// private float speed;
 
 	private static DifferentialPilot differentialPilot = new DifferentialPilot(
 			wheelDiameter, wheelSpace, leftMotor, rightMotor);
@@ -64,5 +63,6 @@ public class MotorController {
 	}
 	public static void setRotateSpeed(int degrees){
 		differentialPilot.setRotateSpeed(degrees);
+		differentialPilot.setTravelSpeed(degrees);
 	}
 }

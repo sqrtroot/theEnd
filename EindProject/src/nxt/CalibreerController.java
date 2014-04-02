@@ -33,7 +33,7 @@ public class CalibreerController {
 		cs.setFloodlight(true);				
 		ls.setFloodlight(true);
 		
-		MotorController.setRotateSpeed(90);
+		MotorController.setRotateSpeed(45);
 		MotorController.rotate(CIRCLE, true);
 		
 		while(MotorController.moving()){
