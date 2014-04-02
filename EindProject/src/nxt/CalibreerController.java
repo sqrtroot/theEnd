@@ -2,6 +2,7 @@ package nxt;
 
 import java.util.ArrayList;
 
+import lejos.nxt.Button;
 import lejos.nxt.ColorSensor.Color;
 
 public class CalibreerController {
@@ -32,6 +33,7 @@ public class CalibreerController {
 		cs.setFloodlight(true);				
 		ls.setFloodlight(true);
 		
+		MotorController.setRotateSpeed(90);
 		MotorController.rotate(CIRCLE, true);
 		
 		while(MotorController.moving()){
@@ -45,10 +47,15 @@ public class CalibreerController {
 		cs.setLow(getLowestValue(colorValues));
 		
 		while(MotorController.moving()){
+			
+			System.out.println("L: "+ls.getLightValue()+" C: "+cs.getLightValue());
+			
 			if(ls.getLightValue() < MEDIAN && cs.getLightValue() > MEDIAN){
 				MotorController.stop();
 			}
 		}
+		
+		Button.waitForAnyPress();
 		
 	}
 	
