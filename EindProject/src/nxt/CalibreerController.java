@@ -1,8 +1,15 @@
+
 package nxt;
 
 import java.util.ArrayList;
 import lejos.nxt.ColorSensor.Color;
 
+/**
+ * @author 	Pim van Hespen <pim.vanhespen@hu.nl>
+ * @version 1.0
+ * @since	02-04-2014
+ * 
+ */
 public class CalibreerController {
 
 	private ColorSensor cs;
@@ -14,6 +21,11 @@ public class CalibreerController {
 	private final int CIRCLE = 360;
 	private final int MEDIAN = 50;
 
+	/**
+	 * Constructor for CalibreerController
+	 * @param ColorSensor col
+	 * @param LightSensor lig
+	 */
 	public CalibreerController(ColorSensor col, LightSensor lig) {
 
 		this.cs = col;
