@@ -58,4 +58,8 @@ public class MotorController {
 	public static void DriveArc(int i, int aRC_DEGREES, boolean b) {
 		differentialPilot.arc(i, aRC_DEGREES, b);
 	}
+	
+	public static void rotate(int degrees, boolean immediateReturn){
+		differentialPilot.rotate(degrees, immediateReturn);
+	}
 }
