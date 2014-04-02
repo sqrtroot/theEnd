@@ -19,9 +19,9 @@ public class ColorSensor extends lejos.nxt.ColorSensor implements
 		setFloodlight(true);
 		SensorHandler.getInstance().addSensor(this);
 	}
-
+	
 	public void updateState() {
-		float tmp = getNormalizedLightValue();
+		float tmp = this.getNormalizedLightValue();
 		if (tmp != value) {
 			if (listeners.size() > 0) {
 				for (LightSensorListener listener : listeners) {
@@ -46,15 +46,15 @@ public class ColorSensor extends lejos.nxt.ColorSensor implements
 			System.err.print("not removed");
 		}
 	}
-
+	
 	public void calibrateLow(int low) {
 		zero = low;
 	}
-
+	
 	public void calibrateHigh(int high) {
 		hundred = high;
 	}
-
+	@Override
 	public int getNormalizedLightValue() {
 		if (hundred == zero)
 			return 0;

@@ -38,7 +38,7 @@ public class ObstructionController extends Thread implements LightSensorListener
 			if (current_distance < SAFE_DISTANCE) {
 
 				MotorController.turnOnPlace(-90);
-				MotorController.DriveArc(SAFE_DISTANCE * 10), ARC_DEGREES, true); // RADIUS
+				MotorController.DriveArc((SAFE_DISTANCE * 10), ARC_DEGREES, true); // RADIUS
 																			// ,
 																				// ANGLE
 

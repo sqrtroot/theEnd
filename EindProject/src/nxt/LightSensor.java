@@ -9,6 +9,10 @@ public class LightSensor extends lejos.nxt.LightSensor implements
 	private float value;
 	private ArrayList<LightSensorListener> listeners = new ArrayList<LightSensorListener>();
 	private Position position;
+	private int zero = 1023;
+	private int hundred = 0;
+	
+	
 	public LightSensor(SensorPort sensorport, Position position) {
 		super(sensorport);
 		this.position=position;
@@ -42,8 +46,18 @@ public class LightSensor extends lejos.nxt.LightSensor implements
 		}
 	}
 	
+	public void calibrateLow(int low) {
+		zero = low;
+	}
+
+	public void calibrateHigh(int high) {
+		hundred = high;
+	}
+
 	public int getNormalizedLightValue() {
-		return getLightValue();
+		if (hundred == zero)
+			return 0;
+		return 100 * (getLightValue() - zero) / (hundred - zero);
 	}
 		 
 	/**
