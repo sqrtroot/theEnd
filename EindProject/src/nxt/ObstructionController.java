@@ -32,10 +32,11 @@ public class ObstructionController extends Thread implements LightSensorListener
 	private void evasiveManoeuvre() {
 
 		MotorController.driveForward();
-
-		while (true) {
+		boolean noLineFound = true;
+		while (noLineFound) {
 
 			if (current_distance < SAFE_DISTANCE) {
+				LineFollowController.pauseLineFollowing();
 				MotorController.turnOnPlace(-90);
 				MotorController.DriveArc((SAFE_DISTANCE * 10), ARC_DEGREES, true); // RADIUS
 																			// ,
@@ -48,8 +49,8 @@ public class ObstructionController extends Thread implements LightSensorListener
 						MotorController.stop();
 
 				}
-
-				break;
+				
+				noLineFound = false;
 
 			}
 

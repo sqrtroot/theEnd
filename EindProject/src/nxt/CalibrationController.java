@@ -37,7 +37,7 @@ public class CalibrationController {
 	 * 
 	 */
 	public CalibrationController(ColorSensor colorSensor, LightSensor lightSensor) {
-
+		LineFollowController.pauseLineFollowing();
 		this.cs = colorSensor;
 		this.ls = lightSensor;
 
@@ -45,6 +45,7 @@ public class CalibrationController {
 		colorValues = new ArrayList<Integer>();
 
 		calibrateAllSensors();
+		LineFollowController.continueLineFollowing();
 	}
 
 	/**

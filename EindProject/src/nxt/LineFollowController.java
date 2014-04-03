@@ -8,7 +8,7 @@ package nxt;
 public class LineFollowController extends Thread implements LightSensorListener {
 	private boolean leftOnRoute;
 	private boolean rightOnRoute;
-	private static boolean pause;
+	private static boolean pause = false;
 	private final int TRESHOLD = 50;
 
 	private final int MINIMUM_SAFE_DISTANCE = 30;
