@@ -36,7 +36,6 @@ public class ObstructionController extends Thread implements LightSensorListener
 		while (true) {
 
 			if (current_distance < SAFE_DISTANCE) {
-
 				MotorController.turnOnPlace(-90);
 				MotorController.DriveArc((SAFE_DISTANCE * 10), ARC_DEGREES, true); // RADIUS
 																			// ,
@@ -85,10 +84,10 @@ public class ObstructionController extends Thread implements LightSensorListener
 	}
 
 	@Override
-	public void lightSensorChanged(Position position, UpdatingSensor updatingsensor, float oldValue, float newValue) {
-		if (position == Position.Left)
+	public void lightSensorChanged(SensorPosition position, UpdatingSensor updatingsensor, float oldValue, float newValue) {
+		if (position == SensorPosition.Left)
 			sensor_value_left = (int) newValue;
-		else if (position == Position.Right)
+		else if (position == SensorPosition.Right)
 			sensor_value_right = (int) newValue;
 	}
 }

@@ -6,7 +6,7 @@ import lejos.robotics.navigation.DifferentialPilot;
 /**
  * 
  * @author Robert Bezem <robert.bezem@student.hu.nl>
- *
+ *@version 1.0
  */
 public class MotorController {
 	private final static float wheelDiameter = (float) 32;

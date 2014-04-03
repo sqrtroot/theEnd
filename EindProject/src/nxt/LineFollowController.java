@@ -1,59 +1,63 @@
 package nxt;
 
-import lejos.nxt.LCD;
 /**
  * 
  * @author Robert Bezem <robert.bezem@student.hu.nl>
- *
+ * @version 0.2
  */
-public class LineFollowController extends Thread implements
-		LightSensorListener, UltraSonicSensorListener {
+public class LineFollowController extends Thread implements LightSensorListener {
+	private boolean leftOnRoute;
+	private boolean rightOnRoute;
+	private static boolean pause;
+	private final int TRESHOLD = 50;
 
-	private boolean leftIsDark;
-	private boolean rightIsDark;
-	private int distanceToObject;
+	private final int MINIMUM_SAFE_DISTANCE = 30;
 
-	private final int THRESHOLD = 50;
-
-	public LineFollowController(ColorSensor cs, LightSensor ls,
-			UltraSonicSensor us) {
-		us.addListener(this);
+	public LineFollowController(ColorSensor cs, LightSensor ls) {
 		cs.addListener(this);
 		ls.addListener(this);
-		start();
+		this.start();
 	}
 
 	public void run() {
-		
-		
-		
+		while (true) {
+			if (!pause) {
+				if (!leftOnRoute) {
+					MotorController.turnOnPlace(-5);
+				} else if (!rightOnRoute) {
+					MotorController.turnOnPlace(5);
+				} else {
+					MotorController.driveForward();
+				}
+			}
+		}
 	}
 
 	@Override
-	public void lightSensorChanged(Position position,
+	public void lightSensorChanged(SensorPosition position,
 			UpdatingSensor updatingsensor, float oldValue, float newValue) {
-
-		if (position == Position.Left) {
-
-			if (newValue > THRESHOLD)
-				leftIsDark = false;
-			else
-				leftIsDark = true;
+		if (position == SensorPosition.Left) {
+			if (newValue < TRESHOLD) {
+				leftOnRoute = false;
+			} else {
+				leftOnRoute = true;
+			}
 		}
-		if (position == Position.Right) {
-
-			if (newValue > THRESHOLD)
-				rightIsDark = false;
-			else
-				rightIsDark = true;
-
+		if (position == SensorPosition.Right) {
+			if (newValue < TRESHOLD) {
+				rightOnRoute = false;
+			} else {
+				rightOnRoute = true;
+			}
 		}
 	}
 
-	@Override
-	public void ultraSonicChanged(UpdatingSensor us, int oldValue, int newValue) {
-		distanceToObject = newValue;
-		
+	public static void pauseLineFollowing() {
+		pause = true;
+	}
+
+	public static void continueLineFollowing() {
+		pause = false;
 	}
 
 }

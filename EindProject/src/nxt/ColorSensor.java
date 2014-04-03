@@ -6,18 +6,18 @@ import lejos.nxt.SensorPort;
 /**
  * 
  * @author Robert Bezem <robert.bezem@student.hu.nl>
- *
+ *@version 1.0
  */
 public class ColorSensor extends lejos.nxt.ColorSensor implements
 		UpdatingSensor {
 	private float value;
-	private Position position;
+	private SensorPosition position;
 	private ArrayList<LightSensorListener> listeners = new ArrayList<LightSensorListener>();
 
 	private int zero = 1023;
 	private int hundred = 0;
 
-	public ColorSensor(SensorPort sensorport, Position position) {
+	public ColorSensor(SensorPort sensorport, SensorPosition position) {
 		super(sensorport);
 		this.position = position;
 		setFloodlight(Color.RED);
