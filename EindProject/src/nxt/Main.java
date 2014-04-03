@@ -11,6 +11,6 @@ public class Main {
 		LightSensor ls = new LightSensor(SensorPort.S2, Position.Right);
 		UltraSonicSensor us = new UltraSonicSensor(SensorPort.S4);
 		new CalibrationController(cs, ls);
-		new LineFollowController(cs, ls);
+		new LineFollowController(cs, ls, us);
 	}
 }

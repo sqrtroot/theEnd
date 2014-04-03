@@ -28,7 +28,7 @@ public class CalibrationController {
 									// distinguish between high and low values.
 
 	/**
-	 * Constructor for the CalibreerController class.
+	 * Constructor for the CalibrationController class.
 	 * 
 	 * @param colorSensor
 	 *            the ColorSensor that has to be calibrated.

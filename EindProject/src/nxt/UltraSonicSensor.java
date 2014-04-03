@@ -6,7 +6,7 @@ import lejos.nxt.SensorPort;
 
 public class UltraSonicSensor extends lejos.nxt.UltrasonicSensor implements
 		UpdatingSensor {
-	private float value;
+	private int value;
 	private ArrayList<UltraSonicSensorListener> listeners = new ArrayList<UltraSonicSensorListener>();
 
 	public UltraSonicSensor(SensorPort sensorport) {
@@ -16,7 +16,7 @@ public class UltraSonicSensor extends lejos.nxt.UltrasonicSensor implements
 
 	public void updateState() {
 		if (listeners.size() < 0) {
-			float tmp = getRange();
+			int tmp = (int) getRange();
 			if (tmp != value) {
 				for (UltraSonicSensorListener listener : listeners)
 					listener.ultraSonicChanged(this, value, tmp);
