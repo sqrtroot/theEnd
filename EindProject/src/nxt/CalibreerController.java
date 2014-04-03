@@ -1,9 +1,10 @@
 package nxt;
 
 import java.util.ArrayList;
+
 import lejos.nxt.ColorSensor.Color;
 
-public class CalibreerController {
+public class CalibreerController extends Thread {
 
 	private ColorSensor cs;
 	private LightSensor ls;
@@ -39,6 +40,12 @@ public class CalibreerController {
 		while (MotorController.moving()) {
 			lightValues.add(ls.getNormalizedLightValue());
 			colorValues.add(cs.getRawLightValue());
+			try {
+				sleep(100);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 
 		ls.setHigh(getHighestValue(lightValues));

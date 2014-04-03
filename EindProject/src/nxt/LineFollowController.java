@@ -42,26 +42,38 @@ public class LineFollowController extends Thread implements LightSensorListener 
 				if (!leftBlack) {
 					
 					 int avgLight = avgLightValue();
+					 System.out.println(avgLight);
 					 rightTravelSpeed = travelSpeed + 200*(TRESHOLD-avgLight)/((ls.getHigh()-ls.getLow()+cs.getHigh()-cs.getLow())/2);
+			         System.out.println(rightTravelSpeed);
+					 if (rightTravelSpeed > Battery.getVoltage()*100)
+			            rightTravelSpeed = (int) (Battery.getVoltage()*100);
+			         if (rightTravelSpeed < 0)
+			            rightTravelSpeed = 0;
+			         MotorController.setIndividiualTravalSpeed(travelSpeed, rightTravelSpeed);
+			         
+			         
+					 leftTravelSpeed = travelSpeed - 200*(TRESHOLD-avgLight)/((ls.getHigh()-ls.getLow()+cs.getHigh()-cs.getLow())/2);
+			         if (leftTravelSpeed > Battery.getVoltage()*100)
+			            leftTravelSpeed = (int) (Battery.getVoltage()*100);
+			         if (leftTravelSpeed < 0)
+			            leftTravelSpeed = 0;
+			         MotorController.setIndividiualTravalSpeed(leftTravelSpeed, rightTravelSpeed);
+				} else if (!rightBlack) {
+					 int avgLight = avgLightValue();
+					 rightTravelSpeed = travelSpeed - 200*(TRESHOLD-avgLight)/((ls.getHigh()-ls.getLow()+cs.getHigh()-cs.getLow())/2);
 			         if (rightTravelSpeed > Battery.getVoltage()*100)
 			            rightTravelSpeed = (int) (Battery.getVoltage()*100);
 			         if (rightTravelSpeed < 0)
 			            rightTravelSpeed = 0;
 			         MotorController.setIndividiualTravalSpeed(travelSpeed, rightTravelSpeed);
-			         /*turn = power-200*(threshold-color)/(max-min);
-			         if (turn > 100)
-			            turn = 100;
-			         if (turn < 0)
-			            turn = 0;
-			         OnFwd(OUT_B, turn);*/
-				} else if (!rightBlack) {
-					 int avgLight = avgLightValue();
+					
+					 
 					 leftTravelSpeed = travelSpeed + 200*(TRESHOLD-avgLight)/((ls.getHigh()-ls.getLow()+cs.getHigh()-cs.getLow())/2);
 			         if (leftTravelSpeed > Battery.getVoltage()*100)
 			            leftTravelSpeed = (int) (Battery.getVoltage()*100);
 			         if (leftTravelSpeed < 0)
 			            leftTravelSpeed = 0;
-			         MotorController.setIndividiualTravalSpeed(leftTravelSpeed, travelSpeed);
+			         MotorController.setIndividiualTravalSpeed(leftTravelSpeed, rightTravelSpeed);
 				} else {
 					MotorController.driveForward();
 				}
