@@ -14,12 +14,19 @@ public class LightSensor extends lejos.nxt.LightSensor implements
 	private ArrayList<LightSensorListener> listeners = new ArrayList<LightSensorListener>();
 	private SensorPosition position;
 
+	/**
+	 * 
+	 * @param sensorport the port the lightsensor is attached to on the nxt
+	 * @param position	 the position the nxt
+	 */
 	public LightSensor(SensorPort sensorport, SensorPosition position) {
 		super(sensorport);
 		this.position = position;
 		SensorHandler.getInstance().addSensor(this);
 	}
-
+	/**
+	 * used to update the sensors value and if the have chainged pass them to the listeners
+	 */
 	public void updateState() {
 		float tmp = getLightValue();
 		if (tmp != value) {
@@ -32,11 +39,17 @@ public class LightSensor extends lejos.nxt.LightSensor implements
 		}
 
 	}
-
+	/**
+	 * adds the listener to the list of listeners
+	 * @param listener the listener that needs to be added
+	 */
 	public void addListener(LightSensorListener listener) {
 		listeners.add(listener);
 	}
-
+	/**
+	 * deletes the listener from the list of listeners
+	 * @param listener the listener that has to be deleted
+	 */
 	public void deleteListener(LightSensorListener listener) {
 		boolean tmp = listeners.remove(listener);
 
