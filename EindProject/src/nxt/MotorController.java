@@ -3,10 +3,11 @@ package nxt;
 import lejos.nxt.Motor;
 import lejos.nxt.NXTRegulatedMotor;
 import lejos.robotics.navigation.DifferentialPilot;
+
 /**
  * 
  * @author Robert Bezem <robert.bezem@student.hu.nl>
- *@version 1.0
+ * @version 1.0
  */
 public class MotorController {
 	private final static float wheelDiameter = (float) 32;
@@ -66,5 +67,9 @@ public class MotorController {
 	public static void setRotateSpeed(int degrees) {
 		differentialPilot.setRotateSpeed(degrees);
 		differentialPilot.setTravelSpeed(degrees);
+	}
+
+	public static void setSpeed(float speed) {
+		differentialPilot.setTravelSpeed(speed);
 	}
 }
