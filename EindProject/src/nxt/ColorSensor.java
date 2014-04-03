@@ -3,7 +3,11 @@ package nxt;
 import java.util.ArrayList;
 
 import lejos.nxt.SensorPort;
-
+/**
+ * 
+ * @author Robert Bezem <robert.bezem@student.hu.nl>
+ *
+ */
 public class ColorSensor extends lejos.nxt.ColorSensor implements
 		UpdatingSensor {
 	private float value;

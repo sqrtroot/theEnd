@@ -1,7 +1,11 @@
 package nxt;
 
 import java.util.ArrayList;
-
+/**
+ * 
+ * @author Robert Bezem <robert.bezem@student.hu.nl>
+ *
+ */
 public class SensorHandler extends Thread {
 	private static SensorHandler singleton;
 	private ArrayList<UpdatingSensor> sensors = new ArrayList<UpdatingSensor>();

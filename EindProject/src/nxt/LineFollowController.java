@@ -1,7 +1,11 @@
 package nxt;
 
 import lejos.nxt.LCD;
-
+/**
+ * 
+ * @author Robert Bezem <robert.bezem@student.hu.nl>
+ *
+ */
 public class LineFollowController extends Thread implements
 		LightSensorListener, UltraSonicSensorListener {
 
