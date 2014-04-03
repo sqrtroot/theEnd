@@ -69,7 +69,12 @@ public class MotorController {
 		differentialPilot.setTravelSpeed(degrees);
 	}
 
-	public static void setSpeed(float speed) {
+	public static void setTravelSpeed(float speed) {
 		differentialPilot.setTravelSpeed(speed);
+	}
+	
+	public static void setIndividiualTravalSpeed(int leftMotorSpeed, int rightMotorSpeed){
+		leftMotor.setSpeed(leftMotorSpeed);
+		rightMotor.setSpeed(rightMotorSpeed);
 	}
 }

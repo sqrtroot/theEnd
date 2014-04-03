@@ -1,5 +1,6 @@
 package nxt;
 
+import lejos.nxt.Battery;
 import lejos.nxt.LCD;
 import lejos.robotics.navigation.DifferentialPilot;
 
@@ -11,15 +12,27 @@ import lejos.robotics.navigation.DifferentialPilot;
 public class LineFollowController extends Thread implements LightSensorListener {
 	private boolean leftBlack;
 	private boolean rightBlack;
+	
+	private int travelSpeed = 200;
+	private int rightTravelSpeed;
+	private int leftTravelSpeed;
+	
 	private static boolean pause = false;
 	private final int TRESHOLD = 50;
 
 	private final int MINIMUM_SAFE_DISTANCE = 30;
+	
+	private final int NUMBER_OF_SAMPLES = 20;
+	
+	private LightSensor ls;
+	private ColorSensor cs;
 
 	public LineFollowController(ColorSensor cs, LightSensor ls) {
+		this.cs = cs;
+		this.ls = ls;
 		cs.addListener(this);
 		ls.addListener(this);
-		MotorController.setTravelSpeed(200);
+		MotorController.setTravelSpeed(travelSpeed);
 		this.start();
 	}
 
@@ -27,9 +40,28 @@ public class LineFollowController extends Thread implements LightSensorListener 
 		while (true) {
 			if (!pause) {
 				if (!leftBlack) {
-					MotorController.turnOnPlace(-1);
+					
+					 int avgLight = avgLightValue();
+					 rightTravelSpeed = travelSpeed + 200*(TRESHOLD-avgLight)/((ls.getHigh()-ls.getLow()+cs.getHigh()-cs.getLow())/2);
+			         if (rightTravelSpeed > Battery.getVoltage()*100)
+			            rightTravelSpeed = (int) (Battery.getVoltage()*100);
+			         if (rightTravelSpeed < 0)
+			            rightTravelSpeed = 0;
+			         MotorController.setIndividiualTravalSpeed(travelSpeed, rightTravelSpeed);
+			         /*turn = power-200*(threshold-color)/(max-min);
+			         if (turn > 100)
+			            turn = 100;
+			         if (turn < 0)
+			            turn = 0;
+			         OnFwd(OUT_B, turn);*/
 				} else if (!rightBlack) {
-					MotorController.turnOnPlace(1);
+					 int avgLight = avgLightValue();
+					 leftTravelSpeed = travelSpeed + 200*(TRESHOLD-avgLight)/((ls.getHigh()-ls.getLow()+cs.getHigh()-cs.getLow())/2);
+			         if (leftTravelSpeed > Battery.getVoltage()*100)
+			            leftTravelSpeed = (int) (Battery.getVoltage()*100);
+			         if (leftTravelSpeed < 0)
+			            leftTravelSpeed = 0;
+			         MotorController.setIndividiualTravalSpeed(leftTravelSpeed, travelSpeed);
 				} else {
 					MotorController.driveForward();
 				}
@@ -65,6 +97,18 @@ public class LineFollowController extends Thread implements LightSensorListener 
 
 	public static void continueLineFollowing() {
 		pause = false;
+	}
+	
+	public int avgLightValue() {
+		 
+		int sum = 0;
+		for (int i = 0; i < NUMBER_OF_SAMPLES; i++) {
+			sum += ls.getLightValue();
+			sum += cs.getLightValue();
+			
+			
+		}
+		return sum / (NUMBER_OF_SAMPLES * 2);
 	}
 
 }
