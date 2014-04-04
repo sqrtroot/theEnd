@@ -39,7 +39,7 @@ public class LineFollowController extends Thread implements LightSensorListener 
 	public void run() {
 		while (true) {
 			if (!pause) {
-				if (!leftBlack) {
+				if (leftBlack) {
 					
 					 int avgLight = avgLightValue();
 					 System.out.println(avgLight);
@@ -57,7 +57,7 @@ public class LineFollowController extends Thread implements LightSensorListener 
 			            leftTravelSpeed = 0;
 			         MotorController.setIndividiualTravalSpeed(leftTravelSpeed, rightTravelSpeed);
 			         MotorController.driveForward();
-				} else if (!rightBlack) {
+				} else if (rightBlack) {
 					 int avgLight = avgLightValue();
 					 rightTravelSpeed = travelSpeed - 200*(TRESHOLD-avgLight)/((ls.getHigh()-ls.getLow()+cs.getHigh()-cs.getLow())/2);
 			         if (rightTravelSpeed > Battery.getVoltage()*100)
