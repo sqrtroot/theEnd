@@ -13,6 +13,7 @@ public class LineFollowController extends Thread implements LightSensorListener 
 	private boolean leftBlack;								//Boolean that's true when the left sensor senses black and false when sensor senses white
 	private boolean rightBlack;								//Boolean that's true when the right sensor senses black and false when sensor senses white
 	
+	private int turnSpeed = 100;
 	private int travelSpeed = 200;							//Speed that the motors turn when not making a corner
 	private int rightTravelSpeed;							//Speed that the right motor turns, used when making corners
 	private int leftTravelSpeed;							//Speed that the left motor turns, used when making corners
@@ -46,20 +47,24 @@ public class LineFollowController extends Thread implements LightSensorListener 
 	 * 
 	 */
 	public void run() {
+		MotorController.setRotateSpeed(turnSpeed);
 		while (true) {
 			if (!pause) {
-				MotorController.driveForward();
+				
 				if (leftBlack) {
-					rightTravelSpeed = travelSpeed + 100;
+					/*rightTravelSpeed = travelSpeed + 100;
 					MotorController.setIndividiualTravalSpeed(travelSpeed, rightTravelSpeed);
-					MotorController.driveForward();
+					MotorController.driveForward();*/
+					MotorController.turnOnPlace(-10);
 				} else if (rightBlack) {
-					leftTravelSpeed = travelSpeed + 100;
+					/*leftTravelSpeed = travelSpeed + 100;
 					MotorController.setIndividiualTravalSpeed(leftTravelSpeed, travelSpeed);
-					MotorController.driveForward();
+					MotorController.driveForward();*/
+					MotorController.turnOnPlace(10);
 				}
 				else {
 					MotorController.setTravelSpeed(travelSpeed);
+					MotorController.driveForward();
 				}
 			}
 		}
