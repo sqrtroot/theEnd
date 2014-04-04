@@ -3,10 +3,11 @@ package nxt;
 import java.util.ArrayList;
 
 import lejos.nxt.SensorPort;
+
 /**
  * 
  * @author Robert Bezem <robert.bezem@student.hu.nl>
- *@version 1.0
+ * @version 1.0
  */
 public class LightSensor extends lejos.nxt.LightSensor implements
 		UpdatingSensor {
@@ -15,17 +16,22 @@ public class LightSensor extends lejos.nxt.LightSensor implements
 	private SensorPosition position;
 
 	/**
+	 * the constructor for the lightsensor
 	 * 
-	 * @param sensorport the port the lightsensor is attached to on the nxt
-	 * @param position	 the position the nxt
+	 * @param sensorport
+	 *            the port the lightsensor is attached to on the nxt
+	 * @param position
+	 *            the position the nxt
 	 */
 	public LightSensor(SensorPort sensorport, SensorPosition position) {
 		super(sensorport);
 		this.position = position;
 		SensorHandler.getInstance().addSensor(this);
 	}
+
 	/**
-	 * used to update the sensors value and if the have chainged pass them to the listeners
+	 * used to update the sensors value and if the have chainged pass them to
+	 * the listeners
 	 */
 	public void updateState() {
 		float tmp = getLightValue();
@@ -39,16 +45,22 @@ public class LightSensor extends lejos.nxt.LightSensor implements
 		}
 
 	}
+
 	/**
 	 * adds the listener to the list of listeners
-	 * @param listener the listener that needs to be added
+	 * 
+	 * @param listener
+	 *            the listener that needs to be added
 	 */
 	public void addListener(LightSensorListener listener) {
 		listeners.add(listener);
 	}
+
 	/**
 	 * deletes the listener from the list of listeners
-	 * @param listener the listener that has to be deleted
+	 * 
+	 * @param listener
+	 *            the listener that has to be deleted
 	 */
 	public void deleteListener(LightSensorListener listener) {
 		boolean tmp = listeners.remove(listener);
@@ -61,6 +73,7 @@ public class LightSensor extends lejos.nxt.LightSensor implements
 	}
 
 	/**
+	 * returns the type of sensor(lightsensor)
 	 * 
 	 * @return returns the type of the sensor
 	 */
