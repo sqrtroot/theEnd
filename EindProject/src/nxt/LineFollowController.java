@@ -48,9 +48,7 @@ public class LineFollowController extends Thread implements LightSensorListener 
 					 if (rightTravelSpeed > Battery.getVoltage()*100)
 			            rightTravelSpeed = (int) (Battery.getVoltage()*100);
 			         if (rightTravelSpeed < 0)
-			            rightTravelSpeed = 0;
-			         MotorController.setIndividiualTravalSpeed(travelSpeed, rightTravelSpeed);
-			         
+			            rightTravelSpeed = 0;			         
 			         
 					 leftTravelSpeed = travelSpeed - 200*(TRESHOLD-avgLight)/((ls.getHigh()-ls.getLow()+cs.getHigh()-cs.getLow())/2);
 			         if (leftTravelSpeed > Battery.getVoltage()*100)
@@ -58,6 +56,7 @@ public class LineFollowController extends Thread implements LightSensorListener 
 			         if (leftTravelSpeed < 0)
 			            leftTravelSpeed = 0;
 			         MotorController.setIndividiualTravalSpeed(leftTravelSpeed, rightTravelSpeed);
+			         MotorController.driveForward();
 				} else if (!rightBlack) {
 					 int avgLight = avgLightValue();
 					 rightTravelSpeed = travelSpeed - 200*(TRESHOLD-avgLight)/((ls.getHigh()-ls.getLow()+cs.getHigh()-cs.getLow())/2);
@@ -65,7 +64,6 @@ public class LineFollowController extends Thread implements LightSensorListener 
 			            rightTravelSpeed = (int) (Battery.getVoltage()*100);
 			         if (rightTravelSpeed < 0)
 			            rightTravelSpeed = 0;
-			         MotorController.setIndividiualTravalSpeed(travelSpeed, rightTravelSpeed);
 					
 					 
 					 leftTravelSpeed = travelSpeed + 200*(TRESHOLD-avgLight)/((ls.getHigh()-ls.getLow()+cs.getHigh()-cs.getLow())/2);
@@ -74,6 +72,7 @@ public class LineFollowController extends Thread implements LightSensorListener 
 			         if (leftTravelSpeed < 0)
 			            leftTravelSpeed = 0;
 			         MotorController.setIndividiualTravalSpeed(leftTravelSpeed, rightTravelSpeed);
+			         MotorController.driveForward();
 				} else {
 					MotorController.driveForward();
 				}
