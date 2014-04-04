@@ -43,14 +43,14 @@ public class LineFollowController extends Thread implements LightSensorListener 
 					
 					 int avgLight = avgLightValue();
 					 System.out.println(avgLight);
-					 rightTravelSpeed = travelSpeed + 200*(TRESHOLD-avgLight)/((ls.getHigh()-ls.getLow()+cs.getHigh()-cs.getLow())/2);
+					 rightTravelSpeed = travelSpeed + 2000*(TRESHOLD-avgLight)/((ls.getHigh()-ls.getLow()+cs.getHigh()-cs.getLow())/2);
 			         System.out.println(rightTravelSpeed);
 					 if (rightTravelSpeed > Battery.getVoltage()*100)
 			            rightTravelSpeed = (int) (Battery.getVoltage()*100);
 			         if (rightTravelSpeed < 0)
 			            rightTravelSpeed = 0;			         
 			         
-					 leftTravelSpeed = travelSpeed - 200*(TRESHOLD-avgLight)/((ls.getHigh()-ls.getLow()+cs.getHigh()-cs.getLow())/2);
+					 leftTravelSpeed = travelSpeed - 2000*(TRESHOLD-avgLight)/((ls.getHigh()-ls.getLow()+cs.getHigh()-cs.getLow())/2);
 			         if (leftTravelSpeed > Battery.getVoltage()*100)
 			            leftTravelSpeed = (int) (Battery.getVoltage()*100);
 			         if (leftTravelSpeed < 0)
@@ -59,14 +59,14 @@ public class LineFollowController extends Thread implements LightSensorListener 
 			         MotorController.driveForward();
 				} else if (rightBlack) {
 					 int avgLight = avgLightValue();
-					 rightTravelSpeed = travelSpeed - 200*(TRESHOLD-avgLight)/((ls.getHigh()-ls.getLow()+cs.getHigh()-cs.getLow())/2);
+					 rightTravelSpeed = travelSpeed - 2000*(TRESHOLD-avgLight)/((ls.getHigh()-ls.getLow()+cs.getHigh()-cs.getLow())/2);
 			         if (rightTravelSpeed > Battery.getVoltage()*100)
 			            rightTravelSpeed = (int) (Battery.getVoltage()*100);
 			         if (rightTravelSpeed < 0)
 			            rightTravelSpeed = 0;
 					
 					 
-					 leftTravelSpeed = travelSpeed + 200*(TRESHOLD-avgLight)/((ls.getHigh()-ls.getLow()+cs.getHigh()-cs.getLow())/2);
+					 leftTravelSpeed = travelSpeed + 2000*(TRESHOLD-avgLight)/((ls.getHigh()-ls.getLow()+cs.getHigh()-cs.getLow())/2);
 			         if (leftTravelSpeed > Battery.getVoltage()*100)
 			            leftTravelSpeed = (int) (Battery.getVoltage()*100);
 			         if (leftTravelSpeed < 0)

@@ -8,8 +8,8 @@ public class Main {
 		//
 		Button.waitForAnyPress();
 		ColorSensor cs = new ColorSensor(SensorPort.S1, SensorPosition.Left);
-		LightSensor ls = new LightSensor(SensorPort.S2, SensorPosition.Right);
-		UltraSonicSensor us = new UltraSonicSensor(SensorPort.S4);
+		LightSensor ls = new LightSensor(SensorPort.S4, SensorPosition.Right);
+		UltraSonicSensor us = new UltraSonicSensor(SensorPort.S2);
 		new CalibrationController(cs, ls);
 		new LineFollowController(cs, ls);
 	}

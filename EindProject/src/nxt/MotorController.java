@@ -11,7 +11,7 @@ import lejos.robotics.navigation.DifferentialPilot;
  */
 public class MotorController {
 	private final static float wheelDiameter = (float) 32;
-	private final static float wheelSpace = 195;
+	private final static float wheelSpace = 200;
 
 	private final static NXTRegulatedMotor leftMotor = Motor.A;
 	private final static NXTRegulatedMotor rightMotor = Motor.C;
