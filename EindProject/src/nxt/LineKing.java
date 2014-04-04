@@ -23,7 +23,7 @@ public class LineKing extends Thread implements LightSensorListener,
 
 	public void run() {
 		
-		MotorController.
+		//MotorController.
 		
 		while (true) {
 			if(rightIsDark || leftIsDark){
