@@ -39,42 +39,14 @@ public class LineFollowController extends Thread implements LightSensorListener 
 	public void run() {
 		while (true) {
 			if (!pause) {
-				if (!leftBlack) {
-					
-					 int avgLight = avgLightValue();
-					 System.out.println(avgLight);
-					 rightTravelSpeed = travelSpeed + 200*(TRESHOLD-avgLight)/((ls.getHigh()-ls.getLow()+cs.getHigh()-cs.getLow())/2);
-			         System.out.println(rightTravelSpeed);
-					 if (rightTravelSpeed > Battery.getVoltage()*100)
-			            rightTravelSpeed = (int) (Battery.getVoltage()*100);
-			         if (rightTravelSpeed < 0)
-			            rightTravelSpeed = 0;
-			         MotorController.setIndividiualTravalSpeed(travelSpeed, rightTravelSpeed);
-			         
-			         
-					 leftTravelSpeed = travelSpeed - 200*(TRESHOLD-avgLight)/((ls.getHigh()-ls.getLow()+cs.getHigh()-cs.getLow())/2);
-			         if (leftTravelSpeed > Battery.getVoltage()*100)
-			            leftTravelSpeed = (int) (Battery.getVoltage()*100);
-			         if (leftTravelSpeed < 0)
-			            leftTravelSpeed = 0;
-			         MotorController.setIndividiualTravalSpeed(leftTravelSpeed, rightTravelSpeed);
-				} else if (!rightBlack) {
-					 int avgLight = avgLightValue();
-					 rightTravelSpeed = travelSpeed - 200*(TRESHOLD-avgLight)/((ls.getHigh()-ls.getLow()+cs.getHigh()-cs.getLow())/2);
-			         if (rightTravelSpeed > Battery.getVoltage()*100)
-			            rightTravelSpeed = (int) (Battery.getVoltage()*100);
-			         if (rightTravelSpeed < 0)
-			            rightTravelSpeed = 0;
-			         MotorController.setIndividiualTravalSpeed(travelSpeed, rightTravelSpeed);
-					
-					 
-					 leftTravelSpeed = travelSpeed + 200*(TRESHOLD-avgLight)/((ls.getHigh()-ls.getLow()+cs.getHigh()-cs.getLow())/2);
-			         if (leftTravelSpeed > Battery.getVoltage()*100)
-			            leftTravelSpeed = (int) (Battery.getVoltage()*100);
-			         if (leftTravelSpeed < 0)
-			            leftTravelSpeed = 0;
-			         MotorController.setIndividiualTravalSpeed(leftTravelSpeed, rightTravelSpeed);
-				} else {
+				MotorController.driveForward();
+				if (leftBlack) {
+					rightTravelSpeed = travelSpeed + 100;
+					MotorController.setIndividiualTravalSpeed(travelSpeed, rightTravelSpeed);
+					MotorController.driveForward();
+				} else if (rightBlack) {
+					leftTravelSpeed = travelSpeed + 100;
+					MotorController.setIndividiualTravalSpeed(leftTravelSpeed, travelSpeed);
 					MotorController.driveForward();
 				}
 			}
