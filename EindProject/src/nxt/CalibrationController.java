@@ -5,6 +5,7 @@ import lejos.nxt.ColorSensor.Color;
 
 /**
  * @author Pim van Hespen <pim.vanhespen@hu.nl>
+ * @author Robert Bezem <robert.bezem@student.hu.nl>
  * @version 1.0
  * @since 02-04-2014
  * 
@@ -34,9 +35,12 @@ public class CalibrationController {
 	 *            the ColorSensor that has to be calibrated.
 	 * @param lightSensor
 	 *            the LightSensor that has to be calibrated.
+	 * @see ColorSensor
+	 * @see LightSensor
 	 * 
 	 */
-	public CalibrationController(ColorSensor colorSensor, LightSensor lightSensor) {
+	public CalibrationController(ColorSensor colorSensor,
+			LightSensor lightSensor) {
 		LineFollowController.pauseLineFollowing();
 		this.cs = colorSensor;
 		this.ls = lightSensor;
@@ -54,7 +58,8 @@ public class CalibrationController {
 	 */
 	public void calibrateAllSensors() {
 
-		// ensure the flood light color form the ColorSensor is red, then turn on
+		// ensure the flood light color form the ColorSensor is red, then turn
+		// on
 		// the lights from both sensors.
 		cs.setFloodlight(Color.RED);
 		cs.setFloodlight(true);
@@ -92,7 +97,8 @@ public class CalibrationController {
 	/**
 	 * @param al
 	 *            the given ArrayList to filter the highest value from.
-	 * @return highestValue the lowest value found in the given arrayList.
+	 * @return highestValue the highest value found in the given arrayList.
+	 * @see ArrayList
 	 */
 	public int getHighestValue(ArrayList<Integer> al) {
 		// Create an integer to store the highest value, then process all the
@@ -112,6 +118,7 @@ public class CalibrationController {
 	 * @param al
 	 *            the given ArrayList to filter the lowest value from.
 	 * @return lowestValue the lowest value found in the given arrayList.
+	 * @see ArrayList
 	 */
 	public int getLowestValue(ArrayList<Integer> al) {
 		// Create an integer to store the lowest value, then process all the
