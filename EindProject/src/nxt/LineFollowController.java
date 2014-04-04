@@ -10,23 +10,26 @@ import lejos.robotics.navigation.DifferentialPilot;
  * @version 0.2
  */
 public class LineFollowController extends Thread implements LightSensorListener {
-	private boolean leftBlack;
-	private boolean rightBlack;
+	private boolean leftBlack;								//Boolean that's true when the left sensor senses black and false when sensor senses white
+	private boolean rightBlack;								//Boolean that's true when the right sensor senses black and false when sensor senses white
 	
-	private int travelSpeed = 200;
-	private int rightTravelSpeed;
-	private int leftTravelSpeed;
+	private int travelSpeed = 200;							//Speed that the motors turn when not making a corner
+	private int rightTravelSpeed;							//Speed that the right motor turns, used when making corners
+	private int leftTravelSpeed;							//Speed that the left motor turns, used when making corners
 	
-	private static boolean pause = false;
-	private final int TRESHOLD = 50;
-
-	private final int MINIMUM_SAFE_DISTANCE = 30;
+	private static boolean pause = false;					//Boolean used to pause the following of the line
+	private final int TRESHOLD = 50;						//Beneath this amount the sensor senses black, above this amount the sensor senses white
 	
-	private final int NUMBER_OF_SAMPLES = 20;
+	private final int NUMBER_OF_SAMPLES = 20;				//Amount of samples taken to determine the average light value
 	
-	private LightSensor ls;
-	private ColorSensor cs;
-
+	private LightSensor ls;									//
+	private ColorSensor cs;									//
+	
+	/**
+	 * 
+	 * @param cs
+	 * @param ls
+	 */
 	public LineFollowController(ColorSensor cs, LightSensor ls) {
 		this.cs = cs;
 		this.ls = ls;
@@ -83,6 +86,10 @@ public class LineFollowController extends Thread implements LightSensorListener 
 		pause = false;
 	}
 	
+	/**
+	 * 
+	 * @return
+	 */
 	public int avgLightValue() {
 		 
 		int sum = 0;
