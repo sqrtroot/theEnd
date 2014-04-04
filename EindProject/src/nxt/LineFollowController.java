@@ -13,7 +13,7 @@ public class LineFollowController extends Thread implements LightSensorListener 
 	private boolean leftBlack;
 	private boolean rightBlack;
 	
-	private int travelSpeed = 200;
+	private int travelSpeed = 100;
 	private int rightTravelSpeed;
 	private int leftTravelSpeed;
 	
@@ -40,40 +40,42 @@ public class LineFollowController extends Thread implements LightSensorListener 
 		while (true) {
 			if (!pause) {
 				if (leftBlack) {
-					
-					 int avgLight = avgLightValue();
-					 System.out.println(avgLight);
-					 rightTravelSpeed = travelSpeed + 2000*(TRESHOLD-avgLight)/((ls.getHigh()-ls.getLow()+cs.getHigh()-cs.getLow())/2);
-			         System.out.println(rightTravelSpeed);
-					 if (rightTravelSpeed > Battery.getVoltage()*100)
-			            rightTravelSpeed = (int) (Battery.getVoltage()*100);
-			         if (rightTravelSpeed < 0)
-			            rightTravelSpeed = 0;			         
+					rightTravelSpeed = travelSpeed + 200*(TRESHOLD-cs.getLightValue())/(cs.getHigh()-cs.getLow());
+					 if (rightTravelSpeed > Battery.getVoltage()*100){
+			            rightTravelSpeed = (int) (Battery.getVoltage()*100);}
+			         if (rightTravelSpeed < 0){
+			            rightTravelSpeed = rightTravelSpeed*-1;	}		         
 			         
-					 leftTravelSpeed = travelSpeed - 2000*(TRESHOLD-avgLight)/((ls.getHigh()-ls.getLow()+cs.getHigh()-cs.getLow())/2);
-			         if (leftTravelSpeed > Battery.getVoltage()*100)
-			            leftTravelSpeed = (int) (Battery.getVoltage()*100);
-			         if (leftTravelSpeed < 0)
-			            leftTravelSpeed = 0;
+					 leftTravelSpeed = travelSpeed - 100*(TRESHOLD-cs.getLightValue())/(cs.getHigh()-cs.getLow());
+			         if (leftTravelSpeed > Battery.getVoltage()*100){
+			            leftTravelSpeed = (int) (Battery.getVoltage()*100);}
+			         if (leftTravelSpeed < 0){
+			            leftTravelSpeed = leftTravelSpeed*-1;}
+			         
+			         
 			         MotorController.setIndividiualTravalSpeed(leftTravelSpeed, rightTravelSpeed);
-			         MotorController.driveForward();
+			         MotorController.rotateRight();
+			         
+			         
 				} else if (rightBlack) {
-					 int avgLight = avgLightValue();
-					 rightTravelSpeed = travelSpeed - 2000*(TRESHOLD-avgLight)/((ls.getHigh()-ls.getLow()+cs.getHigh()-cs.getLow())/2);
-			         if (rightTravelSpeed > Battery.getVoltage()*100)
-			            rightTravelSpeed = (int) (Battery.getVoltage()*100);
-			         if (rightTravelSpeed < 0)
-			            rightTravelSpeed = 0;
+					rightTravelSpeed = travelSpeed - 100*(TRESHOLD-cs.getLightValue())/(cs.getHigh()-cs.getLow());
+			         if (rightTravelSpeed > Battery.getVoltage()*100){
+			            rightTravelSpeed = (int) (Battery.getVoltage()*100);}
+			         if (rightTravelSpeed < 0){
+			            rightTravelSpeed = rightTravelSpeed*-1;}
 					
 					 
-					 leftTravelSpeed = travelSpeed + 2000*(TRESHOLD-avgLight)/((ls.getHigh()-ls.getLow()+cs.getHigh()-cs.getLow())/2);
-			         if (leftTravelSpeed > Battery.getVoltage()*100)
-			            leftTravelSpeed = (int) (Battery.getVoltage()*100);
+					 leftTravelSpeed = travelSpeed + 200*(TRESHOLD-cs.getLightValue())/(cs.getHigh()-cs.getLow());
+			         if (leftTravelSpeed > Battery.getVoltage()*100){
+			            leftTravelSpeed = (int) (Battery.getVoltage()*100);}
 			         if (leftTravelSpeed < 0)
-			            leftTravelSpeed = 0;
+			            {leftTravelSpeed = leftTravelSpeed*-1;}
+			        
 			         MotorController.setIndividiualTravalSpeed(leftTravelSpeed, rightTravelSpeed);
-			         MotorController.driveForward();
+			         MotorController.rotateLeft();
+								         
 				} else {
+					MotorController.setTravelSpeed(travelSpeed);
 					MotorController.driveForward();
 				}
 			}

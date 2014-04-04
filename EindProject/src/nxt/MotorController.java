@@ -77,4 +77,12 @@ public class MotorController {
 		leftMotor.setSpeed(leftMotorSpeed);
 		rightMotor.setSpeed(rightMotorSpeed);
 	}
+	
+	public static void rotateRight(){
+		differentialPilot.rotateRight();
+	}
+	
+	public static void rotateLeft(){
+		differentialPilot.rotateLeft();
+	}
 }
