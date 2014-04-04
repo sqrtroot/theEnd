@@ -22,13 +22,14 @@ public class LineFollowController extends Thread implements LightSensorListener 
 	
 	private final int NUMBER_OF_SAMPLES = 20;				//Amount of samples taken to determine the average light value
 	
-	private LightSensor ls;									//
-	private ColorSensor cs;									//
+	private LightSensor ls;									//The lightsensor that's on the robot
+	private ColorSensor cs;									//The colorsensor that's on the robot
 	
 	/**
-	 * 
-	 * @param cs
-	 * @param ls
+	 * Constructor of LineFollowController(LFC), sets the attributes lightSensor and colorSensor,
+	 * makes LFC Listener of colorSensor and lightSensor, sets the travelspeed and starts run()
+	 * @param cs The colorsensor that's on the robot
+	 * @param ls The lightsensor that's on the robot
 	 */
 	public LineFollowController(ColorSensor cs, LightSensor ls) {
 		this.cs = cs;
@@ -38,7 +39,12 @@ public class LineFollowController extends Thread implements LightSensorListener 
 		MotorController.setTravelSpeed(travelSpeed);
 		this.start();
 	}
-
+	/**
+	 * checks, while the the boolean pause is false, if any of the sensors senses black, and if one does so, 
+	 * the speed of the motor opposite to the sensor gets rised. if none of the sensors is black the speed
+	 * gets back to normal.
+	 * 
+	 */
 	public void run() {
 		while (true) {
 			if (!pause) {
@@ -52,10 +58,19 @@ public class LineFollowController extends Thread implements LightSensorListener 
 					MotorController.setIndividiualTravalSpeed(leftTravelSpeed, travelSpeed);
 					MotorController.driveForward();
 				}
+				else {
+					MotorController.setTravelSpeed(travelSpeed);
+				}
 			}
 		}
 	}
-
+	/**
+	 * 
+	 * @param positition
+	 * @param updatingsensor
+	 * @param oldValue
+	 * @value newValue
+	 */
 	@Override
 	public void lightSensorChanged(SensorPosition position,
 			UpdatingSensor updatingsensor, float oldValue, float newValue) {
