@@ -1,7 +1,7 @@
 package nxt;
 
-public class ObstructionController extends Thread implements
-		LightSensorListener, UltraSonicSensorListener {
+public class ObstructionController implements LightSensorListener,
+		UltraSonicSensorListener {
 
 	private int current_distance = 255;
 	private int sensor_value_left = 0;
@@ -20,18 +20,6 @@ public class ObstructionController extends Thread implements
 		cs.addListener(this);
 		ls.addListener(this);
 		us.addListener(this);
-	}
-
-	public void run() {
-		while (true) {
-			MotorController.driveForward();
-			if (current_distance < SAFE_DISTANCE) {
-				evasiveManoeuvre();
-				gui.showErrorPopUp("Object to close");
-			} else {
-				gui.cancleErrorPopUp();
-			}
-		}
 	}
 
 	private void evasiveManoeuvre() {
@@ -83,8 +71,12 @@ public class ObstructionController extends Thread implements
 	@Override
 	public void ultraSonicChanged(UpdatingSensor us, float oldValue,
 			float newValue) {
-
-		current_distance = (int) newValue;
+		if (newValue < SAFE_DISTANCE) {
+			gui.showErrorPopUp("Object to close");
+			evasiveManoeuvre();
+		} else {
+			gui.canclePopUp();
+		}
 	}
 
 	@Override
