@@ -7,7 +7,7 @@ public class ObstructionController extends Thread implements
 	private int sensor_value_left = 0;
 	private int sensor_value_right = 0;
 
-	public final int SAFE_DISTANCE = 20;
+	public static final int SAFE_DISTANCE = 20;
 	private final int ARC_DEGREES = 180;
 
 	private final int LIGHT_HIGH = 70;
