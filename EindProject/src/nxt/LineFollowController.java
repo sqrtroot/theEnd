@@ -28,12 +28,13 @@ public class LineFollowController extends Thread implements LightSensorListener 
 	private static boolean pause = false; // Boolean used to pause the following
 											// of the line
 	public final int TRESHOLD = 50; // Beneath this amount the sensor senses
-										// black, above this amount the sensor
-										// senses white
+									// black, above this amount the sensor
+									// senses white
 
 	private final int NUMBER_OF_SAMPLES = 20; // Amount of samples taken to
 												// determine the average light
 												// value
+	private GUI gui;
 
 	/**
 	 * Constructor of LineFollowController(LFC), sets the attributes lightSensor
@@ -45,7 +46,8 @@ public class LineFollowController extends Thread implements LightSensorListener 
 	 * @param ls
 	 *            The lightsensor that's on the robot
 	 */
-	public LineFollowController(ColorSensor cs, LightSensor ls) {
+	public LineFollowController(ColorSensor cs, LightSensor ls, GUI gui) {
+		this.gui = gui;
 		cs.addListener(this);
 		ls.addListener(this);
 		MotorController.setTravelSpeed(travelSpeed);
@@ -99,17 +101,20 @@ public class LineFollowController extends Thread implements LightSensorListener 
 			LCD.drawString("" + newValue, 0, 0);
 			if (newValue < TRESHOLD) {
 				leftBlack = true;
+				gui.lightensorError(position);
 			} else {
 				leftBlack = false;
+				gui.lightSensorAlright(position);
 			}
 		}
 		if (position == SensorPosition.Right) {
 			LCD.drawString("" + newValue, 0, 1);
 			if (newValue < TRESHOLD) {
-
 				rightBlack = true;
+				gui.lightensorError(position);
 			} else {
 				rightBlack = false;
+				gui.lightSensorAlright(position);
 			}
 		}
 	}

@@ -12,10 +12,11 @@ public class ObstructionController extends Thread implements
 
 	private final int LIGHT_HIGH = 70;
 	private final int LIGHT_LOW = 30;
+	private GUI gui;
 
 	public ObstructionController(ColorSensor cs, LightSensor ls,
-			UltraSonicSensor us) {
-
+			UltraSonicSensor us, GUI gui) {
+		this.gui = gui;
 		cs.addListener(this);
 		ls.addListener(this);
 		us.addListener(this);
@@ -26,6 +27,9 @@ public class ObstructionController extends Thread implements
 			MotorController.driveForward();
 			if (current_distance < SAFE_DISTANCE) {
 				evasiveManoeuvre();
+				gui.showErrorPopUp("Object to close");
+			} else {
+				gui.cancleErrorPopUp();
 			}
 		}
 	}

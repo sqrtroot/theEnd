@@ -9,6 +9,8 @@ import lejos.nxt.LCD;
 public class GUI {
 	private Graphics g;
 	private boolean errorPopUp = false;
+	private int black = 0x00000000;
+	private int white = 0x00999999;
 
 	public GUI() {
 		g = new Graphics();
@@ -42,16 +44,19 @@ public class GUI {
 
 	}
 
-	public void sensorAlright(SensorPosition position) {
+	public void lightSensorAlright(SensorPosition position) {
 		if (!errorPopUp) {
 			Font font = Font.getSmallFont();
 			g.setFont(font);
 			Image icon = Icons.ok.getIcon();
 			int imageYposition = font.getHeight() + 1;
+
+			g.clear();
+
 			if (position == SensorPosition.Left) {
 				String message = "Left sensor";
-				
-				g.drawString("Left sensor", 0, 0, 1);
+
+				g.drawString(message, 0, 0, 1);
 				g.drawImage(icon, 0, imageYposition, 1);
 
 			} else {
@@ -71,9 +76,11 @@ public class GUI {
 			g.setFont(font);
 			Image icon = Icons.error.getIcon();
 			int imageYposition = font.getHeight() + 1;
+
+			g.clear();
+
 			if (position == SensorPosition.Left) {
 				String message = "Left sensor";
-
 				g.drawString("Left sensor", 0, 0, 1);
 				g.drawImage(icon, 0, imageYposition, 1);
 
@@ -89,7 +96,9 @@ public class GUI {
 	}
 
 	public void cancleErrorPopUp() {
-		errorPopUp = false;
-		LCD.clear();
+		if (errorPopUp) {
+			errorPopUp = false;
+			g.clear();
+		}
 	}
 }
