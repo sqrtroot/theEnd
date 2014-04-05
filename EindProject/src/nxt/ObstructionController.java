@@ -10,7 +10,7 @@ public class ObstructionController implements LightSensorListener,
 	public static final int SAFE_DISTANCE = 20;
 	private final int ARC_DEGREES = 180;
 
-	private final int LIGHT_HIGH = 70;
+	//private final int LIGHT_HIGH = 70; unnecessary
 	private final int LIGHT_LOW = 30;
 	private GUI gui;
 

@@ -1,8 +1,6 @@
 package nxt;
 
-import lejos.nxt.Battery;
 import lejos.nxt.LCD;
-import lejos.robotics.navigation.DifferentialPilot;
 
 /**
  * 
@@ -31,9 +29,11 @@ public class LineFollowController extends Thread implements LightSensorListener 
 									// black, above this amount the sensor
 									// senses white
 
-	private final int NUMBER_OF_SAMPLES = 20; // Amount of samples taken to
+/*	private final int NUMBER_OF_SAMPLES = 20; // Amount of samples taken to
 												// determine the average light
 												// value
+												// unnecessary
+*/	
 	private GUI gui;
 
 	/**
