@@ -40,15 +40,16 @@ public class CalibrationController {
 	 * 
 	 */
 	public CalibrationController(ColorSensor colorSensor,
-			LightSensor lightSensor) {
+			LightSensor lightSensor, GUI gui) {
 		LineFollowController.pauseLineFollowing();
 		this.cs = colorSensor;
 		this.ls = lightSensor;
 
 		lightValues = new ArrayList<Integer>();
 		colorValues = new ArrayList<Integer>();
-
+		gui.showPopUp("Calibrating");
 		calibrateAllSensors();
+		gui.canclePopUp();
 		LineFollowController.continueLineFollowing();
 	}
 

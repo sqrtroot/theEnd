@@ -8,9 +8,7 @@ import lejos.nxt.LCD;
 
 public class GUI {
 	private Graphics g;
-	private boolean errorPopUp = false;
-	private int black = 0x00000000;
-	private int white = 0x00999999;
+	private boolean popUp = false;
 
 	public GUI() {
 		g = new Graphics();
@@ -18,11 +16,9 @@ public class GUI {
 	}
 
 	public void showErrorPopUp(String errorMessage) {
-		errorPopUp = true;
+		popUp = true;
 		Font font = Font.getSmallFont();
 		int imageXPosition = (g.getHeight() / 2) - (Icons.error.getWidth() / 2);
-		int stringYPosition = Icons.error.getHeight() + 2;
-		int stringXPosition = errorMessage.length() / 2;
 
 		int borderHeight = Icons.error.getHeight() + font.getHeight();
 		int borderWidth;
@@ -33,7 +29,13 @@ public class GUI {
 		}
 
 		int borderLeftPosition = (g.getWidth() / 2) - borderWidth;
-		int borderUpPosition = imageXPosition - 5;
+		int borderUpPosition = 5;
+
+		int imageYPosition = borderUpPosition + 1;
+
+		int stringYPosition = imageYPosition + Icons.error.getHeight() + 2;
+		int stringXPosition = (errorMessage.length() / 2) + borderLeftPosition
+				+ 2;
 
 		g.setFont(font);
 		g.clear();
@@ -44,8 +46,28 @@ public class GUI {
 
 	}
 
+	public void showPopUp(String message) {
+		popUp = true;
+		Font font = Font.getSmallFont();
+
+		int borderHeight = font.getHeight() + 5;
+		int borderWidth = message.length() + 2;
+
+		int borderLeftPosition = (g.getWidth() / 2) - borderWidth;
+		int borderUpPosition = 5;
+		int stringYPosition = borderUpPosition + 2;
+		int stringXPosition = borderLeftPosition + 2;
+
+		g.setFont(font);
+		g.clear();
+		g.drawRect(borderLeftPosition, borderUpPosition, borderWidth,
+				borderHeight);
+		g.drawString(message, stringXPosition, stringYPosition, 1);
+
+	}
+
 	public void lightSensorAlright(SensorPosition position) {
-		if (!errorPopUp) {
+		if (!popUp) {
 			Font font = Font.getSmallFont();
 			g.setFont(font);
 			Image icon = Icons.ok.getIcon();
@@ -71,7 +93,7 @@ public class GUI {
 	}
 
 	public void lightensorError(SensorPosition position) {
-		if (!errorPopUp) {
+		if (!popUp) {
 			Font font = Font.getSmallFont();
 			g.setFont(font);
 			Image icon = Icons.error.getIcon();
@@ -81,7 +103,7 @@ public class GUI {
 
 			if (position == SensorPosition.Left) {
 				String message = "Left sensor";
-				g.drawString("Left sensor", 0, 0, 1);
+				g.drawString(message, 0, 0, 1);
 				g.drawImage(icon, 0, imageYposition, 1);
 
 			} else {
@@ -95,9 +117,9 @@ public class GUI {
 		}
 	}
 
-	public void cancleErrorPopUp() {
-		if (errorPopUp) {
-			errorPopUp = false;
+	public void canclePopUp() {
+		if (popUp) {
+			popUp = false;
 			g.clear();
 		}
 	}
