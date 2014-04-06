@@ -7,7 +7,7 @@ import lejos.robotics.navigation.DifferentialPilot;
 /**
  * 
  * @author Robert Bezem <robert.bezem@student.hu.nl>
- * @version 1.0
+ * @version 1.5
  */
 public class MotorController {
 	private final static float wheelDiameter = (float) 32;
@@ -75,5 +75,11 @@ public class MotorController {
 	public static void setIndividiualTravalSpeed(int leftMotorSpeed, int rightMotorSpeed){
 		leftMotor.setSpeed(leftMotorSpeed);
 		rightMotor.setSpeed(rightMotorSpeed);
+	}
+	public static void setLeftMotorSpeed(int speed){
+		leftMotor.setSpeed(speed);
+	}
+	public static void setRightMotorSpeed(int speed){
+		rightMotor.setSpeed(speed);		
 	}
 }
