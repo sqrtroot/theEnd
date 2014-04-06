@@ -4,6 +4,10 @@ import java.util.ArrayList;
 
 import lejos.nxt.ColorSensor.Color;
 
+/**
+ * @author Pim van Hespen <PimvanHespen@gmail.com>
+ *
+ */
 public class CalibreerController extends Thread {
 
 	private ColorSensor cs;
