@@ -10,16 +10,12 @@ package nxt;
 public class ObstructionController extends Thread implements
 		LightSensorListener, UltraSonicSensorListener {
 
-	private int current_distance; // /<
-	private int sensor_value_left;
-	private int sensor_value_right;
+	private int current_distance;	
+	private int sensor_value_left;	
+	private int sensor_value_right;	
 
-	private final int SAFE_DISTANCE = 20;
+	private final int SAFE_DISTANCE = 20;	
 	private final int ARC_DEGREES = 360;
-	
-	private final int LIGHT_HIGH = 70;
-	private final int LIGHT_LOW = 30;
-	
 	private final int MEDIAN = 50;
 
 	private GUI gui;
@@ -88,6 +84,9 @@ public class ObstructionController extends Thread implements
 		}
 
 	}
+	/** 
+	 * @see nxt.UltraSonicSensorListener#ultraSonicChanged(nxt.UpdatingSensor, float, float)
+	 */
 	@Override
 	public void ultraSonicChanged(UpdatingSensor us, float oldValue,
 			float newValue) {
@@ -105,6 +104,9 @@ public class ObstructionController extends Thread implements
 	}
 
 
+	/**
+	 * @see nxt.LightSensorListener#lightSensorChanged(nxt.SensorPosition, nxt.UpdatingSensor, float, float)
+	 */
 	@Override
 	public void lightSensorChanged(SensorPosition position,
 			UpdatingSensor updatingsensor, float oldValue, float newValue) {
