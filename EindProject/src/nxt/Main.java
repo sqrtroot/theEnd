@@ -15,6 +15,6 @@ public class Main {
 		
 		new CalibrationController(cs, ls, gui);
 		new ObstructionController(cs, ls, us, gui);
-		new LineFollowController(cs, ls, gui);
+		new FollowTheLine(cs, ls);
 	}
 }

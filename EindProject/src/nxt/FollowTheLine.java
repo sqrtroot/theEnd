@@ -19,7 +19,6 @@ public class FollowTheLine extends Thread implements LightSensorListener {
 	private boolean headedTowardsLine;
 
 	private Position mostRecentDark;
-	private Position line;
 	private Position direction;
 
 	private final int ROTATION_PER_TURN = 2;
@@ -44,7 +43,7 @@ public class FollowTheLine extends Thread implements LightSensorListener {
 		leftIsDark = false;
 		rightIsDark = false;
 		headedTowardsLine = true;
-		mostRecentDark = Position.Right;
+
 	}
 
 	@Override
@@ -99,12 +98,6 @@ public class FollowTheLine extends Thread implements LightSensorListener {
 	private void forward(Position pos) {
 
 		if (pos != mostRecentDark) {
-			
-			if(pos == Position.Left){
-				line = Position.Left;
-			} else {
-				line = Position.Right;
-			}
 			
 			headedTowardsLine = false;
 			mostRecentDark = pos;
