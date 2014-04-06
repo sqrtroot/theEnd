@@ -1,7 +1,7 @@
 package nxt;
 /**
  * @author Pim van Hespen <Pimvanhespen@gmail.com>
- * @version 1.1
+ * @version 1.2
  * @since 01-04-2014
  * 
  *        This is class will evade objects

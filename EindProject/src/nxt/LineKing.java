@@ -1,5 +1,14 @@
 package nxt;
 
+/**
+ * A trial version for a new line follow protocol.
+ * Later evoluated into the FollowTheLine-class
+ * 
+ * @author Pim van Hespen <PimvanHespen@gmail.com>
+ * @version 1.0
+ * @since 02-04-2014
+ *
+ */
 public class LineKing extends Thread implements LightSensorListener,
 		UltraSonicSensorListener {
 	private boolean leftOnRoute;
