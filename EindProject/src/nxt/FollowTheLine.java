@@ -4,7 +4,7 @@ import nxt.Position;
 
 /**
  * @author Pim van Hespen <PimvanHespen@gmail.com>
- * @version 1.3
+ * @version 1.4
  * @since 04-04-2014
  * 
  *        This class will guide a Lego NXT Robot via a black trail on a white
@@ -37,6 +37,9 @@ public class FollowTheLine extends Thread implements LightSensorListener {
 		this.start();
 	}
 
+	/**
+	 * This method will set all variables to their start value.
+	 */
 	private void initVariables() {
 
 		active = true;
@@ -46,6 +49,11 @@ public class FollowTheLine extends Thread implements LightSensorListener {
 
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Thread#run()
+	 */
 	@Override
 	public void run() {
 
@@ -81,24 +89,44 @@ public class FollowTheLine extends Thread implements LightSensorListener {
 
 	}
 
+	/**
+	 * This is the setter for boolean 'active'.
+	 * 
+	 * @param incomingValue
+	 *            the value to set active to.
+	 */
 	public void setActive(boolean incomingValue) {
 		active = incomingValue;
 	}
 
+	/**
+	 * This method will make the robot turn left.
+	 */
 	private void steerLeft() {
 		headedTowardsLine = true;
 		MotorController.rotate(-ROTATION_PER_TURN, true);
 	}
 
+	/**
+	 * This method will make the robot turn right.
+	 */
 	private void steerRight() {
 		headedTowardsLine = true;
 		MotorController.rotate(ROTATION_PER_TURN, true);
 	}
 
+	/**
+	 * Updates booleans headedTowardsLine and mostRecentDark, then steers the
+	 * robot forwards and depending on the current state of headedTowardsLine
+	 * the robot will either go straight forward or slightly increase the speed
+	 * of one of two motors.
+	 * 
+	 * @param pos
+	 */
 	private void forward(Position pos) {
 
 		if (pos != mostRecentDark) {
-			
+
 			headedTowardsLine = false;
 			mostRecentDark = pos;
 		}
@@ -119,6 +147,11 @@ public class FollowTheLine extends Thread implements LightSensorListener {
 		}
 	}
 
+	/**
+	 * 
+	 * @see nxt.LightSensorListener#lightSensorChanged(nxt.SensorPosition,
+	 *      nxt.UpdatingSensor, float, float)
+	 */
 	@Override
 	public void lightSensorChanged(SensorPosition position,
 			UpdatingSensor updatingsensor, float oldValue, float newValue) {
