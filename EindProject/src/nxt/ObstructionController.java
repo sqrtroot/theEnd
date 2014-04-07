@@ -95,7 +95,7 @@ public class ObstructionController extends Thread implements
 			gui.showErrorPopUp("Object to close");
 			evasiveManeuver();
 		} else {
-			gui.canclePopUp();
+			gui.cancelPopUp();
 		}
 
 

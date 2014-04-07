@@ -8,7 +8,7 @@ import lejos.nxt.LCD;
 /**
  * 
  * @author Robert Bezem <robert.bezem@student.hu.nl>
- * @version 0.5
+ * @version 0.6
  */
 public class GUI {
 	private Graphics g;
@@ -22,7 +22,7 @@ public class GUI {
 	}
 
 	/**
-	 * shows a error Pop-up with a given string
+	 * shows a error Pop-up with the given string
 	 * @param errorMessage the string to be displayed
 	 */
 	public void showErrorPopUp(String errorMessage) {
@@ -56,7 +56,7 @@ public class GUI {
 
 	}
 	/**
-	 * shows a normal popup with a given string displayed
+	 * shows a normal pop-up with the given string displayed
 	 * @param message the message to be displayed
 	 */
 	public void showPopUp(String message) {
@@ -136,9 +136,9 @@ public class GUI {
 		}
 	}
 	/**
-	 * cancle the popup and show the normal screen again
+	 * cancel the pop-up and show the normal screen again
 	 */
-	public void canclePopUp() {
+	public void cancelPopUp() {
 		if (popUp) {
 			popUp = false;
 			g.clear();

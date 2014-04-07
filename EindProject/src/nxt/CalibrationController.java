@@ -40,7 +40,7 @@ public class CalibrationController {
 		gui.showPopUp("Calibrating");
 
 		calibrateAllSensors();
-		gui.canclePopUp();
+		gui.cancelPopUp();
 		LineFollowController.continueLineFollowing();
 	}
 
