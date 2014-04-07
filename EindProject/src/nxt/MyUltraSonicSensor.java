@@ -60,7 +60,6 @@ public class MyUltraSonicSensor extends lejos.nxt.UltrasonicSensor implements
 	}
 
 	/**
-	 * Method to get the sensortype
 	 * 
 	 * @return returns the type of the sensor
 	 */

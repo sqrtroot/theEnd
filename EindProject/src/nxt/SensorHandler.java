@@ -23,7 +23,10 @@ public class SensorHandler extends Thread {
 
 	/**
 	 * 
-	 * @return SensorHandler returns the version of sensorhandler
+	 * gives instance to the sensorhandler
+	 * 
+	 * @return SensorHandler 
+	 * 					returns the version of sensorhandler
 	 */
 	public static SensorHandler getInstance() {
 		if (singleton == null) {
@@ -50,17 +53,17 @@ public class SensorHandler extends Thread {
 	}
 
 	/**
-	 * add's a sensor the the listeners
+	 * add's a sensor to the sensorlist
 	 * 
 	 * @param updatingSensor
-	 *            the to be added listener
+	 *            the sensor that has to be added
 	 */
 	public void addSensor(UpdatingSensor updatingSensor) {
 		sensors.add(updatingSensor);
 	}
 
 	/**
-	 * removes a sensor from the handler list of sensors
+	 * removes a sensor from the sensorlist
 	 * 
 	 * @param updatingSensor
 	 *            the sensor that has to be removed

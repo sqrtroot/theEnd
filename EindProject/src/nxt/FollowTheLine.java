@@ -3,11 +3,15 @@ package nxt;
 import nxt.Position;
 
 /**
- * This class will guide a Lego NXT Robot via a black trail on a white surface.
+ * >FollowTheLine.java< 
  * 
+ * This class will guide a Lego NXT Robot via a black trail on a white
+ *        surface.
  * @author Pim van Hespen <PimvanHespen@gmail.com>
  * @version 1.4
  * @since 04-04-2014
+ * 
+ *        
  * 
  */
 public class FollowTheLine extends Thread implements LightSensorListener {
