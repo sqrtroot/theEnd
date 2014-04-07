@@ -36,7 +36,7 @@ public class ObstructionController extends Thread implements
 	 * 			The gui that is used
 	 */
 	
-	public ObstructionController(MyColorSensor cs, MyLightSensor ls, UltraSonicSensor us, GUI gui) {
+	public ObstructionController(MyColorSensor cs, MyLightSensor ls, MyUltraSonicSensor us, GUI gui) {
 		
 		this.gui = gui;
 
@@ -101,7 +101,7 @@ public class ObstructionController extends Thread implements
 
 	}
 	/** 
-	 * If the measured value from the ultrasonicsensor changes this method is called.
+	 * If the measured value from the ultrasonic sensor changes this method is called.
 	 * When called this method checks of the new value is smaller than the safe value, 
 	 * if that's true the robot plays sounds, displays a message and starts a evasive maneuver.
 	 * When the new value is bigger than the save distance any messages on the display disappear.

@@ -27,7 +27,7 @@ public class Main {
 		MyColorSensor cs = new MyColorSensor(SensorPort.S1,
 				SensorPosition.Right);
 		MyLightSensor ls = new MyLightSensor(SensorPort.S4, SensorPosition.Left);
-		UltraSonicSensor us = new UltraSonicSensor(SensorPort.S2);
+		MyUltraSonicSensor us = new MyUltraSonicSensor(SensorPort.S2);
 
 		GUI gui = new GUI();
 
