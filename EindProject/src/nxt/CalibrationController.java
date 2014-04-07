@@ -3,11 +3,14 @@ package nxt;
 import lejos.nxt.ColorSensor.Color;
 
 /**
+ * 
+ * This class calibrates both Light and MyColorSensor for further usage.
+ * 
  * @author Pim van Hespen <pimvanhespen@gmail.com>
  * @version 1.2
  * @since 02-04-2014
  * 
- *        This class calibrates both Light and MyColorSensor for further usage.
+ * 
  */
 public class CalibrationController {
 
@@ -64,17 +67,21 @@ public class CalibrationController {
 		// integers used to store all the required values for the calibration.
 		int colorLow = 1023, colorHigh = 0, lightLow = 1023, lightHigh = 0;
 		int currentLightValue = 0, currentColorValue = 0;
-		
+
 		while (MotorController.moving()) {
-			
+
 			currentLightValue = ls.getNormalizedLightValue();
 			currentColorValue = cs.getRawLightValue();
-			
-			if(currentColorValue  > colorHigh)colorHigh = currentColorValue;
-			else if(currentColorValue < colorLow)colorLow = currentColorValue;
-			if(currentLightValue > lightHigh)lightHigh = currentLightValue;
-			else if(currentLightValue < lightLow)lightLow = currentLightValue;
-			
+
+			if (currentColorValue > colorHigh)
+				colorHigh = currentColorValue;
+			else if (currentColorValue < colorLow)
+				colorLow = currentColorValue;
+			if (currentLightValue > lightHigh)
+				lightHigh = currentLightValue;
+			else if (currentLightValue < lightLow)
+				lightLow = currentLightValue;
+
 		}
 
 		// Set the highest and lowest measured values from the measurements as

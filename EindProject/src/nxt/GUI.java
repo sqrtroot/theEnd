@@ -9,6 +9,7 @@ import lejos.nxt.LCD;
  * 
  * @author Robert Bezem <robert.bezem@student.hu.nl>
  * @version 0.6
+ * @since 07-04-2014
  */
 public class GUI {
 	private Graphics g;
