@@ -2,7 +2,15 @@ package nxt;
 
 import javax.microedition.lcdui.Image;
 
+/**
+ * 
+ * @author Robert Bezem <robert.bezem@student.hu.nl>
+ * @version 1.0
+ */
 public enum Icons {
+	/**
+	 * the error icon
+	 */
 	error(35, 35, new byte[] { (byte) 0x00, (byte) 0x00, (byte) 0x80,
 			(byte) 0xc0, (byte) 0xe0, (byte) 0xf0, (byte) 0x78, (byte) 0xbc,
 			(byte) 0xde, (byte) 0xee, (byte) 0xf7, (byte) 0xf7, (byte) 0xfb,
@@ -39,7 +47,9 @@ public enum Icons {
 			(byte) 0x06, (byte) 0x02, (byte) 0x03, (byte) 0x03, (byte) 0x01,
 			(byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00,
 			(byte) 0x00, (byte) 0x00, }),
-
+	/**
+	 * the ok icon
+	 */
 	ok(35, 35, new byte[] { (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x80,
 			(byte) 0xc0, (byte) 0x60, (byte) 0xb0, (byte) 0xd8, (byte) 0xcc,
 			(byte) 0xec, (byte) 0xf6, (byte) 0xf6, (byte) 0xfe, (byte) 0xfb,
@@ -80,20 +90,63 @@ public enum Icons {
 	private final Image icon;
 	private final int width, height;
 
+	/**
+	 * the constructor for icon
+	 * 
+	 * @param width
+	 *            the width of the icon
+	 * @param height
+	 *            the height of the icon
+	 * @param image
+	 *            the bitmap of the icon
+	 */
 	Icons(int width, int height, byte[] image) {
 		this.width = width;
 		this.height = height;
 		icon = new Image(width, height, image);
 	}
 
+	/**
+	 * the other constructor for icon
+	 * 
+	 * @param width
+	 *            the width of the icon
+	 * @param height
+	 *            the height of the icon
+	 * @param image
+	 *            the image of the icon delivered as a
+	 *            javax.microedition.lcdui.Image.
+	 */
+	Icons(int width, int height, Image image) {
+		this.width = width;
+		this.height = height;
+		this.icon = image;
+	}
+
+	/**
+	 * returns the height of the icon
+	 * 
+	 * @return the height of the icon
+	 */
 	int getHeight() {
 		return height;
 	}
 
+	/**
+	 * returns the width of the icon
+	 * 
+	 * @return the width of the icon
+	 */
 	int getWidth() {
 		return width;
 	}
 
+	/**
+	 * returns the icon
+	 * 
+	 * @return the icon
+	 * @see javax.microedition.lcdui.Image
+	 */
 	Image getIcon() {
 		return icon;
 	}
