@@ -5,16 +5,19 @@ import javax.microedition.lcdui.Graphics;
 import javax.microedition.lcdui.Image;
 
 import lejos.nxt.LCD;
+
 /**
  * 
  * @author Robert Bezem <robert.bezem@student.hu.nl>
  * @version 0.6
+ * @since 01-04-2014
  */
 public class GUI {
 	private Graphics g;
 	private boolean popUp = false;
+
 	/**
-	 *  the constructor for the gui class
+	 * the constructor for the gui class
 	 */
 	public GUI() {
 		g = new Graphics();
@@ -23,7 +26,9 @@ public class GUI {
 
 	/**
 	 * shows a error Pop-up with the given string
-	 * @param errorMessage the string to be displayed
+	 * 
+	 * @param errorMessage
+	 *            the string to be displayed
 	 */
 	public void showErrorPopUp(String errorMessage) {
 		popUp = true;
@@ -55,9 +60,12 @@ public class GUI {
 		g.drawString(errorMessage, stringXPosition, stringYPosition, 1);
 
 	}
+
 	/**
 	 * shows a normal pop-up with the given string displayed
-	 * @param message the message to be displayed
+	 * 
+	 * @param message
+	 *            the message to be displayed
 	 */
 	public void showPopUp(String message) {
 		popUp = true;
@@ -78,9 +86,12 @@ public class GUI {
 		g.drawString(message, stringXPosition, stringYPosition, 1);
 
 	}
+
 	/**
 	 * shows if a sensor is alright
-	 * @param position the position on the vehicle of the sensor
+	 * 
+	 * @param position
+	 *            the position on the vehicle of the sensor
 	 */
 	public void lightSensorAlright(SensorPosition position) {
 		if (!popUp) {
@@ -107,9 +118,12 @@ public class GUI {
 			}
 		}
 	}
+
 	/**
 	 * shows if a sensor is not on path
-	 * @param position the position on the vehicle of the sensor
+	 * 
+	 * @param position
+	 *            the position on the vehicle of the sensor
 	 */
 	public void lightensorError(SensorPosition position) {
 		if (!popUp) {
@@ -135,6 +149,7 @@ public class GUI {
 			}
 		}
 	}
+
 	/**
 	 * cancel the pop-up and show the normal screen again
 	 */

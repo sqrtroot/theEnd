@@ -27,8 +27,8 @@ public class LineFollowController extends Thread implements LightSensorListener 
 	private static boolean pause = false; // Boolean used to pause the following
 											// of the line
 	public final int THRESHOLD = 50; // Beneath this amount the sensor senses
-									// black, above this amount the sensor
-									// senses white
+										// black, above this amount the sensor
+										// senses white
 
 	/*
 	 * private final int NUMBER_OF_SAMPLES = 20; // Amount of samples taken to
@@ -57,8 +57,8 @@ public class LineFollowController extends Thread implements LightSensorListener 
 	/**
 	 * checks, while the the boolean pause is false, if any of the sensors
 	 * senses black, and if one does so, the speed of the motor opposite to the
-	 * sensor gets increased. if none of the sensors is black the speed gets back to
-	 * normal.
+	 * sensor gets increased. if none of the sensors is black the speed gets
+	 * back to normal.
 	 * 
 	 */
 	public void run() {

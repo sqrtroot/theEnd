@@ -13,31 +13,32 @@ import lejos.nxt.Sound;
 public class ObstructionController extends Thread implements
 		LightSensorListener, UltraSonicSensorListener {
 
-	private int current_distance;	
-	private int sensor_value_left;	
-	private int sensor_value_right;	
+	private int current_distance;
+	private int sensor_value_left;
+	private int sensor_value_right;
 
-	private final int SAFE_DISTANCE = 20;	
+	private final int SAFE_DISTANCE = 20;
 	private final int ARC_DEGREES = 360;
 	private final int MEDIAN = 50;
 
 	private GUI gui;
-	
+
 	/**
 	 * The constructor for the ObstructionController class
 	 * 
 	 * @param cs
-	 * 			The colorsensor on the robot
+	 *            The colorsensor on the robot
 	 * @param ls
-	 * 			The lightsensor on the robot
+	 *            The lightsensor on the robot
 	 * @param us
-	 * 			The ultrasonicsensor on the robot
+	 *            The ultrasonicsensor on the robot
 	 * @param gui
-	 * 			The gui that is used
+	 *            The gui that is used
 	 */
-	
-	public ObstructionController(MyColorSensor cs, MyLightSensor ls, MyUltraSonicSensor us, GUI gui) {
-		
+
+	public ObstructionController(MyColorSensor cs, MyLightSensor ls,
+			MyUltraSonicSensor us, GUI gui) {
+
 		this.gui = gui;
 
 		cs.addListener(this);
@@ -82,12 +83,12 @@ public class ObstructionController extends Thread implements
 			if (current_distance < SAFE_DISTANCE) {
 				LineFollowController.pauseLineFollowing();
 				MotorController.rotate(-90, false);
-				MotorController.DriveArc((SAFE_DISTANCE * 10), ARC_DEGREES,	true);
+				MotorController.DriveArc((SAFE_DISTANCE * 10), ARC_DEGREES,
+						true);
 
+				while (MotorController.moving()) {
 
-				while (MotorController.moving()) {									
-
-					if (sensor_value_left < MEDIAN									//try to find the line
+					if (sensor_value_left < MEDIAN // try to find the line
 							|| sensor_value_right < MEDIAN)
 						MotorController.stop();
 
@@ -100,13 +101,16 @@ public class ObstructionController extends Thread implements
 		}
 
 	}
-	/** 
-	 * If the measured value from the ultrasonic sensor changes this method is called.
-	 * When called this method checks of the new value is smaller than the safe value, 
-	 * if that's true the robot plays sounds, displays a message and starts a evasive maneuver.
-	 * When the new value is bigger than the save distance any messages on the display disappear.
+
+	/**
+	 * If the measured value from the ultrasonic sensor changes this method is
+	 * called. When called this method checks of the new value is smaller than
+	 * the safe value, if that's true the robot plays sounds, displays a message
+	 * and starts a evasive maneuver. When the new value is bigger than the save
+	 * distance any messages on the display disappear.
 	 * 
-	 * @see nxt.UltraSonicSensorListener#ultraSonicChanged(nxt.UpdatingSensor, float, float)
+	 * @see nxt.UltraSonicSensorListener#ultraSonicChanged(nxt.UpdatingSensor,
+	 *      float, float)
 	 */
 	@Override
 	public void ultraSonicChanged(UpdatingSensor us, float oldValue,
@@ -126,13 +130,13 @@ public class ObstructionController extends Thread implements
 
 	}
 
-
 	/**
 	 * If the measured value from the lightsensor changes this method is called.
-	 * When called this method checks the position of the sensor who called this method, and sets the  
-	 * attribute corresponding to the position.
+	 * When called this method checks the position of the sensor who called this
+	 * method, and sets the attribute corresponding to the position.
 	 * 
-	 * @see nxt.LightSensorListener#lightSensorChanged(nxt.SensorPosition, nxt.UpdatingSensor, float, float)
+	 * @see nxt.LightSensorListener#lightSensorChanged(nxt.SensorPosition,
+	 *      nxt.UpdatingSensor, float, float)
 	 */
 	@Override
 	public void lightSensorChanged(SensorPosition position,
