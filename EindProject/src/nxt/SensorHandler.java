@@ -5,7 +5,8 @@ import java.util.ArrayList;
 /**
  * 
  * @author Robert Bezem <robert.bezem@student.hu.nl>
- * 
+ * @version 1.0
+ * @since 01-04-2014
  */
 public class SensorHandler extends Thread {
 	private static SensorHandler singleton;

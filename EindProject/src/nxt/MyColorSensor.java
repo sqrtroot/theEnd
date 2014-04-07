@@ -37,7 +37,7 @@ public class MyColorSensor extends lejos.nxt.ColorSensor implements
 	}
 
 	/**
-	 * used to update the sensors value and if the have chainged pass them to
+	 * used to update the sensors value and if the have changed pass them to
 	 * the listeners
 	 */
 	public void updateState() {

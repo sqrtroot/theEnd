@@ -1,4 +1,7 @@
 package nxt;
+
+import lejos.nxt.Sound;
+
 /**
  * @author Pim van Hespen <Pimvanhespen@gmail.com>
  * @version 1.2
@@ -19,6 +22,19 @@ public class ObstructionController extends Thread implements
 	private final int MEDIAN = 50;
 
 	private GUI gui;
+	
+	/**
+	 * The constructor for the ObstructionController class
+	 * 
+	 * @param cs
+	 * 			The colorsensor on the robot
+	 * @param ls
+	 * 			The lightsensor on the robot
+	 * @param us
+	 * 			The ultrasonicsensor on the robot
+	 * @param gui
+	 * 			The gui that is used
+	 */
 	
 	public ObstructionController(MyColorSensor cs, MyLightSensor ls, UltraSonicSensor us, GUI gui) {
 		
@@ -65,13 +81,13 @@ public class ObstructionController extends Thread implements
 
 			if (current_distance < SAFE_DISTANCE) {
 				LineFollowController.pauseLineFollowing();
-				MotorController.turnOnPlace(-90);
-				MotorController.DriveArc((SAFE_DISTANCE * 10), ARC_DEGREES,	true);
+				MotorController.turnOnPlace(-90);									//turn 90 degrees to the left
+				MotorController.DriveArc((SAFE_DISTANCE * 10), ARC_DEGREES,	true);	//calculates the radius of the circle to turn
 
 
-				while (MotorController.moving()) {
+				while (MotorController.moving()) {									
 
-					if (sensor_value_left < MEDIAN
+					if (sensor_value_left < MEDIAN									//try to find the line
 							|| sensor_value_right < MEDIAN)
 						MotorController.stop();
 
@@ -85,6 +101,11 @@ public class ObstructionController extends Thread implements
 
 	}
 	/** 
+	 * If the measured value from the ultrasonicsensor changes this method is called.
+	 * When called this method checks of the new value is smaller than the safe value, 
+	 * if that's true the robot plays sounds, displays a message and starts a evasive maneuver.
+	 * When the new value is bigger than the save distance any messages on the display disappear.
+	 * 
 	 * @see nxt.UltraSonicSensorListener#ultraSonicChanged(nxt.UpdatingSensor, float, float)
 	 */
 	@Override
@@ -92,12 +113,14 @@ public class ObstructionController extends Thread implements
 			float newValue) {
 
 		if (newValue < SAFE_DISTANCE) {
+			Sound.beepSequence();
+			Sound.buzz();
+			Sound.beepSequenceUp();
 			gui.showErrorPopUp("Object to close");
 			evasiveManeuver();
 		} else {
 			gui.cancelPopUp();
 		}
-
 
 		current_distance = (int) newValue;
 
@@ -105,6 +128,10 @@ public class ObstructionController extends Thread implements
 
 
 	/**
+	 * If the measured value from the lightsensor changes this method is called.
+	 * When called this method checks the position of the sensor who called this method, and sets the  
+	 * attribute corresponding to the position.
+	 * 
 	 * @see nxt.LightSensorListener#lightSensorChanged(nxt.SensorPosition, nxt.UpdatingSensor, float, float)
 	 */
 	@Override
