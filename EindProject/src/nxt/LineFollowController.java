@@ -4,8 +4,8 @@ import lejos.nxt.LCD;
 
 /**
  * 
- * @author Robert Bezem <robert.bezem@student.hu.nl>
- * @version 0.2
+ * @author Jacob Visser <Jacob.Visser@student.hu.nl>
+ * @version 0.3
  */
 public class LineFollowController extends Thread implements LightSensorListener {
 	private boolean leftBlack; // Boolean that's true when the left sensor
@@ -25,15 +25,14 @@ public class LineFollowController extends Thread implements LightSensorListener 
 
 	private static boolean pause = false; // Boolean used to pause the following
 											// of the line
-	public final int TRESHOLD = 50; // Beneath this amount the sensor senses
+	public final int THRESHOLD = 50; // Beneath this amount the sensor senses
 									// black, above this amount the sensor
 									// senses white
 
-/*	private final int NUMBER_OF_SAMPLES = 20; // Amount of samples taken to
-												// determine the average light
-												// value
-												// unnecessary
-*/	
+	/*
+	 * private final int NUMBER_OF_SAMPLES = 20; // Amount of samples taken to
+	 * // determine the average light // value // unnecessary
+	 */
 	private GUI gui;
 
 	/**
@@ -42,9 +41,9 @@ public class LineFollowController extends Thread implements LightSensorListener 
 	 * the travelspeed and starts run()
 	 * 
 	 * @param cs
-	 *            The colorsensor that's on the robot
+	 *            The colorsensor installed on the robots' frame
 	 * @param ls
-	 *            The lightsensor that's on the robot
+	 *            The lightsensor installed on the robots' frame
 	 */
 	public LineFollowController(MyColorSensor cs, MyLightSensor ls, GUI gui) {
 		this.gui = gui;
@@ -57,7 +56,7 @@ public class LineFollowController extends Thread implements LightSensorListener 
 	/**
 	 * checks, while the the boolean pause is false, if any of the sensors
 	 * senses black, and if one does so, the speed of the motor opposite to the
-	 * sensor gets rised. if none of the sensors is black the speed gets back to
+	 * sensor gets increased. if none of the sensors is black the speed gets back to
 	 * normal.
 	 * 
 	 */
@@ -89,6 +88,7 @@ public class LineFollowController extends Thread implements LightSensorListener 
 
 	/**
 	 * 
+	 * 
 	 * @param positition
 	 * @param updatingsensor
 	 * @param oldValue
@@ -99,7 +99,7 @@ public class LineFollowController extends Thread implements LightSensorListener 
 			UpdatingSensor updatingsensor, float oldValue, float newValue) {
 		if (position == SensorPosition.Left) {
 			LCD.drawString("" + newValue, 0, 0);
-			if (newValue < TRESHOLD) {
+			if (newValue < THRESHOLD) {
 				leftBlack = true;
 				gui.lightensorError(position);
 			} else {
@@ -109,7 +109,7 @@ public class LineFollowController extends Thread implements LightSensorListener 
 		}
 		if (position == SensorPosition.Right) {
 			LCD.drawString("" + newValue, 0, 1);
-			if (newValue < TRESHOLD) {
+			if (newValue < THRESHOLD) {
 				rightBlack = true;
 				gui.lightensorError(position);
 			} else {

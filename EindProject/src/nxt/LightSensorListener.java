@@ -2,11 +2,12 @@ package nxt;
 /**
  * 
  * @author Robert Bezem <robert.bezem@student.hu.nl>
- *@version 1.0
+ * @version 1.0
  */
 public interface LightSensorListener {
 	/**
-	 * if implemented gets called when one of the lightsensor (colorsensor/lightsensor) has changed
+	 * 
+	 * When this class is being implemented, this class will be called upon when one of the lightsensors' state changes.
 	 * 
 	 * @param position the position of the sensor used
 	 * @param updatingsensor the sensor that is been updated

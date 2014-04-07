@@ -1,6 +1,5 @@
 package nxt;
 
-import java.util.ArrayList;
 import lejos.nxt.ColorSensor.Color;
 
 /**

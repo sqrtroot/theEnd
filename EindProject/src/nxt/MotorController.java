@@ -7,6 +7,8 @@ import lejos.robotics.navigation.DifferentialPilot;
 /**
  * 
  * @author Robert Bezem <robert.bezem@student.hu.nl>
+ * @author Jacob Visser <jacob.visser@student.hu.nl>
+ * @author Pim van Hespen <pimvanhespen@gmail.com>
  * @version 1.5
  */
 public class MotorController {
@@ -19,67 +21,140 @@ public class MotorController {
 	private static DifferentialPilot differentialPilot = new DifferentialPilot(
 			wheelDiameter, wheelSpace, leftMotor, rightMotor);
 
+	/**
+	 * Will make the robot drive arc with the given radius. Stops when motor is
+	 * stopped
+	 * 
+	 * @param turnRadius
+	 *            radius in millimeter
+	 */
 	public static void driveArc(float turnRadius) {
 		differentialPilot.arcForward(turnRadius);
 	}
 
+	/**
+	 * Will move the robot forward until canceled
+	 */
 	public static void driveForward() {
 		differentialPilot.forward();
 	}
 
+	/**
+	 * stops all movement.
+	 */
 	public static void stop() {
 		differentialPilot.stop();
 	}
 
-	public static void turnOnPlace(float degrees, boolean moveOn) {
-		differentialPilot.rotate(degrees, moveOn);
-	}
-
-	public static void turnOnPlace(float degrees) {
-		differentialPilot.rotate(degrees);
-	}
-
+	/**
+	 * Will move the robot backwards until stopped
+	 */
 	public static void driveBackwards() {
 		differentialPilot.backward();
 	}
 
+	/**
+	 * Moves the robot for a set amount
+	 * 
+	 * @param distance
+	 *            in millimeters
+	 */
 	public static void driveDistance(float distance) {
 		differentialPilot.travel(distance);
 	}
 
+	/**
+	 * Tells if the robot is moving (true) or isn't (false)
+	 * 
+	 * @return if the robot is moving
+	 */
 	public static boolean moving() {
 		return differentialPilot.isMoving();
 	}
 
+	/**
+	 * Makes the robot drive a circle with the given radius 'turnRadius'
+	 * 
+	 * @param turnRadius
+	 *            radius in millimeters
+	 * @param immediateReturn
+	 */
 	public static void driveArc(float turnRadius, boolean immediateReturn) {
 		differentialPilot.arc(turnRadius, 360, immediateReturn);
 
 	}
 
-	public static void DriveArc(int i, int aRC_DEGREES, boolean b) {
-		differentialPilot.arc(i, aRC_DEGREES, b);
+	/**
+	 * @param radius
+	 *            of the arc in millimeters
+	 * @param degrees
+	 *            of the arc to drive
+	 * @param immmediateReturn
+	 *            if true, immediately returns to the next line of code while
+	 *            executing the arc
+	 * 
+	 */
+	public static void DriveArc(int radius, int degrees,
+			boolean immmediateReturn) {
+		differentialPilot.arc(radius, degrees, immmediateReturn);
 	}
 
+	/**
+	 * @param degrees
+	 *            to turn
+	 * @param immmediateReturn
+	 *            if true, immediately returns to the next line of code while
+	 *            executing the rotation
+	 */
 	public static void rotate(int degrees, boolean immediateReturn) {
 		differentialPilot.rotate(degrees, immediateReturn);
 	}
 
+	/**
+	 * set the degrees to turn per second
+	 * 
+	 * @param degrees per second
+	 */
 	public static void setRotateSpeed(int degrees) {
 		differentialPilot.setRotateSpeed(degrees);
 	}
 
+	/**
+	 * sets the travelSpeed
+	 * 
+	 * @param speed in wheel diameter/units per second
+	 */
 	public static void setTravelSpeed(float speed) {
 		differentialPilot.setTravelSpeed(speed);
 	}
-	
-	public static void setIndividiualTravalSpeed(int leftMotorSpeed, int rightMotorSpeed){
+
+	/**
+	 * set individual motor speeds
+	 * 
+	 * @param leftMotorSpeed in degrees per second
+	 * @param rightMotorSpeed in degrees per second
+	 */
+	public static void setIndividiualTravalSpeed(int leftMotorSpeed,
+			int rightMotorSpeed) {
 		leftMotor.setSpeed(leftMotorSpeed);
 		rightMotor.setSpeed(rightMotorSpeed);
 	}
-	public static void setLeftMotorSpeed(int speed){
+
+	/**
+	 * sets speed for the left motor
+	 * 
+	 * @param speed in degrees per second
+	 */
+	public static void setLeftMotorSpeed(int speed) {
 		leftMotor.setSpeed(speed);
 	}
-	public static void setRightMotorSpeed(int speed){
-		rightMotor.setSpeed(speed);		
+
+	/**
+	 * sets speed for the right motor
+	 * 
+	 * @param speed in degrees per second
+	 */
+	public static void setRightMotorSpeed(int speed) {
+		rightMotor.setSpeed(speed);
 	}
 }
