@@ -25,8 +25,7 @@ public class SensorHandler extends Thread {
 	 * 
 	 * gives instance to the sensorhandler
 	 * 
-	 * @return SensorHandler 
-	 * 					returns the version of sensorhandler
+	 * @return SensorHandler returns the version of sensorhandler
 	 */
 	public static SensorHandler getInstance() {
 		if (singleton == null) {

@@ -114,7 +114,8 @@ public class MotorController {
 	/**
 	 * set the degrees to turn per second
 	 * 
-	 * @param degrees per second
+	 * @param degrees
+	 *            per second
 	 */
 	public static void setRotateSpeed(int degrees) {
 		differentialPilot.setRotateSpeed(degrees);
@@ -123,7 +124,8 @@ public class MotorController {
 	/**
 	 * sets the travelSpeed
 	 * 
-	 * @param speed in wheel diameter/units per second
+	 * @param speed
+	 *            in wheel diameter/units per second
 	 */
 	public static void setTravelSpeed(float speed) {
 		differentialPilot.setTravelSpeed(speed);
@@ -132,8 +134,10 @@ public class MotorController {
 	/**
 	 * set individual motor speeds
 	 * 
-	 * @param leftMotorSpeed in degrees per second
-	 * @param rightMotorSpeed in degrees per second
+	 * @param leftMotorSpeed
+	 *            in degrees per second
+	 * @param rightMotorSpeed
+	 *            in degrees per second
 	 */
 	public static void setIndividiualTravalSpeed(int leftMotorSpeed,
 			int rightMotorSpeed) {
@@ -144,7 +148,8 @@ public class MotorController {
 	/**
 	 * sets speed for the left motor
 	 * 
-	 * @param speed in degrees per second
+	 * @param speed
+	 *            in degrees per second
 	 */
 	public static void setLeftMotorSpeed(int speed) {
 		leftMotor.setSpeed(speed);
@@ -153,7 +158,8 @@ public class MotorController {
 	/**
 	 * sets speed for the right motor
 	 * 
-	 * @param speed in degrees per second
+	 * @param speed
+	 *            in degrees per second
 	 */
 	public static void setRightMotorSpeed(int speed) {
 		rightMotor.setSpeed(speed);
