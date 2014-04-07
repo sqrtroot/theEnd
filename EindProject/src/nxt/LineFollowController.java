@@ -46,7 +46,7 @@ public class LineFollowController extends Thread implements LightSensorListener 
 	 * @param ls
 	 *            The lightsensor that's on the robot
 	 */
-	public LineFollowController(ColorSensor cs, LightSensor ls, GUI gui) {
+	public LineFollowController(MyColorSensor cs, MyLightSensor ls, GUI gui) {
 		this.gui = gui;
 		cs.addListener(this);
 		ls.addListener(this);

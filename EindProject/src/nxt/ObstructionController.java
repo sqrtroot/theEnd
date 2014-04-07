@@ -20,7 +20,7 @@ public class ObstructionController extends Thread implements
 
 	private GUI gui;
 	
-	public ObstructionController(ColorSensor cs, LightSensor ls, UltraSonicSensor us, GUI gui) {
+	public ObstructionController(MyColorSensor cs, MyLightSensor ls, UltraSonicSensor us, GUI gui) {
 		
 		this.gui = gui;
 

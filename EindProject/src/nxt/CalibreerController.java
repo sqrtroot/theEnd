@@ -10,8 +10,8 @@ import lejos.nxt.ColorSensor.Color;
  */
 public class CalibreerController extends Thread {
 
-	private ColorSensor cs;
-	private LightSensor ls;
+	private MyColorSensor cs;
+	private MyLightSensor ls;
 
 	private ArrayList<Integer> lightValues;
 	private ArrayList<Integer> colorValues;
@@ -21,7 +21,7 @@ public class CalibreerController extends Thread {
 	
 	
 
-	public CalibreerController(ColorSensor col, LightSensor lig) {
+	public CalibreerController(MyColorSensor col, MyLightSensor lig) {
 
 		this.cs = col;
 		this.ls = lig;

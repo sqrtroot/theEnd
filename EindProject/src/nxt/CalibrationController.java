@@ -8,12 +8,12 @@ import lejos.nxt.ColorSensor.Color;
  * @version 1.2
  * @since 02-04-2014
  * 
- *        This class calibrates both Light and ColorSensor for further usage.
+ *        This class calibrates both Light and MyColorSensor for further usage.
  */
 public class CalibrationController {
 
-	private ColorSensor cs; // /< ColorSensor object.
-	private LightSensor ls; // /< LightSensor object.
+	private MyColorSensor cs; // /< MyColorSensor object.
+	private MyLightSensor ls; // /< LightSensor object.
 
 	private final int CIRCLE = 360; // /< 360, the amount of degrees in a
 									// circle, therefore called CIRCLE
@@ -23,19 +23,19 @@ public class CalibrationController {
 	/**
 	 * Constructor for the CalibrationController class.
 	 * 
-	 * @param colorSensor
-	 *            the ColorSensor that has to be calibrated.
-	 * @param lightSensor
+	 * @param myColorSensor
+	 *            the MyColorSensor that has to be calibrated.
+	 * @param myLightSensor
 	 *            the LightSensor that has to be calibrated.
-	 * @see ColorSensor
-	 * @see LightSensor
+	 * @see MyColorSensor
+	 * @see MyLightSensor
 	 * 
 	 */
-	public CalibrationController(ColorSensor colorSensor,
-			LightSensor lightSensor, GUI gui) {
+	public CalibrationController(MyColorSensor myColorSensor,
+			MyLightSensor myLightSensor, GUI gui) {
 		LineFollowController.pauseLineFollowing();
-		this.cs = colorSensor;
-		this.ls = lightSensor;
+		this.cs = myColorSensor;
+		this.ls = myLightSensor;
 
 		gui.showPopUp("Calibrating");
 
@@ -46,11 +46,11 @@ public class CalibrationController {
 
 	/**
 	 * This class will calibrate all given Sensors, as of now there are only two
-	 * Sensors: one ColorSensor and one LightSensor.
+	 * Sensors: one MyColorSensor and one LightSensor.
 	 */
 	public void calibrateAllSensors() {
 
-		// ensure the flood light color form the ColorSensor is red, then turn
+		// ensure the flood light color form the MyColorSensor is red, then turn
 		// on the lights from both sensors.
 		cs.setFloodlight(Color.RED);
 		cs.setFloodlight(true);

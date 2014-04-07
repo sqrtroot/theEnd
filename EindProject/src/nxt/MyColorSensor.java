@@ -9,7 +9,7 @@ import lejos.nxt.SensorPort;
  * @author Robert Bezem <robert.bezem@student.hu.nl>
  * @version 1.0
  */
-public class ColorSensor extends lejos.nxt.ColorSensor implements
+public class MyColorSensor extends lejos.nxt.ColorSensor implements
 		UpdatingSensor {
 	private float value;
 	private SensorPosition position;
@@ -19,7 +19,7 @@ public class ColorSensor extends lejos.nxt.ColorSensor implements
 	private int hundred = 0;
 
 	/**
-	 * The constructor for the ColorSensor
+	 * The constructor for the MyColorSensor
 	 * 
 	 * @param sensorport
 	 *            the port the colorsensor is attached to on the nxt
@@ -28,7 +28,7 @@ public class ColorSensor extends lejos.nxt.ColorSensor implements
 	 * @see SensorPort
 	 * @see SensorPosition
 	 */
-	public ColorSensor(SensorPort sensorport, SensorPosition position) {
+	public MyColorSensor(SensorPort sensorport, SensorPosition position) {
 		super(sensorport);
 		this.position = position;
 		setFloodlight(Color.RED);

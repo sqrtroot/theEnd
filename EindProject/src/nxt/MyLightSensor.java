@@ -9,7 +9,7 @@ import lejos.nxt.SensorPort;
  * @author Robert Bezem <robert.bezem@student.hu.nl>
  * @version 1.0
  */
-public class LightSensor extends lejos.nxt.LightSensor implements
+public class MyLightSensor extends lejos.nxt.LightSensor implements
 		UpdatingSensor {
 	private float value;
 	private ArrayList<LightSensorListener> listeners = new ArrayList<LightSensorListener>();
@@ -23,7 +23,7 @@ public class LightSensor extends lejos.nxt.LightSensor implements
 	 * @param position
 	 *            the position the nxt
 	 */
-	public LightSensor(SensorPort sensorport, SensorPosition position) {
+	public MyLightSensor(SensorPort sensorport, SensorPosition position) {
 		super(sensorport);
 		this.position = position;
 		SensorHandler.getInstance().addSensor(this);

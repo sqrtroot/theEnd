@@ -21,7 +21,7 @@ public class LineKing extends Thread implements LightSensorListener,
 	private boolean leftIsDark;
 	private float distanceToObject;
 
-	public LineKing(ColorSensor cs, LightSensor ls, UltraSonicSensor us) {
+	public LineKing(MyColorSensor cs, MyLightSensor ls, UltraSonicSensor us) {
 
 		cs.addListener(this);
 		ls.addListener(this);

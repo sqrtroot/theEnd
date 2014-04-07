@@ -27,7 +27,7 @@ public class FollowTheLine extends Thread implements LightSensorListener {
 	private final int INCREASED_SPEED_FORWARD = 120;
 	private final int THRESHOLD = 50;
 
-	public FollowTheLine(ColorSensor cs, LightSensor ls) {
+	public FollowTheLine(MyColorSensor cs, MyLightSensor ls) {
 
 		cs.addListener(this);
 		ls.addListener(this);
