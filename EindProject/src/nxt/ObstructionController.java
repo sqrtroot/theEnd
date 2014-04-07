@@ -81,8 +81,8 @@ public class ObstructionController extends Thread implements
 
 			if (current_distance < SAFE_DISTANCE) {
 				LineFollowController.pauseLineFollowing();
-				MotorController.turnOnPlace(-90);									//turn 90 degrees to the left
-				MotorController.DriveArc((SAFE_DISTANCE * 10), ARC_DEGREES,	true);	//calculates the radius of the circle to turn
+				MotorController.rotate(-90, false);
+				MotorController.DriveArc((SAFE_DISTANCE * 10), ARC_DEGREES,	true);
 
 
 				while (MotorController.moving()) {									
