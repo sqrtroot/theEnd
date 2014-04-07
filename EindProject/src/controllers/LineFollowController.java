@@ -1,5 +1,11 @@
-package nxt;
+package controllers;
 
+import gui.GUI;
+import sensors.LightSensorListener;
+import sensors.MyColorSensor;
+import sensors.MyLightSensor;
+import sensors.SensorPosition;
+import sensors.UpdatingSensor;
 import lejos.nxt.LCD;
 
 /**

@@ -1,6 +1,7 @@
-package nxt;
+package sensors;
 
 import java.util.ArrayList;
+
 import lejos.nxt.SensorPort;
 
 /**
@@ -26,7 +27,7 @@ public class MyUltraSonicSensor extends lejos.nxt.UltrasonicSensor implements
 	}
 
 	/**
-	 * @see nxt.UpdatingSensor#updateState()
+	 * @see sensors.UpdatingSensor#updateState()
 	 */
 	public void updateState() {
 		if (listeners.size() < 0) {

@@ -1,4 +1,4 @@
-package nxt;
+package sensors;
 
 /**
  * enum's used to determine the position on the robot

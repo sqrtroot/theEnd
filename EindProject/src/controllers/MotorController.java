@@ -1,4 +1,4 @@
-package nxt;
+package controllers;
 
 import lejos.nxt.Motor;
 import lejos.nxt.NXTRegulatedMotor;

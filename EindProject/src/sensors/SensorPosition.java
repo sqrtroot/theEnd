@@ -1,4 +1,4 @@
-package nxt;
+package sensors;
 
 /**
  * @author Robert Bezem <robert.bezem@student.hu.nl>

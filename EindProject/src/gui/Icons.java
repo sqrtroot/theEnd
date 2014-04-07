@@ -1,4 +1,4 @@
-package nxt;
+package gui;
 
 import javax.microedition.lcdui.Image;
 

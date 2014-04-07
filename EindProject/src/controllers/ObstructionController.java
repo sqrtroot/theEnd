@@ -1,5 +1,13 @@
-package nxt;
+package controllers;
 
+import gui.GUI;
+import sensors.LightSensorListener;
+import sensors.MyColorSensor;
+import sensors.MyLightSensor;
+import sensors.MyUltraSonicSensor;
+import sensors.SensorPosition;
+import sensors.UltraSonicSensorListener;
+import sensors.UpdatingSensor;
 import lejos.nxt.Sound;
 
 /**
@@ -109,7 +117,7 @@ public class ObstructionController extends Thread implements
 	 * and starts a evasive maneuver. When the new value is bigger than the save
 	 * distance any messages on the display disappear.
 	 * 
-	 * @see nxt.UltraSonicSensorListener#ultraSonicChanged(nxt.UpdatingSensor,
+	 * @see sensors.UltraSonicSensorListener#ultraSonicChanged(sensors.UpdatingSensor,
 	 *      float, float)
 	 */
 	@Override
@@ -135,8 +143,8 @@ public class ObstructionController extends Thread implements
 	 * When called this method checks the position of the sensor who called this
 	 * method, and sets the attribute corresponding to the position.
 	 * 
-	 * @see nxt.LightSensorListener#lightSensorChanged(nxt.SensorPosition,
-	 *      nxt.UpdatingSensor, float, float)
+	 * @see sensors.LightSensorListener#lightSensorChanged(sensors.SensorPosition,
+	 *      sensors.UpdatingSensor, float, float)
 	 */
 	@Override
 	public void lightSensorChanged(SensorPosition position,

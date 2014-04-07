@@ -1,6 +1,11 @@
-package nxt;
+package controllers;
 
-import nxt.Position;
+import sensors.LightSensorListener;
+import sensors.MyColorSensor;
+import sensors.MyLightSensor;
+import sensors.Position;
+import sensors.SensorPosition;
+import sensors.UpdatingSensor;
 
 /**
  * This class will guide a Lego NXT Robot via a black trail on a white surface.
@@ -147,8 +152,8 @@ public class FollowTheLine extends Thread implements LightSensorListener {
 
 	/**
 	 * 
-	 * @see nxt.LightSensorListener#lightSensorChanged(nxt.SensorPosition,
-	 *      nxt.UpdatingSensor, float, float)
+	 * @see sensors.LightSensorListener#lightSensorChanged(sensors.SensorPosition,
+	 *      sensors.UpdatingSensor, float, float)
 	 */
 	@Override
 	public void lightSensorChanged(SensorPosition position,

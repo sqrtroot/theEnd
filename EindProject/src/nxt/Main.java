@@ -1,5 +1,13 @@
 package nxt;
 
+import gui.GUI;
+import controllers.CalibrationController;
+import controllers.FollowTheLine;
+import controllers.ObstructionController;
+import sensors.MyColorSensor;
+import sensors.MyLightSensor;
+import sensors.MyUltraSonicSensor;
+import sensors.SensorPosition;
 import lejos.nxt.Button;
 import lejos.nxt.SensorPort;
 

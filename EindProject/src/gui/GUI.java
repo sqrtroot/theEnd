@@ -1,9 +1,10 @@
-package nxt;
+package gui;
 
 import javax.microedition.lcdui.Font;
 import javax.microedition.lcdui.Graphics;
 import javax.microedition.lcdui.Image;
 
+import sensors.SensorPosition;
 import lejos.nxt.LCD;
 
 /**
