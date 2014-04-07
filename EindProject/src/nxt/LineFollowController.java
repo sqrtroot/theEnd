@@ -6,6 +6,7 @@ import lejos.nxt.LCD;
  * 
  * @author Jacob Visser <Jacob.Visser@student.hu.nl>
  * @version 0.3
+ * @since 01-04-2014
  */
 public class LineFollowController extends Thread implements LightSensorListener {
 	private boolean leftBlack; // Boolean that's true when the left sensor

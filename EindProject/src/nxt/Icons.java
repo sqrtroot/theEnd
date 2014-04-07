@@ -6,6 +6,7 @@ import javax.microedition.lcdui.Image;
  * 
  * @author Robert Bezem <robert.bezem@student.hu.nl>
  * @version 1.0
+ * @since 07-04-2014
  */
 public enum Icons {
 	/**

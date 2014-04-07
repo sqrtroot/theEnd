@@ -8,6 +8,7 @@ import lejos.nxt.SensorPort;
  * 
  * @author Robert Bezem <robert.bezem@student.hu.nl>
  * @version 1.0
+ * @since 01-04-2014
  */
 public class MyLightSensor extends lejos.nxt.LightSensor implements
 		UpdatingSensor {
