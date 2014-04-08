@@ -2,6 +2,7 @@ package sensors;
 
 
 /**
+ * This is the light sensor interface
  * 
  * @author Robert Bezem <robert.bezem@student.hu.nl>
  * @version 1.0
@@ -11,7 +12,7 @@ public interface LightSensorListener {
 	/**
 	 * 
 	 * When this class is being implemented, this class will be called upon when
-	 * one of the lightsensors' state changes.
+	 * one of the light sensors' state changes.
 	 * 
 	 * @param position
 	 *            the position of the sensor used

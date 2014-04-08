@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import lejos.nxt.SensorPort;
 
 /**
+ * This class holds all the utilities to control the ultrasonic sensor. Also
+ * this is a boundary class for the actual ultrasonic sensor
  * 
  * @author Robert Bezem <robert.bezem@student.hu.nl>
  * @version 1.0
@@ -12,11 +14,15 @@ import lejos.nxt.SensorPort;
  */
 public class MyUltraSonicSensor extends lejos.nxt.UltrasonicSensor implements
 		UpdatingSensor {
+
 	private int value;
-	private ArrayList<UltraSonicSensorListener> listeners = new ArrayList<UltraSonicSensorListener>();
+	
+	private static final SensorType SENSORTYPE = SensorType.Ultrasonicsensor;
+	
+	private ArrayList<UltrasonicSensorListener> listeners = new ArrayList<UltrasonicSensorListener>();
 
 	/**
-	 * Constructor for UltraSonicSensorListener
+	 * Constructor for UltrasonicSensorListener
 	 * 
 	 * @param sensorport
 	 *            the given sensor port
@@ -33,7 +39,7 @@ public class MyUltraSonicSensor extends lejos.nxt.UltrasonicSensor implements
 		if (listeners.size() < 0) {
 			int tmp = (int) getRange();
 			if (tmp != value) {
-				for (UltraSonicSensorListener listener : listeners)
+				for (UltrasonicSensorListener listener : listeners)
 					listener.ultraSonicChanged(this, value, tmp);
 				value = tmp;
 			}
@@ -41,30 +47,31 @@ public class MyUltraSonicSensor extends lejos.nxt.UltrasonicSensor implements
 	}
 
 	/**
-	 * adds the UltraSonicSensorListener to the listeners array
+	 * adds the UltrasonicSensorListener to the listeners array
 	 * 
-	 * @param usl
-	 *            the given UltraSonicSensorListener
+	 * @param ultrasonicListener
+	 *            the given UltrasonicSensorListener
 	 */
-	public void addListener(UltraSonicSensorListener usl) {
-		listeners.add(usl);
+	public void addListener(UltrasonicSensorListener ultrasonicListener) {
+		listeners.add(ultrasonicListener);
 	}
 
 	/**
-	 * removes the UltraSonicSensorListener to the listeners array
+	 * removes the UltrasonicSensorListener to the listeners array
 	 * 
-	 * @param usl
-	 *            the given UltraSonicSensorListener
+	 * @param ultrasonicListener
+	 *            the given UltrasonicSensorListener
 	 */
-	public void removeListener(UltraSonicSensorListener usl) {
-		listeners.remove(usl);
+	public void removeListener(UltrasonicSensorListener ultrasonicListener) {
+		listeners.remove(ultrasonicListener);
 	}
 
 	/**
+	 * returns the type of sensor
 	 * 
-	 * @return returns the type of the sensor
+	 * @return SENSORTYPE returns the type of the sensor
 	 */
 	public SensorType getSensorType() {
-		return SensorType.Ultrasonicsensor;
+		return SENSORTYPE;
 	}
 }

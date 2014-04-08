@@ -12,8 +12,12 @@ import lejos.nxt.SensorPort;
  */
 public class MyColorSensor extends lejos.nxt.ColorSensor implements
 		UpdatingSensor {
+
 	private float value;
 	private SensorPosition position;
+
+	private static final SensorType SENSORTYPE = SensorType.Colorsensor;
+
 	private ArrayList<LightSensorListener> listeners = new ArrayList<LightSensorListener>();
 
 	private int zero = 1023;
@@ -23,9 +27,9 @@ public class MyColorSensor extends lejos.nxt.ColorSensor implements
 	 * The constructor for the MyColorSensor
 	 * 
 	 * @param sensorport
-	 *            the port on which the colorsensor is attached to the nxt.
+	 *            the port on which the color sensor is attached to the NXT
 	 * @param position
-	 *            the position the nxt
+	 *            the position the NXT
 	 * @see SensorPort
 	 * @see SensorPosition
 	 */
@@ -38,8 +42,8 @@ public class MyColorSensor extends lejos.nxt.ColorSensor implements
 	}
 
 	/**
-	 * used to update the sensors value and if the have chainged pass them to
-	 * the listeners
+	 * This method updates the currently read light value from the surface and
+	 * forwards it to all listeners
 	 */
 	public void updateState() {
 		float tmp = this.getLightValue();
@@ -83,7 +87,7 @@ public class MyColorSensor extends lejos.nxt.ColorSensor implements
 	}
 
 	/**
-	 * returns the calibrated lightvalue
+	 * returns the calibrated light value
 	 * 
 	 * @return integer ranging from 0-100
 	 */
@@ -97,7 +101,7 @@ public class MyColorSensor extends lejos.nxt.ColorSensor implements
 	/**
 	 * returns the lowest value that has been used to calibrate the sensor
 	 * 
-	 * @return int
+	 * @return zero the value set as 0%
 	 */
 	@Override
 	public int getLow() {
@@ -107,7 +111,7 @@ public class MyColorSensor extends lejos.nxt.ColorSensor implements
 	/**
 	 * returns the highest value that has been used to calibrate the sensor
 	 * 
-	 * @return int
+	 * @return hundred the value set as 100%
 	 */
 	@Override
 	public int getHigh() {
@@ -137,11 +141,11 @@ public class MyColorSensor extends lejos.nxt.ColorSensor implements
 	}
 
 	/**
-	 * returns the type of sensor(colorsensor)
+	 * returns the type of sensor
 	 * 
-	 * @return returns the type of the sensor
+	 * @return SENSORTYPE returns the type of the sensor
 	 */
 	public SensorType getSensorType() {
-		return SensorType.Colorsensor;
+		return SENSORTYPE;
 	}
 }

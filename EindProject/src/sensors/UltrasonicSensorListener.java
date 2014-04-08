@@ -7,7 +7,7 @@ package sensors;
  * @version 1.0
  * @since 01-04-2014
  */
-public interface UltraSonicSensorListener {
+public interface UltrasonicSensorListener {
 	/**
 	 * When implemented this method can be called to do something when the measured value
 	 * from the ultrasonicsensor changes 

@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import lejos.nxt.SensorPort;
 
 /**
+ * This class holds all the utilities to control the light sensor.
+ * Also this is a boundary class for the actual light sensor
  * 
  * @author Robert Bezem <robert.bezem@student.hu.nl>
  * @version 1.0
@@ -12,17 +14,21 @@ import lejos.nxt.SensorPort;
  */
 public class MyLightSensor extends lejos.nxt.LightSensor implements
 		UpdatingSensor {
+	
 	private float value;
+	
+	private static final SensorType SENSORTYPE = SensorType.Lightsensor;
+	
 	private ArrayList<LightSensorListener> listeners = new ArrayList<LightSensorListener>();
 	private SensorPosition position;
 
 	/**
-	 * the constructor for the lightsensor
+	 * the constructor for the light sensor
 	 * 
 	 * @param sensorport
-	 *            the port the lightsensor is attached to on the nxt
+	 *            the port the light sensor is attached to on the NXT
 	 * @param position
-	 *            the position the nxt
+	 *            the position the NXT
 	 */
 	public MyLightSensor(SensorPort sensorport, SensorPosition position) {
 		super(sensorport);
@@ -31,7 +37,7 @@ public class MyLightSensor extends lejos.nxt.LightSensor implements
 	}
 
 	/**
-	 * used to update the sensors value and if the have chainged pass them to
+	 * used to update the sensors value and if the have changed pass them to
 	 * the listeners
 	 */
 	public void updateState() {
@@ -48,10 +54,10 @@ public class MyLightSensor extends lejos.nxt.LightSensor implements
 	}
 
 	/**
-	 * adds the listener to the list of listeners
+	 * adds the listener to the list of listeners 
 	 * 
 	 * @param listener
-	 *            the listener that needs to be added
+	 *            the listener that is added
 	 */
 	public void addListener(LightSensorListener listener) {
 		listeners.add(listener);
@@ -74,12 +80,12 @@ public class MyLightSensor extends lejos.nxt.LightSensor implements
 	}
 
 	/**
-	 * returns the type of sensor(lightsensor)
+	 * returns the type of sensor
 	 * 
-	 * @return returns the type of the sensor
+	 * @return SENSORTYPE returns the type of the sensor
 	 */
 	public SensorType getSensorType() {
-		return SensorType.Lightsensor;
+		return SENSORTYPE;
 	}
 
 }

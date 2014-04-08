@@ -6,7 +6,7 @@ import sensors.MyColorSensor;
 import sensors.MyLightSensor;
 import sensors.MyUltraSonicSensor;
 import sensors.SensorPosition;
-import sensors.UltraSonicSensorListener;
+import sensors.UltrasonicSensorListener;
 import sensors.UpdatingSensor;
 import lejos.nxt.Sound;
 
@@ -19,7 +19,7 @@ import lejos.nxt.Sound;
  * 
  */
 public class ObstructionController implements LightSensorListener,
-		UltraSonicSensorListener {
+		UltrasonicSensorListener {
 
 	private int currentDistance;
 	private int sensorValueLeft;
@@ -95,7 +95,7 @@ public class ObstructionController implements LightSensorListener,
 	 * and starts a evasive maneuver. When the new value is bigger than the save
 	 * distance any messages on the display disappear.
 	 * 
-	 * @see sensors.UltraSonicSensorListener#ultraSonicChanged(sensors.UpdatingSensor,
+	 * @see sensors.UltrasonicSensorListener#ultraSonicChanged(sensors.UpdatingSensor,
 	 *      float, float)
 	 */
 	@Override

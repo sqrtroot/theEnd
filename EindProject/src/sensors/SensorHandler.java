@@ -3,10 +3,13 @@ package sensors;
 import java.util.ArrayList;
 
 /**
+ * This class handles all the sensors and requests updates of each sensor every
+ * set period of time
  * 
  * @author Robert Bezem <robert.bezem@student.hu.nl>
  * @version 1.0
  * @since 01-04-2014
+ * 
  */
 public class SensorHandler extends Thread {
 	private static SensorHandler singleton;
@@ -14,7 +17,7 @@ public class SensorHandler extends Thread {
 	private final long timeOut = 100;
 
 	/**
-	 * private constructor for sensorhandler
+	 * constructor for SensorHandler
 	 */
 	private SensorHandler() {
 		this.setDaemon(true);
@@ -22,10 +25,9 @@ public class SensorHandler extends Thread {
 	}
 
 	/**
+	 * gives instance to the SensorHandler
 	 * 
-	 * gives instance to the sensorhandler
-	 * 
-	 * @return SensorHandler returns the version of sensorhandler
+	 * @return SensorHandler returns the instance of SensorHandler
 	 */
 	public static SensorHandler getInstance() {
 		if (singleton == null) {
@@ -52,7 +54,7 @@ public class SensorHandler extends Thread {
 	}
 
 	/**
-	 * add's a sensor to the sensorlist
+	 * adds 'updatingSensor' to the list of sensors registered to this handler
 	 * 
 	 * @param updatingSensor
 	 *            the sensor that has to be added
@@ -62,7 +64,8 @@ public class SensorHandler extends Thread {
 	}
 
 	/**
-	 * removes a sensor from the sensorlist
+	 * removes 'updatingSensor' to the list of sensors registered to this
+	 * handler
 	 * 
 	 * @param updatingSensor
 	 *            the sensor that has to be removed

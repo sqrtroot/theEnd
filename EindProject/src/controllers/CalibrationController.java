@@ -15,7 +15,7 @@ import lejos.nxt.ColorSensor.Color;
 public class CalibrationController {
 
 	private MyColorSensor cs; // /< MyColorSensor object.
-	private MyLightSensor ls; // /< LightSensor object.
+	private MyLightSensor ls; // /< Lightsensor object.
 
 	private final int CIRCLE = 360; // /< 360, the amount of degrees in a
 									// circle, therefore called CIRCLE
@@ -28,7 +28,7 @@ public class CalibrationController {
 	 * @param myColorSensor
 	 *            the MyColorSensor that has to be calibrated.
 	 * @param myLightSensor
-	 *            the LightSensor that has to be calibrated.
+	 *            the Lightsensor that has to be calibrated.
 	 * @see MyColorSensor
 	 * @see MyLightSensor
 	 * 
@@ -48,7 +48,7 @@ public class CalibrationController {
 
 	/**
 	 * This class will calibrate all given Sensors, as of now there are only two
-	 * Sensors: one MyColorSensor and one LightSensor.
+	 * Sensors: one MyColorSensor and one Lightsensor.
 	 */
 	public void calibrateAllSensors() {
 

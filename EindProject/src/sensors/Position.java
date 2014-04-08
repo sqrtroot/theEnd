@@ -1,7 +1,8 @@
 package sensors;
 
 /**
- * enum's used to determine the position on the robot
+ * These enum's are used to explain the location of a certain sensor on the frame
+ * of the robot
  * 
  * @author Jacob Visser <Jacob.Visser@student.hu.nl>
  * @author Robert Bezem <robert.bezem@student.hu.nl>
