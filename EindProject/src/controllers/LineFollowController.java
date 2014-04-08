@@ -36,7 +36,6 @@ public class LineFollowController extends Thread implements LightSensorListener 
 	private final int THRESHOLD = 50;
 
 	public LineFollowController(MyColorSensor cs, MyLightSensor ls, GUI gui) {
-
 		cs.addListener(this);
 		ls.addListener(this);
 		this.gui = gui;

@@ -9,7 +9,7 @@ import motors.MotorController;
 /**
  * This class calibrates the light and color sensors
  * 
- * @author Robert Bezem <robert.bezem@student.hu.nl
+ * @author Jacob Visser <jacob.visser@student.hu.nl>
  * @version 1.5
  * @since 02-04-2014
  * 

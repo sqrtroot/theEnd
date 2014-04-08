@@ -43,6 +43,7 @@ public class Main {
 		new CopyOfObstructionController(cs, ls, us, gui);
 		new LineFollowController(cs, ls, gui);
 		Button.waitForAnyPress();
+		System.exit(1);
 
 	}
 }

@@ -14,25 +14,23 @@ import motors.MotorController;
 /**
  * This class will evade objects
  * 
- * @author Pim van Hespen <Pimvanhespen@gmail.com>
+ * @author Robert Bezem <robert.bezem@student.hu.nl>
  * @version 1.2
  * @since 01-04-2014
  * 
  */
-public class CopyOfObstructionController extends Thread implements
-		LightSensorListener, UltrasonicSensorListener {
+public class CopyOfObstructionController implements LightSensorListener,
+		UltrasonicSensorListener, Runnable {
 
-	private boolean evasive = false;
-	private int currentDistance;
-	private int sensorValueLeft;
-	private int sensorValueRight;
+	private boolean first = true;
 
 	private final int SAFE_DISTANCE = 20;
-	private final int ARC_DEGREES = 360;
 	private final int MEDIAN = 50;
 
 	private boolean noLineFound = true;
 	private boolean isExecuting = false;
+
+	private Thread thread;
 
 	private GUI gui;
 
@@ -51,53 +49,42 @@ public class CopyOfObstructionController extends Thread implements
 
 	public CopyOfObstructionController(MyColorSensor cs, MyLightSensor ls,
 			MyUltraSonicSensor us, GUI gui) {
-
+		System.out.println("linefollowcontroller");
 		this.gui = gui;
 
 		cs.addListener(this);
 		ls.addListener(this);
 		us.addListener(this);
-
-		currentDistance = 255;
-		sensorValueLeft = 0;
-		sensorValueRight = 0;
-		this.start();
 	}
 
 	public void run() {
-		while (true) {
-			if (isExecuting) {
-				LineFollowController.pauseLineFollower();
-				MotorController.setRotateSpeed(100);
-				MotorController.rotate(-90, false);
-				MotorController.DriveArc((SAFE_DISTANCE * 10), ARC_DEGREES,
-						true);
-				noLineFound = true;
-				while (noLineFound) {
-				}
-				LineFollowController.continueLineFollower();
-				gui.cancelPopUp();
-				isExecuting = false;
-			}
-		}
-	}
 
-	/**
-	 * This method checks the current distance to the object. Whenever the
-	 * object distance is smaller than the safe distance, this method will
-	 * perform a 360 degree circle around the found object and stops driving the
-	 * circle when the line has been found again.
-	 */
-	private void evasiveManeuver() {
+		isExecuting = true;
+		LineFollowController.pauseLineFollower();
+		MotorController.setRotateSpeed(100);
+		if (first) {
+			MotorController.rotate(-40, false);
+		} else {
+			MotorController.rotate(-20, false);
+		}
+		MotorController.driveArc(SAFE_DISTANCE * 10, false);
+		noLineFound = true;
+		while (noLineFound) {
+
+		}
+		LineFollowController.continueLineFollower();
+		gui.cancelPopUp();
+		first = true;
+		isExecuting = false;
 
 	}
 
 	/**
 	 * If the measured value from the ultrasonic sensor changes this method is
 	 * called. When called this method checks of the new value is smaller than
-	 * the safe value, if that's true the robot plays sounds, displays a message
-	 * and starts a evasive maneuver. When the new value is bigger than the save
-	 * distance any messages on the display disappear.
+	 * the safe value, if that's true the robot displays a message and starts a
+	 * evasive maneuver. When the new value is bigger than the save distance any
+	 * messages on the display disappear. *
 	 * 
 	 * @see sensors.UltrasonicSensorListener#ultraSonicChanged(sensors.UpdatingSensor,
 	 *      float, float)
@@ -105,12 +92,32 @@ public class CopyOfObstructionController extends Thread implements
 	@Override
 	public void ultraSonicChanged(UpdatingSensor us, float oldValue,
 			float newValue) {
-		currentDistance = (int) newValue;
 		if (newValue < SAFE_DISTANCE && !isExecuting) {
-			gui.showErrorPopUp("Object to close");
-			isExecuting = true;
+			startEvasion();
+		} else if (newValue < SAFE_DISTANCE) {
+			resetEvasion();
 		}
+	}
 
+	/**
+	 * this starts the evasion thread for the first time.
+	 */
+	private void startEvasion() {
+		first = true;
+		thread = new Thread(this);
+		thread.start();
+
+	}
+
+	/**
+	 * this resets the thread and starts it again.
+	 */
+	private void resetEvasion() {
+		thread.interrupt();
+		thread = null;
+		first = false;
+		thread = new Thread(this);
+		thread.start();
 	}
 
 	/**
@@ -128,6 +135,7 @@ public class CopyOfObstructionController extends Thread implements
 			if (position == Position.Left && newValue < MEDIAN) {
 				noLineFound = false;
 			} else if (position == Position.Right && newValue < MEDIAN) {
+				System.out.println("restart");
 				noLineFound = false;
 
 			}
