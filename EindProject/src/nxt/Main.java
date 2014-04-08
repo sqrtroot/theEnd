@@ -31,8 +31,7 @@ public class Main {
 	 * 
 	 */
 	public static void main(String[] args) {
-		MyColorSensor cs = new MyColorSensor(SensorPort.S1,
-				Position.Right);
+		MyColorSensor cs = new MyColorSensor(SensorPort.S1, Position.Right);
 		MyLightSensor ls = new MyLightSensor(SensorPort.S4, Position.Left);
 		MyUltraSonicSensor us = new MyUltraSonicSensor(SensorPort.S2);
 
