@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <class-diagram version="1.1.5" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
   associations="true" dependencies="false" nesting-relationships="true">  
-  <class id="1" language="java" name="controllers.MotorController" project="EindProject" 
-    file="/EindProject/src/controllers/MotorController.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="1" language="java" name="nxt.MotorController" project="EindProject" 
+    file="/EindProject/src/nxt/MotorController.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="878" y="755"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
@@ -10,8 +10,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="2" language="java" name="controllers.CalibrationController" project="EindProject" 
-    file="/EindProject/src/controllers/CalibrationController.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="2" language="java" name="nxt.CalibrationController" project="EindProject" 
+    file="/EindProject/src/nxt/CalibrationController.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="2166" y="107"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
@@ -19,8 +19,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="3" language="java" name="controllers.ObstructionController" project="EindProject" 
-    file="/EindProject/src/controllers/ObstructionController.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="3" language="java" name="nxt.ObstructionController" project="EindProject" 
+    file="/EindProject/src/nxt/ObstructionController.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1292" y="1193"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
@@ -28,8 +28,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <interface id="4" language="java" name="sensors.UpdatingSensor" project="EindProject" 
-    file="/EindProject/src/sensors/UpdatingSensor.java" binary="false" corner="BOTTOM_RIGHT">    
+  <interface id="4" language="java" name="nxt.UpdatingSensor" project="EindProject" 
+    file="/EindProject/src/nxt/UpdatingSensor.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1722" y="237"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
@@ -37,8 +37,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
-  <enumeration id="5" language="java" name="sensors.SensorType" project="EindProject" 
-    file="/EindProject/src/sensors/SensorType.java" binary="false" corner="BOTTOM_RIGHT">    
+  <enumeration id="5" language="java" name="nxt.SensorType" project="EindProject" 
+    file="/EindProject/src/nxt/SensorType.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1248" y="239"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
@@ -46,8 +46,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </enumeration>  
-  <interface id="6" language="java" name="sensors.LightSensorListener" project="EindProject" 
-    file="/EindProject/src/sensors/LightSensorListener.java" binary="false" corner="BOTTOM_RIGHT">    
+  <interface id="6" language="java" name="nxt.LightSensorListener" project="EindProject" 
+    file="/EindProject/src/nxt/LightSensorListener.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1720" y="945"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
@@ -55,8 +55,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
-  <class id="7" language="java" name="sensors.SensorHandler" project="EindProject" 
-    file="/EindProject/src/sensors/SensorHandler.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="7" language="java" name="nxt.SensorHandler" project="EindProject" 
+    file="/EindProject/src/nxt/SensorHandler.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1717" y="14"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
@@ -64,8 +64,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <interface id="8" language="java" name="sensors.UltraSonicSensorListener" project="EindProject" 
-    file="/EindProject/src/sensors/UltraSonicSensorListener.java" binary="false" corner="BOTTOM_RIGHT">    
+  <interface id="8" language="java" name="nxt.UltraSonicSensorListener" project="EindProject" 
+    file="/EindProject/src/nxt/UltraSonicSensorListener.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="88" width="316" x="1140" y="898"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
@@ -82,8 +82,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <enumeration id="10" language="java" name="sensors.Position" project="EindProject" 
-    file="/EindProject/src/sensors/Position.java" binary="false" corner="BOTTOM_RIGHT">    
+  <enumeration id="10" language="java" name="nxt.Position" project="EindProject" 
+    file="/EindProject/src/nxt/Position.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1489" y="229"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
@@ -109,8 +109,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <enumeration id="13" language="java" name="sensors.SensorPosition" project="EindProject" 
-    file="/EindProject/src/sensors/SensorPosition.java" binary="false" corner="BOTTOM_RIGHT">    
+  <enumeration id="13" language="java" name="nxt.SensorPosition" project="EindProject" 
+    file="/EindProject/src/nxt/SensorPosition.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="2087" y="588"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
@@ -118,8 +118,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </enumeration>  
-  <class id="14" language="java" name="controllers.LineFollowController" project="EindProject" 
-    file="/EindProject/src/controllers/LineFollowController.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="14" language="java" name="nxt.LineFollowController" project="EindProject" 
+    file="/EindProject/src/nxt/LineFollowController.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="2231" y="1155"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
@@ -127,102 +127,102 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <realization id="15">    
-    <end type="SOURCE" refId="11"/>    
-    <end type="TARGET" refId="4"/>  
-  </realization>  
-  <realization id="16">    
-    <end type="SOURCE" refId="9"/>    
-    <end type="TARGET" refId="4"/>  
-  </realization>  
-  <association id="17">    
-    <end type="SOURCE" refId="12" navigable="false">      
-      <attribute id="18" name="listeners"/>      
-      <multiplicity id="19" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="8" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <realization id="20">    
-    <end type="SOURCE" refId="12"/>    
-    <end type="TARGET" refId="4"/>  
-  </realization>  
-  <association id="21">    
-    <end type="SOURCE" refId="11" navigable="false">      
-      <attribute id="22" name="position"/>      
-      <multiplicity id="23" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="13" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="24">    
+  <association id="15">    
     <end type="SOURCE" refId="2" navigable="false">      
-      <attribute id="25" name="cs"/>      
-      <multiplicity id="26" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="9" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <realization id="27">    
-    <end type="SOURCE" refId="3"/>    
-    <end type="TARGET" refId="6"/>  
-  </realization>  
-  <association id="28">    
-    <end type="SOURCE" refId="9" navigable="false">      
-      <attribute id="29" name="listeners"/>      
-      <multiplicity id="30" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="6" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="31">    
-    <end type="SOURCE" refId="9" navigable="false">      
-      <attribute id="32" name="position"/>      
-      <multiplicity id="33" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="13" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="34">    
-    <end type="SOURCE" refId="7" navigable="false">      
-      <attribute id="35" name="singleton"/>      
-      <multiplicity id="36" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="7" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <realization id="37">    
-    <end type="SOURCE" refId="14"/>    
-    <end type="TARGET" refId="6"/>  
-  </realization>  
-  <association id="38">    
-    <end type="SOURCE" refId="2" navigable="false">      
-      <attribute id="39" name="ls"/>      
-      <multiplicity id="40" minimum="0" maximum="1"/>    
+      <attribute id="16" name="ls"/>      
+      <multiplicity id="17" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="11" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="41">    
-    <end type="SOURCE" refId="7" navigable="false">      
-      <attribute id="42" name="sensors"/>      
-      <multiplicity id="43" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="4" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="44">    
-    <end type="SOURCE" refId="11" navigable="false">      
-      <attribute id="45" name="listeners"/>      
-      <multiplicity id="46" minimum="0" maximum="2147483647"/>    
+  <realization id="18">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="6"/>  
+  </realization>  
+  <realization id="19">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="8"/>  
+  </realization>  
+  <association id="20">    
+    <end type="SOURCE" refId="9" navigable="false">      
+      <attribute id="21" name="listeners"/>      
+      <multiplicity id="22" minimum="0" maximum="2147483647"/>    
     </end>    
     <end type="TARGET" refId="6" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <realization id="47">    
-    <end type="SOURCE" refId="3"/>    
-    <end type="TARGET" refId="8"/>  
+  <association id="23">    
+    <end type="SOURCE" refId="7" navigable="false">      
+      <attribute id="24" name="sensors"/>      
+      <multiplicity id="25" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="4" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="26">    
+    <end type="SOURCE" refId="11"/>    
+    <end type="TARGET" refId="4"/>  
   </realization>  
+  <association id="27">    
+    <end type="SOURCE" refId="9" navigable="false">      
+      <attribute id="28" name="position"/>      
+      <multiplicity id="29" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="30">    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="31" name="cs"/>      
+      <multiplicity id="32" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="9" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="33">    
+    <end type="SOURCE" refId="12" navigable="false">      
+      <attribute id="34" name="listeners"/>      
+      <multiplicity id="35" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="8" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="36">    
+    <end type="SOURCE" refId="11" navigable="false">      
+      <attribute id="37" name="position"/>      
+      <multiplicity id="38" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="39">    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="6"/>  
+  </realization>  
+  <realization id="40">    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="4"/>  
+  </realization>  
+  <association id="41">    
+    <end type="SOURCE" refId="11" navigable="false">      
+      <attribute id="42" name="listeners"/>      
+      <multiplicity id="43" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="6" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="44">    
+    <end type="SOURCE" refId="9"/>    
+    <end type="TARGET" refId="4"/>  
+  </realization>  
+  <association id="45">    
+    <end type="SOURCE" refId="7" navigable="false">      
+      <attribute id="46" name="singleton"/>      
+      <multiplicity id="47" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="7" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
     accessors="true" visibility="true">    
     <attributes public="true" package="true" protected="true" private="true" static="true"/>    

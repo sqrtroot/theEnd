@@ -17,22 +17,22 @@ import lejos.nxt.LCD;
 public class GUI {
 	private Graphics g;
 	private boolean popUp = false;
-	private static final int messageBoxTopPadding = 5;
-	private static final int messageBoxLeftPadding = 2;
-	private static final int fontPixalWidth = 6;
-	private static final Font font = Font.getDefaultFont();
-	private static final int borderXPosition = 0;
-	private static final int borderYPosition = 0;
+	private static final int MESSAGE_BOX_TO_PADDING = 5;
+	private static final int MESSAGE_BOX_LEFT_PADDING = 2;
+	private static final int FONT_WIDTH = 6;
+	private static final Font FONT = Font.getDefaultFont();
+	private static final int BORDER_X_POSITION = 0;
+	private static final int BORDER_Y_POSITION = 0;
 
 	/**
-	 * the constructor for the gui class
+	 * the constructor for the GUI-class
 	 */
 	public GUI() {
 		g = new Graphics();
 	}
 
 	/**
-	 * shows a error Pop-up with the given string
+	 * shows an error Pop-up with the given string 'errorMessage'
 	 * 
 	 * @param errorMessage
 	 *            the string to be displayed
@@ -40,32 +40,32 @@ public class GUI {
 	public void showErrorPopUp(String errorMessage) {
 		popUp = true;
 
-		int borderHeight = Icons.error.getHeight() + font.getHeight()
-				+ messageBoxTopPadding;
+		int borderHeight = Icons.error.getHeight() + FONT.getHeight()
+				+ MESSAGE_BOX_TO_PADDING;
 		int borderWidth;
-		if (errorMessage.length() * fontPixalWidth < Icons.error.getWidth()) {
-			borderWidth = Icons.error.getWidth() + messageBoxLeftPadding;
+		if (errorMessage.length() * FONT_WIDTH < Icons.error.getWidth()) {
+			borderWidth = Icons.error.getWidth() + MESSAGE_BOX_LEFT_PADDING;
 		} else {
-			borderWidth = errorMessage.length() * fontPixalWidth
-					+ messageBoxLeftPadding;
+			borderWidth = errorMessage.length() * FONT_WIDTH
+					+ MESSAGE_BOX_LEFT_PADDING;
 		}
 
 		int imageXPosition = (borderWidth / 2) - (Icons.error.getWidth()/2);
-		int imageYPosition = borderYPosition + messageBoxTopPadding;
+		int imageYPosition = BORDER_Y_POSITION + MESSAGE_BOX_TO_PADDING;
 
 		int stringYPosition = imageYPosition + Icons.error.getHeight();
-		int stringXPosition = borderXPosition + messageBoxLeftPadding;
+		int stringXPosition = BORDER_X_POSITION + MESSAGE_BOX_LEFT_PADDING;
 
-		g.setFont(font);
+		g.setFont(FONT);
 		g.clear();
-		g.drawRect(borderXPosition, borderYPosition, borderWidth, borderHeight);
+		g.drawRect(BORDER_X_POSITION, BORDER_Y_POSITION, borderWidth, borderHeight);
 		g.drawImage(Icons.error.getIcon(), imageXPosition, 1, 0);
 		g.drawString(errorMessage, stringXPosition, stringYPosition, 0);
 
 	}
 
 	/**
-	 * shows a normal pop-up with the given string displayed
+	 * shows a Pop-up with the given string 'message' displayed
 	 * 
 	 * @param message
 	 *            the message to be displayed
@@ -73,31 +73,31 @@ public class GUI {
 	public void showPopUp(String message) {
 		popUp = true;
 
-		int borderHeight = font.getHeight() + messageBoxTopPadding;
-		int borderWidth = message.length() * fontPixalWidth
-				+ messageBoxLeftPadding;
+		int borderHeight = FONT.getHeight() + MESSAGE_BOX_TO_PADDING;
+		int borderWidth = message.length() * FONT_WIDTH
+				+ MESSAGE_BOX_LEFT_PADDING;
 
-		int stringYPosition = borderYPosition + messageBoxTopPadding;
-		int stringXPosition = borderXPosition + messageBoxLeftPadding;
+		int stringYPosition = BORDER_Y_POSITION + MESSAGE_BOX_TO_PADDING;
+		int stringXPosition = BORDER_X_POSITION + MESSAGE_BOX_LEFT_PADDING;
 
-		g.setFont(font);
+		g.setFont(FONT);
 		g.clear();
-		g.drawRect(borderXPosition, borderYPosition, borderWidth, borderHeight);
+		g.drawRect(BORDER_X_POSITION, BORDER_Y_POSITION, borderWidth, borderHeight);
 		g.drawString(message, stringXPosition, stringYPosition, 0);
 
 	}
 
 	/**
-	 * shows if a sensor is alright
+	 * shows if the sensor is facing a light surface
 	 * 
 	 * @param position
-	 *            the position on the vehicle of the sensor
+	 *            the position of the sensor, left or right,  on the robot
 	 */
 	public void lightSensorAlright(SensorPosition position) {
 		if (!popUp) {
-			g.setFont(font);
+			g.setFont(FONT);
 			Image icon = Icons.ok.getIcon();
-			int imageYposition = font.getHeight() + 1;
+			int imageYposition = FONT.getHeight() + 1;
 
 			g.clear();
 
@@ -108,7 +108,7 @@ public class GUI {
 
 			} else {
 				String message = "Right";
-				int stringXPosition = 100 - message.length()*fontPixalWidth;
+				int stringXPosition = 100 - message.length()*FONT_WIDTH;
 				int imageXPosition = 100 - icon.getWidth();
 
 				g.drawString(message, stringXPosition, 0, 0);
@@ -118,16 +118,16 @@ public class GUI {
 	}
 
 	/**
-	 * shows if a sensor is not on path
+	 * shows if a sensor is facing a dark surface
 	 * 
 	 * @param position
-	 *            the position on the vehicle of the sensor
+	 *            the position of the sensor, left or right,  on the robot
 	 */
 	public void lightensorError(SensorPosition position) {
 		if (!popUp) {
-			g.setFont(font);
+			g.setFont(FONT);
 			Image icon = Icons.error.getIcon();
-			int imageYposition = font.getHeight() + 1;
+			int imageYposition = FONT.getHeight() + 1;
 
 			g.clear();
 
@@ -138,7 +138,7 @@ public class GUI {
 
 			} else {
 				String message = "Right";
-				int stringXPosition = 100 - message.length()*fontPixalWidth;
+				int stringXPosition = 100 - message.length()*FONT_WIDTH;
 				int imageXPosition = 100 - icon.getWidth();
 
 				g.drawString(message, stringXPosition, 0, 0);
@@ -148,7 +148,7 @@ public class GUI {
 	}
 
 	/**
-	 * cancel the pop-up and show the normal screen again
+	 * cancel the pop-up and clear the screen
 	 */
 	public void cancelPopUp() {
 		if (popUp) {

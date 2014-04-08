@@ -15,7 +15,7 @@ import lejos.nxt.SensorPort;
  * This class starts all required controllers to control the robot.
  * 
  * @author Jacob Visser <Jacob.Visser@student.hu.nl>
- * @author Pim van Hespen <pimvanhespen@gmail.com>
+ * @author Pim van Hespen <PimvanHespen@gmail.com>
  * @author Robert Bezem <Robert.Bezem@student.hu.nl>
  * @since 01-04-2014
  * @version 2.0
@@ -24,10 +24,10 @@ import lejos.nxt.SensorPort;
  */
 public class Main {
 	/**
-	 * This method defines all sensors and starts the controllers
+	 * This method defines all sensors and creates the controllers
 	 * 
 	 * @param args
-	 *            incoming arguments from outside the code.
+	 *            incoming arguments from outside the code
 	 * 
 	 */
 	public static void main(String[] args) {

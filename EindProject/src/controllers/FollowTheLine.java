@@ -19,10 +19,10 @@ import sensors.UpdatingSensor;
 public class FollowTheLine extends Thread implements LightSensorListener {
 
 	private static boolean pause;
-	private boolean rightIsDark;
-	private boolean leftIsDark;
-	private boolean active;
-	private boolean headedTowardsLine;
+	private boolean rightIsDark = true;
+	private boolean leftIsDark = false;
+	private boolean active = true;
+	private boolean headedTowardsLine = true;
 
 	private Position mostRecentDark;
 	private Position direction;
@@ -38,21 +38,7 @@ public class FollowTheLine extends Thread implements LightSensorListener {
 		cs.addListener(this);
 		ls.addListener(this);
 
-		initVariables();
-
 		this.start();
-	}
-
-	/**
-	 * This method will set all variables to their start value.
-	 */
-	private void initVariables() {
-
-		active = true;
-		leftIsDark = false;
-		rightIsDark = false;
-		headedTowardsLine = true;
-
 	}
 
 	/*
