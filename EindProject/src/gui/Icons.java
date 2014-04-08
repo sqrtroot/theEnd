@@ -10,7 +10,7 @@ import javax.microedition.lcdui.Image;
  */
 public enum Icons {
 	/**
-	 * the error icon
+	 * this data contains the 'error'-icon
 	 */
 	error(35, 35, new byte[] { (byte) 0x00, (byte) 0x00, (byte) 0x80,
 			(byte) 0xc0, (byte) 0xe0, (byte) 0xf0, (byte) 0x78, (byte) 0xbc,
@@ -49,7 +49,7 @@ public enum Icons {
 			(byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00,
 			(byte) 0x00, (byte) 0x00, }),
 	/**
-	 * the ok icon
+	 * this data contains the 'ok'-icon
 	 */
 	ok(35, 35, new byte[] { (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x80,
 			(byte) 0xc0, (byte) 0x60, (byte) 0xb0, (byte) 0xd8, (byte) 0xcc,
@@ -88,7 +88,7 @@ public enum Icons {
 			(byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00,
 			(byte) 0x00, });
 
-	private final Image icon;
+	private final Image icon;			//
 	private final int width, height;
 
 	/**

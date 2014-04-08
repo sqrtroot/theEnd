@@ -18,16 +18,18 @@ import lejos.nxt.Sound;
  *        This is class will evade objects
  * 
  */
-public class ObstructionController extends Thread implements
-		LightSensorListener, UltraSonicSensorListener {
+public class ObstructionController implements LightSensorListener,
+		UltraSonicSensorListener {
 
-	private int current_distance;
+	private int currentDistance;
 	private int sensor_value_left;
 	private int sensor_value_right;
 
 	private final int SAFE_DISTANCE = 20;
 	private final int ARC_DEGREES = 360;
 	private final int MEDIAN = 50;
+
+	private boolean isExecuting = false;
 
 	private GUI gui;
 
@@ -53,27 +55,9 @@ public class ObstructionController extends Thread implements
 		ls.addListener(this);
 		us.addListener(this);
 
-		current_distance = 255;
+		currentDistance = 255;
 		sensor_value_left = 0;
 		sensor_value_right = 0;
-	}
-
-	/**
-	 * Is called upon by Obstructioncontroller.start. This will run the
-	 * controller in a new Thread. If the robot encounters an object within the
-	 * given safe distance, the loop will call upon the evasiveManeuver method
-	 * to bypass any object.
-	 * 
-	 * @see java.lang.Thread#run()
-	 */
-	public void run() {
-		while (true) {
-			MotorController.driveForward();
-			if (current_distance < SAFE_DISTANCE) {
-				evasiveManeuver();
-			}
-		}
-
 	}
 
 	/**
@@ -84,30 +68,24 @@ public class ObstructionController extends Thread implements
 	 */
 	private void evasiveManeuver() {
 
-		MotorController.driveForward();
 		boolean noLineFound = true;
 		while (noLineFound) {
 
-			if (current_distance < SAFE_DISTANCE) {
-				LineFollowController.pauseLineFollowing();
-				MotorController.rotate(-90, false);
-				MotorController.DriveArc((SAFE_DISTANCE * 10), ARC_DEGREES,
-						true);
+			FollowTheLine.pauseLineFollowing();
+			MotorController.rotate(-90, false);
+			MotorController.DriveArc((SAFE_DISTANCE * 10), ARC_DEGREES, true);
 
-				while (MotorController.moving()) {
+			while (MotorController.moving()) {
 
-					if (sensor_value_left < MEDIAN // try to find the line
-							|| sensor_value_right < MEDIAN)
-						MotorController.stop();
-
-				}
-
-				noLineFound = false;
+				if (sensor_value_left < MEDIAN || sensor_value_right < MEDIAN)
+					MotorController.stop();
 
 			}
 
+			noLineFound = false;
 		}
 
+		FollowTheLine.continueLineFollowing();
 	}
 
 	/**
@@ -124,24 +102,27 @@ public class ObstructionController extends Thread implements
 	public void ultraSonicChanged(UpdatingSensor us, float oldValue,
 			float newValue) {
 
-		if (newValue < SAFE_DISTANCE) {
-			Sound.beepSequence();
-			Sound.buzz();
-			Sound.beepSequenceUp();
-			gui.showErrorPopUp("Object to close");
-			evasiveManeuver();
-		} else {
-			gui.cancelPopUp();
+		currentDistance = (int) newValue;
+		
+		if (!isExecuting) {
+			if (newValue < SAFE_DISTANCE) {
+				Sound.beepSequence();
+				Sound.buzz();
+				Sound.beepSequenceUp();
+				gui.showErrorPopUp("Object to close");
+				evasiveManeuver();
+			} else {
+				gui.cancelPopUp();
+			}
+
+			
 		}
-
-		current_distance = (int) newValue;
-
 	}
 
 	/**
-	 * If the measured value from the lightsensor changes this method is called.
-	 * When called this method checks the position of the sensor who called this
-	 * method, and sets the attribute corresponding to the position.
+	 * If the measured value from the light sensor changes this method is
+	 * called. When called this method checks the position of the sensor who
+	 * called this method, and sets the attribute corresponding to the position.
 	 * 
 	 * @see sensors.LightSensorListener#lightSensorChanged(sensors.SensorPosition,
 	 *      sensors.UpdatingSensor, float, float)
