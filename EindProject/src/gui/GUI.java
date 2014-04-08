@@ -17,12 +17,16 @@ import lejos.nxt.LCD;
 public class GUI {
 	private Graphics g;
 	private boolean popUp = false;
+
+	private static final Font FONT = Font.getDefaultFont();
+
 	private static final int MESSAGE_BOX_TO_PADDING = 5;
 	private static final int MESSAGE_BOX_LEFT_PADDING = 2;
 	private static final int FONT_WIDTH = 6;
-	private static final Font FONT = Font.getDefaultFont();
 	private static final int BORDER_X_POSITION = 0;
 	private static final int BORDER_Y_POSITION = 0;
+	private static final int SCREEN_WIDTH = 100;
+	private static final int IMAGE_Y_POSITION = FONT.getHeight() + 1;
 
 	/**
 	 * the constructor for the GUI-class
@@ -50,7 +54,7 @@ public class GUI {
 					+ MESSAGE_BOX_LEFT_PADDING;
 		}
 
-		int imageXPosition = (borderWidth / 2) - (Icons.error.getWidth()/2);
+		int imageXPosition = (borderWidth / 2) - (Icons.error.getWidth() / 2);
 		int imageYPosition = BORDER_Y_POSITION + MESSAGE_BOX_TO_PADDING;
 
 		int stringYPosition = imageYPosition + Icons.error.getHeight();
@@ -58,7 +62,8 @@ public class GUI {
 
 		g.setFont(FONT);
 		g.clear();
-		g.drawRect(BORDER_X_POSITION, BORDER_Y_POSITION, borderWidth, borderHeight);
+		g.drawRect(BORDER_X_POSITION, BORDER_Y_POSITION, borderWidth,
+				borderHeight);
 		g.drawImage(Icons.error.getIcon(), imageXPosition, 1, 0);
 		g.drawString(errorMessage, stringXPosition, stringYPosition, 0);
 
@@ -82,7 +87,8 @@ public class GUI {
 
 		g.setFont(FONT);
 		g.clear();
-		g.drawRect(BORDER_X_POSITION, BORDER_Y_POSITION, borderWidth, borderHeight);
+		g.drawRect(BORDER_X_POSITION, BORDER_Y_POSITION, borderWidth,
+				borderHeight);
 		g.drawString(message, stringXPosition, stringYPosition, 0);
 
 	}
@@ -91,28 +97,28 @@ public class GUI {
 	 * shows if the sensor is facing a light surface
 	 * 
 	 * @param position
-	 *            the position of the sensor, left or right,  on the robot
+	 *            the position of the sensor, left or right, on the robot
 	 */
 	public void lightSensorAlright(SensorPosition position) {
 		if (!popUp) {
 			g.setFont(FONT);
 			Image icon = Icons.ok.getIcon();
-			int imageYposition = FONT.getHeight() + 1;
 
 			g.clear();
 
 			if (position == SensorPosition.Left) {
 				String message = "Left";
 				g.drawString(message, 0, 0, 0);
-				g.drawImage(icon, 0, imageYposition, 0);
+				g.drawImage(icon, 0, IMAGE_Y_POSITION, 0);
 
 			} else {
 				String message = "Right";
-				int stringXPosition = 100 - message.length()*FONT_WIDTH;
-				int imageXPosition = 100 - icon.getWidth();
+				int stringXPosition = SCREEN_WIDTH - message.length()
+						* FONT_WIDTH;
+				int imageXPosition = SCREEN_WIDTH - icon.getWidth();
 
 				g.drawString(message, stringXPosition, 0, 0);
-				g.drawImage(icon, imageXPosition, imageYposition, 0);
+				g.drawImage(icon, imageXPosition, IMAGE_Y_POSITION, 0);
 			}
 		}
 	}
@@ -121,28 +127,28 @@ public class GUI {
 	 * shows if a sensor is facing a dark surface
 	 * 
 	 * @param position
-	 *            the position of the sensor, left or right,  on the robot
+	 *            the position of the sensor, left or right, on the robot
 	 */
 	public void lightensorError(SensorPosition position) {
 		if (!popUp) {
 			g.setFont(FONT);
 			Image icon = Icons.error.getIcon();
-			int imageYposition = FONT.getHeight() + 1;
 
 			g.clear();
 
 			if (position == SensorPosition.Left) {
 				String message = "Left";
 				g.drawString(message, 0, 0, 0);
-				g.drawImage(icon, 0, imageYposition, 0);
+				g.drawImage(icon, 0, IMAGE_Y_POSITION, 0);
 
 			} else {
 				String message = "Right";
-				int stringXPosition = 100 - message.length()*FONT_WIDTH;
-				int imageXPosition = 100 - icon.getWidth();
+				int stringXPosition = SCREEN_WIDTH - message.length()
+						* FONT_WIDTH;
+				int imageXPosition = SCREEN_WIDTH - icon.getWidth();
 
 				g.drawString(message, stringXPosition, 0, 0);
-				g.drawImage(icon, imageXPosition, imageYposition, 0);
+				g.drawImage(icon, imageXPosition, IMAGE_Y_POSITION, 0);
 			}
 		}
 	}

@@ -22,8 +22,8 @@ public class ObstructionController implements LightSensorListener,
 		UltraSonicSensorListener {
 
 	private int currentDistance;
-	private int sensor_value_left;
-	private int sensor_value_right;
+	private int sensorValueLeft;
+	private int sensorValueRight;
 
 	private final int SAFE_DISTANCE = 20;
 	private final int ARC_DEGREES = 360;
@@ -56,8 +56,8 @@ public class ObstructionController implements LightSensorListener,
 		us.addListener(this);
 
 		currentDistance = 255;
-		sensor_value_left = 0;
-		sensor_value_right = 0;
+		sensorValueLeft = 0;
+		sensorValueRight = 0;
 	}
 
 	/**
@@ -77,7 +77,7 @@ public class ObstructionController implements LightSensorListener,
 
 			while (MotorController.moving()) {
 
-				if (sensor_value_left < MEDIAN || sensor_value_right < MEDIAN)
+				if (sensorValueLeft < MEDIAN || sensorValueRight < MEDIAN)
 					MotorController.stop();
 
 			}
@@ -131,8 +131,8 @@ public class ObstructionController implements LightSensorListener,
 	public void lightSensorChanged(SensorPosition position,
 			UpdatingSensor updatingsensor, float oldValue, float newValue) {
 		if (position == SensorPosition.Left)
-			sensor_value_left = (int) newValue;
+			sensorValueLeft = (int) newValue;
 		else if (position == SensorPosition.Right)
-			sensor_value_right = (int) newValue;
+			sensorValueRight = (int) newValue;
 	}
 }

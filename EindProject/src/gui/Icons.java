@@ -3,6 +3,7 @@ package gui;
 import javax.microedition.lcdui.Image;
 
 /**
+ * This enum holds the data to correctly display icons.
  * 
  * @author Robert Bezem <robert.bezem@student.hu.nl>
  * @version 1.0
@@ -88,8 +89,8 @@ public enum Icons {
 			(byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00,
 			(byte) 0x00, });
 
-	private final Image icon;			//
-	private final int width, height;
+	private final Image icon;			///< an Image object
+	private final int width, height;	///< width and height of the LCD screen
 
 	/**
 	 * the constructor for icon
