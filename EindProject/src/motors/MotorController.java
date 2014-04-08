@@ -121,8 +121,13 @@ public class MotorController {
 	 * @param degrees
 	 *            per second
 	 */
-	public static void setRotateSpeed(int degrees) {
-		differentialPilot.setRotateSpeed(degrees);
+	public static void setRotateSpeed(float degrees) {
+		float maxRotateSpeed = differentialPilot.getMaxRotateSpeed();
+		if (degrees < maxRotateSpeed) {
+			differentialPilot.setRotateSpeed(degrees);
+		} else {
+			differentialPilot.setRotateSpeed(maxRotateSpeed);
+		}
 	}
 
 	/**
@@ -132,7 +137,12 @@ public class MotorController {
 	 *            in wheel diameter/units per second
 	 */
 	public static void setTravelSpeed(float speed) {
-		differentialPilot.setTravelSpeed(speed);
+		double maxTravelspeed = differentialPilot.getMaxTravelSpeed();
+		if (speed < maxTravelspeed) {
+			differentialPilot.setTravelSpeed(speed);
+		} else {
+			differentialPilot.setTravelSpeed(maxTravelspeed);
+		}
 	}
 
 	/**
@@ -167,5 +177,9 @@ public class MotorController {
 	 */
 	public static void setRightMotorSpeed(int speed) {
 		RIGHT_MOTOR.setSpeed(speed);
+	}
+
+	public static double getCurrentSpeed() {
+		return differentialPilot.getRotateSpeed();
 	}
 }
