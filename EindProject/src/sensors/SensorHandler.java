@@ -14,7 +14,7 @@ import java.util.ArrayList;
 public class SensorHandler extends Thread {
 	private static SensorHandler singleton;
 	private ArrayList<UpdatingSensor> sensors = new ArrayList<UpdatingSensor>();
-	private final long timeOut = 5;
+	private static final long TIME_OUT = 5;
 
 	/**
 	 * constructor for SensorHandler
@@ -47,7 +47,7 @@ public class SensorHandler extends Thread {
 					for (UpdatingSensor sensor : sensors)
 						sensor.updateState();
 				}
-				Thread.sleep(timeOut);
+				Thread.sleep(TIME_OUT);
 			} catch (InterruptedException exception) {
 			}
 		}
