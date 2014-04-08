@@ -11,11 +11,14 @@ import sensors.UpdatingSensor;
  * This class will guide a Lego NXT Robot via a black trail on a white surface.
  * 
  * @author Pim van Hespen <PimvanHespen@gmail.com>
+ * @author Jacob Visser <jacob.visser@student.hu.nl>
+ * @author Robert Bezem <robert.bezem@student.hu.nl>
  * @version 1.4
  * @since 04-04-2014
  */
 public class FollowTheLine extends Thread implements LightSensorListener {
 
+	private static boolean pause;
 	private boolean rightIsDark;
 	private boolean leftIsDark;
 	private boolean active;
@@ -65,29 +68,30 @@ public class FollowTheLine extends Thread implements LightSensorListener {
 		MotorController.driveForward();
 
 		while (active) {
-
-			if (leftIsDark && rightIsDark) {
-				if (mostRecentDark == Position.Left) {
-					steerRight();
+			if (!pause) {
+				if (leftIsDark && rightIsDark) {
+					if (mostRecentDark == Position.Left) {
+						steerRight();
+					} else {
+						steerLeft();
+					}
+				} else if (leftIsDark) {
+					forward(Position.Left);
+				} else if (rightIsDark) {
+					forward(Position.Right);
 				} else {
-					steerLeft();
+					if (mostRecentDark == Position.Left) {
+						steerLeft();
+					} else {
+						steerRight();
+					}
 				}
-			} else if (leftIsDark) {
-				forward(Position.Left);
-			} else if (rightIsDark) {
-				forward(Position.Right);
-			} else {
-				if (mostRecentDark == Position.Left) {
-					steerLeft();
-				} else {
-					steerRight();
+				try {
+					Thread.sleep(50);
+				} catch (InterruptedException ie) {
 				}
-			}
-			try {
-				Thread.sleep(50);
-			} catch (InterruptedException ie) {
-			}
 
+			}
 		}
 
 	}
@@ -176,6 +180,14 @@ public class FollowTheLine extends Thread implements LightSensorListener {
 				rightIsDark = false;
 			}
 		}
+	}
+
+	public static void pauseLineFollowing() {
+		pause = true;
+	}
+
+	public static void continueLineFollowing() {
+		pause = false;
 	}
 
 }
