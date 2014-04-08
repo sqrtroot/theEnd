@@ -2,7 +2,7 @@ package sensors;
 
 
 /**
- * This is the light sensor interface
+ * This is the light sensor listener interface
  * 
  * @author Robert Bezem <robert.bezem@student.hu.nl>
  * @version 1.0

@@ -2,6 +2,7 @@ package sensors;
 
 
 /**
+ * This is the ultrasonic sensor listener interface
  * 
  * @author Robert Bezem <robert.bezem@student.hu.nl>
  * @version 1.0
@@ -10,7 +11,7 @@ package sensors;
 public interface UltrasonicSensorListener {
 	/**
 	 * When implemented this method can be called to do something when the measured value
-	 * from the ultrasonicsensor changes 
+	 * from the ultrasonic sensor changes 
 	 * 
 	 * @param us
 	 * 			The sensor from which the value is changed
