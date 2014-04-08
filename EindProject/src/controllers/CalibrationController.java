@@ -6,6 +6,8 @@ import sensors.MyLightSensor;
 import lejos.nxt.ColorSensor.Color;
 
 /**
+ * This class calibrates the light and color sensors
+ * 
  * @author Pim van Hespen <pimvanhespen@gmail.com>
  * @version 1.3
  * @since 02-04-2014

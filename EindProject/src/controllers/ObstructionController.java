@@ -11,11 +11,11 @@ import sensors.UpdatingSensor;
 import lejos.nxt.Sound;
 
 /**
+ * This class will evade objects
+ * 
  * @author Pim van Hespen <Pimvanhespen@gmail.com>
  * @version 1.2
  * @since 01-04-2014
- * 
- *        This is class will evade objects
  * 
  */
 public class ObstructionController implements LightSensorListener,
