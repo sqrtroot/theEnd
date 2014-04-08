@@ -7,15 +7,15 @@ import lejos.nxt.ColorSensor.Color;
 
 /**
  * @author Pim van Hespen <pimvanhespen@gmail.com>
- * @version 1.2
+ * @version 1.3
  * @since 02-04-2014
  * 
  *        This class calibrates both Light and MyColorSensor for further usage.
  */
 public class CalibrationController {
 
-	private MyColorSensor colorsensor; // /< MyColorSensor object.
-	private MyLightSensor lightsensor; // /< Lightsensor object.
+	private MyColorSensor colorSensor; // /< MyColorSensor object.
+	private MyLightSensor lightSensor; // /< Lightsensor object.
 
 	private final int CIRCLE = 360; // /< 360, the amount of degrees in a
 									// circle, therefore called CIRCLE
@@ -36,8 +36,8 @@ public class CalibrationController {
 	public CalibrationController(MyColorSensor myColorSensor,
 			MyLightSensor myLightSensor, GUI gui) {
 		LineFollowController.pauseLineFollower();
-		this.colorsensor = myColorSensor;
-		this.lightsensor = myLightSensor;
+		this.colorSensor = myColorSensor;
+		this.lightSensor = myLightSensor;
 
 		gui.showPopUp("Calibrating");
 
@@ -54,9 +54,9 @@ public class CalibrationController {
 
 		// ensure the flood light color form the MyColorSensor is red, then turn
 		// on the lights from both sensors.
-		colorsensor.setFloodlight(Color.RED);
-		colorsensor.setFloodlight(true);
-		lightsensor.setFloodlight(true);
+		colorSensor.setFloodlight(Color.RED);
+		colorSensor.setFloodlight(true);
+		lightSensor.setFloodlight(true);
 
 		// Let the robot drive one 'CIRCLE' with a speed of 45 degrees per
 		// second. Then, while the robot is moving, also start measuring raw
@@ -70,8 +70,8 @@ public class CalibrationController {
 		
 		while (MotorController.moving()) {
 			
-			currentLightValue = lightsensor.getNormalizedLightValue();
-			currentColorValue = colorsensor.getRawLightValue();
+			currentLightValue = lightSensor.getNormalizedLightValue();
+			currentColorValue = colorSensor.getRawLightValue();
 			
 			if(currentColorValue  > colorHigh)colorHigh = currentColorValue;
 			else if(currentColorValue < colorLow)colorLow = currentColorValue;
@@ -83,16 +83,16 @@ public class CalibrationController {
 		// Set the highest and lowest measured values from the measurements as
 		// new high and low for the sensors to calibrate them and give them
 		// their new range.
-		lightsensor.setHigh(lightHigh);
-		lightsensor.setLow(lightLow);
-		colorsensor.setHigh(colorHigh);
-		colorsensor.setLow(colorLow);
+		lightSensor.setHigh(lightHigh);
+		lightSensor.setLow(lightLow);
+		colorSensor.setHigh(colorHigh);
+		colorSensor.setLow(colorLow);
 
 		// Drive another circle until the black line is found.
 		MotorController.rotate(CIRCLE, true);
 
 		while (MotorController.moving()) {
-			if (lightsensor.getLightValue() < MEDIAN && colorsensor.getLightValue() > MEDIAN) {
+			if (lightSensor.getLightValue() < MEDIAN && colorSensor.getLightValue() > MEDIAN) {
 				MotorController.stop();
 			}
 		}
