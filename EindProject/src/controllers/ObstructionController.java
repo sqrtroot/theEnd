@@ -37,13 +37,13 @@ public class ObstructionController implements LightSensorListener,
 	 * The constructor for the ObstructionController class
 	 * 
 	 * @param cs
-	 *            The colorsensor on the robot
+	 *            The color sensor on the robot
 	 * @param ls
-	 *            The lightsensor on the robot
+	 *            The light sensor on the robot
 	 * @param us
-	 *            The ultrasonicsensor on the robot
+	 *            The ultrasonic sensor on the robot
 	 * @param gui
-	 *            The gui that is used
+	 *            The GUI that is used
 	 */
 
 	public ObstructionController(MyColorSensor cs, MyLightSensor ls,
