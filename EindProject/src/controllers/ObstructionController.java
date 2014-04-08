@@ -5,7 +5,7 @@ import sensors.LightSensorListener;
 import sensors.MyColorSensor;
 import sensors.MyLightSensor;
 import sensors.MyUltraSonicSensor;
-import sensors.SensorPosition;
+import sensors.Position;
 import sensors.UltrasonicSensorListener;
 import sensors.UpdatingSensor;
 import lejos.nxt.Sound;
@@ -128,11 +128,11 @@ public class ObstructionController implements LightSensorListener,
 	 *      sensors.UpdatingSensor, float, float)
 	 */
 	@Override
-	public void lightSensorChanged(SensorPosition position,
+	public void lightSensorChanged(Position position,
 			UpdatingSensor updatingsensor, float oldValue, float newValue) {
-		if (position == SensorPosition.Left)
+		if (position == Position.Left)
 			sensorValueLeft = (int) newValue;
-		else if (position == SensorPosition.Right)
+		else if (position == Position.Right)
 			sensorValueRight = (int) newValue;
 	}
 }

@@ -14,7 +14,7 @@ public class MyColorSensor extends lejos.nxt.ColorSensor implements
 		UpdatingSensor {
 
 	private float value;
-	private SensorPosition position;
+	private Position position;
 
 	private static final SensorType SENSORTYPE = SensorType.Colorsensor;
 
@@ -33,7 +33,7 @@ public class MyColorSensor extends lejos.nxt.ColorSensor implements
 	 * @see SensorPort
 	 * @see SensorPosition
 	 */
-	public MyColorSensor(SensorPort sensorport, SensorPosition position) {
+	public MyColorSensor(SensorPort sensorport, Position position) {
 		super(sensorport);
 		this.position = position;
 		setFloodlight(Color.RED);

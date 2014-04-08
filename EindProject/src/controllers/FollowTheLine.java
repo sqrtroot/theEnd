@@ -4,7 +4,6 @@ import sensors.LightSensorListener;
 import sensors.MyColorSensor;
 import sensors.MyLightSensor;
 import sensors.Position;
-import sensors.SensorPosition;
 import sensors.UpdatingSensor;
 
 /**
@@ -146,10 +145,10 @@ public class FollowTheLine extends Thread implements LightSensorListener {
 	 *      sensors.UpdatingSensor, float, float)
 	 */
 	@Override
-	public void lightSensorChanged(SensorPosition position,
+	public void lightSensorChanged(Position position,
 			UpdatingSensor updatingsensor, float oldValue, float newValue) {
 
-		if (position == SensorPosition.Left) {
+		if (position == Position.Left) {
 
 			if (newValue < THRESHOLD) {
 				leftIsDark = true;
@@ -157,7 +156,7 @@ public class FollowTheLine extends Thread implements LightSensorListener {
 				leftIsDark = false;
 			}
 		}
-		if (position == SensorPosition.Right) {
+		if (position == Position.Right) {
 
 			if (newValue < THRESHOLD) {
 

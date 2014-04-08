@@ -7,7 +7,7 @@ import controllers.ObstructionController;
 import sensors.MyColorSensor;
 import sensors.MyLightSensor;
 import sensors.MyUltraSonicSensor;
-import sensors.SensorPosition;
+import sensors.Position;
 import lejos.nxt.Button;
 import lejos.nxt.SensorPort;
 
@@ -32,8 +32,8 @@ public class Main {
 	 */
 	public static void main(String[] args) {
 		MyColorSensor cs = new MyColorSensor(SensorPort.S1,
-				SensorPosition.Right);
-		MyLightSensor ls = new MyLightSensor(SensorPort.S4, SensorPosition.Left);
+				Position.Right);
+		MyLightSensor ls = new MyLightSensor(SensorPort.S4, Position.Left);
 		MyUltraSonicSensor us = new MyUltraSonicSensor(SensorPort.S2);
 
 		GUI gui = new GUI();

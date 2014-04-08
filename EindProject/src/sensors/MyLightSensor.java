@@ -20,7 +20,7 @@ public class MyLightSensor extends lejos.nxt.LightSensor implements
 	private static final SensorType SENSORTYPE = SensorType.Lightsensor;
 	
 	private ArrayList<LightSensorListener> listeners = new ArrayList<LightSensorListener>();
-	private SensorPosition position;
+	private Position position;
 
 	/**
 	 * the constructor for the light sensor
@@ -30,7 +30,7 @@ public class MyLightSensor extends lejos.nxt.LightSensor implements
 	 * @param position
 	 *            the position the NXT
 	 */
-	public MyLightSensor(SensorPort sensorport, SensorPosition position) {
+	public MyLightSensor(SensorPort sensorport, Position position) {
 		super(sensorport);
 		this.position = position;
 		SensorHandler.getInstance().addSensor(this);

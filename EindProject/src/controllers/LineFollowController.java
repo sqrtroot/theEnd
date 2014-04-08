@@ -4,7 +4,7 @@ import gui.GUI;
 import sensors.LightSensorListener;
 import sensors.MyColorSensor;
 import sensors.MyLightSensor;
-import sensors.SensorPosition;
+import sensors.Position;
 import sensors.UpdatingSensor;
 import lejos.nxt.LCD;
 
@@ -102,9 +102,9 @@ public class LineFollowController extends Thread implements LightSensorListener 
 	 * @value newValue
 	 */
 	@Override
-	public void lightSensorChanged(SensorPosition position,
+	public void lightSensorChanged(Position position,
 			UpdatingSensor updatingsensor, float oldValue, float newValue) {
-		if (position == SensorPosition.Left) {
+		if (position == Position.Left) {
 			LCD.drawString("" + newValue, 0, 0);
 			if (newValue < THRESHOLD) {
 				leftBlack = true;
@@ -114,7 +114,7 @@ public class LineFollowController extends Thread implements LightSensorListener 
 				gui.lightSensorAlright(position);
 			}
 		}
-		if (position == SensorPosition.Right) {
+		if (position == Position.Right) {
 			LCD.drawString("" + newValue, 0, 1);
 			if (newValue < THRESHOLD) {
 				rightBlack = true;

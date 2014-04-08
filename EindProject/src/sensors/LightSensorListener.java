@@ -23,6 +23,6 @@ public interface LightSensorListener {
 	 * @param newValue
 	 *            the value after the change
 	 */
-	public void lightSensorChanged(SensorPosition position,
+	public void lightSensorChanged(Position position,
 			UpdatingSensor updatingsensor, float oldValue, float newValue);
 }

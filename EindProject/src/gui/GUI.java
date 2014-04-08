@@ -4,7 +4,7 @@ import javax.microedition.lcdui.Font;
 import javax.microedition.lcdui.Graphics;
 import javax.microedition.lcdui.Image;
 
-import sensors.SensorPosition;
+import sensors.Position;
 import lejos.nxt.Button;
 import lejos.nxt.LCD;
 
@@ -99,14 +99,14 @@ public class GUI {
 	 * @param position
 	 *            the position of the sensor, left or right, on the robot
 	 */
-	public void lightSensorAlright(SensorPosition position) {
+	public void lightSensorAlright(Position position) {
 		if (!popUp) {
 			g.setFont(FONT);
 			Image icon = Icons.ok.getIcon();
 
 			g.clear();
 
-			if (position == SensorPosition.Left) {
+			if (position == Position.Left) {
 				String message = "Left";
 				g.drawString(message, 0, 0, 0);
 				g.drawImage(icon, 0, IMAGE_Y_POSITION, 0);
@@ -129,14 +129,14 @@ public class GUI {
 	 * @param position
 	 *            the position of the sensor, left or right, on the robot
 	 */
-	public void lightensorError(SensorPosition position) {
+	public void lightensorError(Position position) {
 		if (!popUp) {
 			g.setFont(FONT);
 			Image icon = Icons.error.getIcon();
 
 			g.clear();
 
-			if (position == SensorPosition.Left) {
+			if (position == Position.Left) {
 				String message = "Left";
 				g.drawString(message, 0, 0, 0);
 				g.drawImage(icon, 0, IMAGE_Y_POSITION, 0);
