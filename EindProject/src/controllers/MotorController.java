@@ -13,14 +13,14 @@ import lejos.robotics.navigation.DifferentialPilot;
  * @since 01-04-2014
  */
 public class MotorController {
-	private final static float wheelDiameter = (float) 32;
-	private final static float wheelSpace = 180;
+	private final static float WHEEL_DIAMETER = (float) 32;
+	private final static float WHEEL_SPACE = 180;
 
 	private final static NXTRegulatedMotor leftMotor = Motor.A;
 	private final static NXTRegulatedMotor rightMotor = Motor.C;
 
 	private static DifferentialPilot differentialPilot = new DifferentialPilot(
-			wheelDiameter, wheelSpace, leftMotor, rightMotor);
+			WHEEL_DIAMETER, WHEEL_SPACE, leftMotor, rightMotor);
 
 	/**
 	 * Will make the robot drive arc with the given radius. Stops when motor is
