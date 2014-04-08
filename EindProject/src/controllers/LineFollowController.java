@@ -1,136 +1,175 @@
 package controllers;
 
-import gui.GUI;
 import sensors.LightSensorListener;
 import sensors.MyColorSensor;
 import sensors.MyLightSensor;
 import sensors.Position;
 import sensors.UpdatingSensor;
-import lejos.nxt.LCD;
 
 /**
+ * This class will guide a Lego NXT Robot via a black trail on a white surface.
  * 
- * @author Jacob Visser <Jacob.Visser@student.hu.nl>
- * @version 0.3
- * @since 01-04-2014
+ * @author Pim van Hespen <PimvanHespen@gmail.com>
+ * @version 1.4
+ * @since 04-04-2014
  */
 public class LineFollowController extends Thread implements LightSensorListener {
-	private boolean leftBlack; // Boolean that's true when the left sensor
-								// senses black and false when sensor senses
-								// white
-	private boolean rightBlack; // Boolean that's true when the right sensor
-								// senses black and false when sensor senses
-								// white
 
-	private int turnSpeed = 100;
-	private int travelSpeed = 50; // Speed that the motors turn when not making
-									// a corner
-	private int rightTravelSpeed; // Speed that the right motor turns, used when
-									// making corners
-	private int leftTravelSpeed; // Speed that the left motor turns, used when
-									// making corners
+	private static boolean pause;
+	private boolean rightIsDark = true;
+	private boolean leftIsDark = false;
+	private boolean active = true;
+	private boolean headedTowardsLine = true;
 
-	private static boolean pause = false; // Boolean used to pause the following
-											// of the line
-	public final int THRESHOLD = 50; // Beneath this amount the sensor senses
-										// black, above this amount the sensor
-										// senses white
+	private Position mostRecentDark;
+	private Position direction;
 
-	/*
-	 * private final int NUMBER_OF_SAMPLES = 20; // Amount of samples taken to
-	 * // determine the average light // value // unnecessary
-	 */
-	private GUI gui;
+	private final int ROTATION_PER_TURN = 2;
+	private final int MOTOR_ROTATION_SPEED = 80;
+	private final int BASE_SPEED_FORWARD = 80;
+	private final int INCREASED_SPEED_FORWARD = 120;
+	private final int THRESHOLD = 50;
 
-	/**
-	 * Constructor of LineFollowController(LFC), sets the attributes lightSensor
-	 * and colorSensor, makes LFC Listener of colorSensor and lightSensor, sets
-	 * the travelspeed and starts run()
-	 * 
-	 * @param cs
-	 *            The colorsensor installed on the robots' frame
-	 * @param ls
-	 *            The lightsensor installed on the robots' frame
-	 */
-	public LineFollowController(MyColorSensor cs, MyLightSensor ls, GUI gui) {
-		this.gui = gui;
+	public LineFollowController(MyColorSensor cs, MyLightSensor ls) {
+
 		cs.addListener(this);
 		ls.addListener(this);
-		MotorController.setTravelSpeed(travelSpeed);
+
 		this.start();
 	}
 
-	/**
-	 * checks, while the the boolean pause is false, if any of the sensors
-	 * senses black, and if one does so, the speed of the motor opposite to the
-	 * sensor gets increased. if none of the sensors is black the speed gets
-	 * back to normal.
+	/*
+	 * (non-Javadoc)
 	 * 
+	 * @see java.lang.Thread#run()
 	 */
+	@Override
 	public void run() {
-		MotorController.setRotateSpeed(turnSpeed);
-		while (true) {
+
+		MotorController.setTravelSpeed(BASE_SPEED_FORWARD);
+		MotorController.setRotateSpeed(MOTOR_ROTATION_SPEED);
+		MotorController.driveForward();
+
+		while (active) {
 			if (!pause) {
-
-				if (leftBlack) {
-					leftTravelSpeed = travelSpeed + 400;
-					MotorController.setIndividiualTravalSpeed(leftTravelSpeed,
-							travelSpeed);
-					MotorController.driveForward();
-					// MotorController.turnOnPlace(-10);
-				} else if (rightBlack) {
-					rightTravelSpeed = travelSpeed + 400;
-					MotorController.setIndividiualTravalSpeed(travelSpeed,
-							rightTravelSpeed);
-					MotorController.driveForward();
-
-					// MotorController.turnOnPlace(10);
+				if (leftIsDark && rightIsDark) {
+					if (mostRecentDark == Position.Left) {
+						steerRight();
+					} else {
+						steerLeft();
+					}
+				} else if (leftIsDark) {
+					forward(Position.Left);
+				} else if (rightIsDark) {
+					forward(Position.Right);
 				} else {
-					MotorController.setTravelSpeed(travelSpeed);
-					MotorController.driveForward();
+					if (mostRecentDark == Position.Left) {
+						steerLeft();
+					} else {
+						steerRight();
+					}
 				}
+				try {
+					Thread.sleep(50);
+				} catch (InterruptedException ie) {
+				}
+
+			}
+		}
+
+	}
+
+	/**
+	 * This is the setter for boolean 'active'.
+	 * 
+	 * @param incomingValue
+	 *            the value to set active to.
+	 */
+	public void setActive(boolean incomingValue) {
+		active = incomingValue;
+	}
+
+	/**
+	 * This method will make the robot turn left.
+	 */
+	private void steerLeft() {
+		headedTowardsLine = true;
+		MotorController.rotate(-ROTATION_PER_TURN, true);
+	}
+
+	/**
+	 * This method will make the robot turn right.
+	 */
+	private void steerRight() {
+		headedTowardsLine = true;
+		MotorController.rotate(ROTATION_PER_TURN, true);
+	}
+
+	/**
+	 * Updates booleans headedTowardsLine and mostRecentDark, then steers the
+	 * robot forwards and depending on the current state of headedTowardsLine
+	 * the robot will either go straight forward or slightly increase the speed
+	 * of one of two motors.
+	 * 
+	 * @param pos
+	 */
+	private void forward(Position pos) {
+
+		if (pos != mostRecentDark) {
+
+			headedTowardsLine = false;
+			mostRecentDark = pos;
+		}
+
+		System.out.println(headedTowardsLine + "\t" + direction);
+
+		if (headedTowardsLine) {
+			MotorController.setTravelSpeed(BASE_SPEED_FORWARD);
+			MotorController.driveForward();
+		} else {
+			if (pos == Position.Left) {
+				MotorController.setRightMotorSpeed(INCREASED_SPEED_FORWARD);
+				MotorController.driveForward();
+			} else {
+				MotorController.setLeftMotorSpeed(INCREASED_SPEED_FORWARD);
+				MotorController.driveForward();
 			}
 		}
 	}
 
 	/**
 	 * 
-	 * 
-	 * @param positition
-	 * @param updatingsensor
-	 * @param oldValue
-	 * @value newValue
+	 * @see sensors.LightSensorListener#lightSensorChanged(sensors.SensorPosition,
+	 *      sensors.UpdatingSensor, float, float)
 	 */
 	@Override
 	public void lightSensorChanged(Position position,
 			UpdatingSensor updatingsensor, float oldValue, float newValue) {
+
 		if (position == Position.Left) {
-			LCD.drawString("" + newValue, 0, 0);
+
 			if (newValue < THRESHOLD) {
-				leftBlack = true;
-				gui.lightensorError(position);
+				leftIsDark = true;
 			} else {
-				leftBlack = false;
-				gui.lightSensorAlright(position);
+				leftIsDark = false;
 			}
 		}
 		if (position == Position.Right) {
-			LCD.drawString("" + newValue, 0, 1);
+
 			if (newValue < THRESHOLD) {
-				rightBlack = true;
-				gui.lightensorError(position);
+
+				rightIsDark = true;
 			} else {
-				rightBlack = false;
-				gui.lightSensorAlright(position);
+				rightIsDark = false;
 			}
 		}
 	}
 
-	public static void pauseLineFollowing() {
+	public static void pauseLineFollower() {
 		pause = true;
 	}
 
-	public static void continueLineFollowing() {
+	public static void continueLineFollower() {
 		pause = false;
 	}
 

@@ -2,7 +2,7 @@ package nxt;
 
 import gui.GUI;
 import controllers.CalibrationController;
-import controllers.FollowTheLine;
+import controllers.LineFollowController;
 import controllers.ObstructionController;
 import sensors.MyColorSensor;
 import sensors.MyLightSensor;
@@ -41,7 +41,7 @@ public class Main {
 
 		new CalibrationController(cs, ls, gui);
 		new ObstructionController(cs, ls, us, gui);
-		new FollowTheLine(cs, ls);
+		new LineFollowController(cs, ls);
 
 	}
 }

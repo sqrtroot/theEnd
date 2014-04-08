@@ -71,7 +71,7 @@ public class ObstructionController implements LightSensorListener,
 		boolean noLineFound = true;
 		while (noLineFound) {
 
-			FollowTheLine.pauseLineFollowing();
+			LineFollowController.pauseLineFollower();
 			MotorController.rotate(-90, false);
 			MotorController.DriveArc((SAFE_DISTANCE * 10), ARC_DEGREES, true);
 
@@ -85,7 +85,7 @@ public class ObstructionController implements LightSensorListener,
 			noLineFound = false;
 		}
 
-		FollowTheLine.continueLineFollowing();
+		LineFollowController.continueLineFollower();
 	}
 
 	/**
