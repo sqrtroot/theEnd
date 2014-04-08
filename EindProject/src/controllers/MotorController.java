@@ -17,11 +17,11 @@ public class MotorController {
 	private final static float WHEEL_DIAMETER = (float) 32;
 	private final static float WHEEL_SPACE = 180;
 
-	private final static NXTRegulatedMotor leftMotor = Motor.A;
-	private final static NXTRegulatedMotor rightMotor = Motor.C;
+	private final static NXTRegulatedMotor LEFT_MOTOR = Motor.A;
+	private final static NXTRegulatedMotor RIGHT_MOTOR = Motor.C;
 
 	private static DifferentialPilot differentialPilot = new DifferentialPilot(
-			WHEEL_DIAMETER, WHEEL_SPACE, leftMotor, rightMotor);
+			WHEEL_DIAMETER, WHEEL_SPACE, LEFT_MOTOR, RIGHT_MOTOR);
 
 	/**
 	 * Will make the robot drive arc with the given radius. Stops when motor is
@@ -142,8 +142,8 @@ public class MotorController {
 	 */
 	public static void setIndividiualTravalSpeed(int leftMotorSpeed,
 			int rightMotorSpeed) {
-		leftMotor.setSpeed(leftMotorSpeed);
-		rightMotor.setSpeed(rightMotorSpeed);
+		LEFT_MOTOR.setSpeed(leftMotorSpeed);
+		RIGHT_MOTOR.setSpeed(rightMotorSpeed);
 	}
 
 	/**
@@ -153,7 +153,7 @@ public class MotorController {
 	 *            in degrees per second
 	 */
 	public static void setLeftMotorSpeed(int speed) {
-		leftMotor.setSpeed(speed);
+		LEFT_MOTOR.setSpeed(speed);
 	}
 
 	/**
@@ -163,6 +163,6 @@ public class MotorController {
 	 *            in degrees per second
 	 */
 	public static void setRightMotorSpeed(int speed) {
-		rightMotor.setSpeed(speed);
+		RIGHT_MOTOR.setSpeed(speed);
 	}
 }

@@ -69,17 +69,21 @@ public class CalibrationController {
 		// integers used to store all the required values for the calibration.
 		int colorLow = 1023, colorHigh = 0, lightLow = 1023, lightHigh = 0;
 		int currentLightValue = 0, currentColorValue = 0;
-		
+
 		while (MotorController.moving()) {
-			
+
 			currentLightValue = lightSensor.getNormalizedLightValue();
 			currentColorValue = colorSensor.getRawLightValue();
-			
-			if(currentColorValue  > colorHigh)colorHigh = currentColorValue;
-			else if(currentColorValue < colorLow)colorLow = currentColorValue;
-			if(currentLightValue > lightHigh)lightHigh = currentLightValue;
-			else if(currentLightValue < lightLow)lightLow = currentLightValue;
-			
+
+			if (currentColorValue > colorHigh)
+				colorHigh = currentColorValue;
+			else if (currentColorValue < colorLow)
+				colorLow = currentColorValue;
+			if (currentLightValue > lightHigh)
+				lightHigh = currentLightValue;
+			else if (currentLightValue < lightLow)
+				lightLow = currentLightValue;
+
 		}
 
 		// Set the highest and lowest measured values from the measurements as
@@ -94,7 +98,8 @@ public class CalibrationController {
 		MotorController.rotate(CIRCLE, true);
 
 		while (MotorController.moving()) {
-			if (lightSensor.getLightValue() < MEDIAN && colorSensor.getLightValue() > MEDIAN) {
+			if (lightSensor.getLightValue() < MEDIAN
+					&& colorSensor.getLightValue() > MEDIAN) {
 				MotorController.stop();
 			}
 		}

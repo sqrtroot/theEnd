@@ -103,7 +103,7 @@ public class ObstructionController implements LightSensorListener,
 			float newValue) {
 
 		currentDistance = (int) newValue;
-		
+
 		if (!isExecuting) {
 			if (newValue < SAFE_DISTANCE) {
 				Sound.beepSequence();
@@ -115,7 +115,6 @@ public class ObstructionController implements LightSensorListener,
 				gui.cancelPopUp();
 			}
 
-			
 		}
 	}
 
