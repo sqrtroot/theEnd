@@ -5,6 +5,7 @@ import lejos.nxt.NXTRegulatedMotor;
 import lejos.robotics.navigation.DifferentialPilot;
 
 /**
+ * This class allows other classes to steer the motor
  * 
  * @author Robert Bezem <robert.bezem@student.hu.nl>
  * @author Jacob Visser <jacob.visser@student.hu.nl>
