@@ -1,5 +1,6 @@
 package controllers;
 
+import gui.GUI;
 import sensors.LightSensorListener;
 import sensors.MyColorSensor;
 import sensors.MyLightSensor;
@@ -15,6 +16,8 @@ import sensors.UpdatingSensor;
  */
 public class LineFollowController extends Thread implements LightSensorListener {
 
+	private GUI gui;
+
 	private static boolean pause;
 	private boolean rightIsDark = true;
 	private boolean leftIsDark = false;
@@ -26,17 +29,17 @@ public class LineFollowController extends Thread implements LightSensorListener 
 
 	private final int ROTATION_PER_TURN = 2;
 	private final int MOTOR_ROTATION_SPEED = 80;
-	
-	private final int BASE_SPEED_FORWARD = 160;	
+
+	private final int BASE_SPEED_FORWARD = 160;
 	private final int INCREASED_SPEED_FORWARD = BASE_SPEED_FORWARD + 40;
-	
+
 	private final int THRESHOLD = 50;
 
-	public LineFollowController(MyColorSensor cs, MyLightSensor ls) {
+	public LineFollowController(MyColorSensor cs, MyLightSensor ls, GUI gui) {
 
 		cs.addListener(this);
 		ls.addListener(this);
-
+		this.gui = gui;
 		this.start();
 	}
 
@@ -150,17 +153,20 @@ public class LineFollowController extends Thread implements LightSensorListener 
 
 			if (newValue < THRESHOLD) {
 				leftIsDark = true;
+				gui.lightensorError(position);
 			} else {
 				leftIsDark = false;
+				gui.lightSensorAlright(position);
 			}
 		}
 		if (position == Position.Right) {
 
 			if (newValue < THRESHOLD) {
-
 				rightIsDark = true;
+				gui.lightensorError(position);
 			} else {
 				rightIsDark = false;
+				gui.lightensorError(position);
 			}
 		}
 	}
