@@ -9,6 +9,7 @@ import sensors.Position;
 import sensors.UltrasonicSensorListener;
 import sensors.UpdatingSensor;
 import lejos.nxt.Sound;
+import motors.MotorController;
 
 /**
  * This class will evade objects
@@ -75,14 +76,15 @@ public class ObstructionController implements LightSensorListener,
 			MotorController.rotate(-90, false);
 			MotorController.DriveArc((SAFE_DISTANCE * 10), ARC_DEGREES, true);
 
-			while (MotorController.moving()) {
 
-				if (sensorValueLeft < MEDIAN || sensorValueRight < MEDIAN)
+			while (MotorController.moving()) {
+				if (sensorValueLeft < MEDIAN || sensorValueRight < MEDIAN) {
 					MotorController.stop();
+					noLineFound = false;
+				}
 
 			}
 
-			noLineFound = false;
 		}
 
 		LineFollowController.continueLineFollower();
@@ -103,12 +105,8 @@ public class ObstructionController implements LightSensorListener,
 			float newValue) {
 
 		currentDistance = (int) newValue;
-
 		if (!isExecuting) {
 			if (newValue < SAFE_DISTANCE) {
-				Sound.beepSequence();
-				Sound.buzz();
-				Sound.beepSequenceUp();
 				gui.showErrorPopUp("Object to close");
 				evasiveManeuver();
 			} else {

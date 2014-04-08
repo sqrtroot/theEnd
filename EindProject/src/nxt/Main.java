@@ -2,6 +2,7 @@ package nxt;
 
 import gui.GUI;
 import controllers.CalibrationController;
+import controllers.CopyOfObstructionController;
 import controllers.LineFollowController;
 import controllers.ObstructionController;
 import sensors.MyColorSensor;
@@ -39,8 +40,9 @@ public class Main {
 		Button.waitForAnyPress();
 
 		new CalibrationController(cs, ls, gui);
-		new ObstructionController(cs, ls, us, gui);
+		new CopyOfObstructionController(cs, ls, us, gui);
 		new LineFollowController(cs, ls, gui);
+		Button.waitForAnyPress();
 
 	}
 }

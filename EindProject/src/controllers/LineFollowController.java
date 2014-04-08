@@ -1,5 +1,6 @@
 package controllers;
 
+import motors.MotorController;
 import gui.GUI;
 import sensors.LightSensorListener;
 import sensors.MyColorSensor;
@@ -97,6 +98,7 @@ public class LineFollowController extends Thread implements LightSensorListener 
 	 * This method will make the robot turn left.
 	 */
 	private void steerLeft() {
+		gui.showErrorPopUp("turning left");
 		headedTowardsLine = true;
 		MotorController.rotate(-ROTATION_PER_TURN, true);
 	}
@@ -105,6 +107,7 @@ public class LineFollowController extends Thread implements LightSensorListener 
 	 * This method will make the robot turn right.
 	 */
 	private void steerRight() {
+		gui.showErrorPopUp("turning right");
 		headedTowardsLine = true;
 		MotorController.rotate(ROTATION_PER_TURN, true);
 	}
@@ -118,7 +121,7 @@ public class LineFollowController extends Thread implements LightSensorListener 
 	 * @param pos
 	 */
 	private void forward(Position pos) {
-
+		gui.showAlrightPopUp("driving");
 		if (pos != mostRecentDark) {
 
 			headedTowardsLine = false;
@@ -152,20 +155,16 @@ public class LineFollowController extends Thread implements LightSensorListener 
 
 			if (newValue < THRESHOLD) {
 				leftIsDark = true;
-				gui.lightensorError(position);
 			} else {
 				leftIsDark = false;
-				gui.lightSensorAlright(position);
 			}
 		}
 		if (position == Position.Right) {
 
 			if (newValue < THRESHOLD) {
 				rightIsDark = true;
-				gui.lightensorError(position);
 			} else {
 				rightIsDark = false;
-				gui.lightensorError(position);
 			}
 		}
 	}

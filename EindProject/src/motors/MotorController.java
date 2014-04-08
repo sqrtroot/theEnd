@@ -1,4 +1,4 @@
-package controllers;
+package motors;
 
 import lejos.nxt.Motor;
 import lejos.nxt.NXTRegulatedMotor;
@@ -80,6 +80,9 @@ public class MotorController {
 	 * @param turnRadius
 	 *            radius in millimeters
 	 * @param immediateReturn
+	 *            if true, immediately returns to the next line of code while
+	 *            executing the arc
+	 * 
 	 */
 	public static void driveArc(float turnRadius, boolean immediateReturn) {
 		differentialPilot.arc(turnRadius, 360, immediateReturn);

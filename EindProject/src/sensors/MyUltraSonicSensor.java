@@ -16,9 +16,9 @@ public class MyUltraSonicSensor extends lejos.nxt.UltrasonicSensor implements
 		UpdatingSensor {
 
 	private int value;
-	
+
 	private static final SensorType SENSORTYPE = SensorType.Ultrasonicsensor;
-	
+
 	private ArrayList<UltrasonicSensorListener> listeners = new ArrayList<UltrasonicSensorListener>();
 
 	/**
@@ -36,7 +36,7 @@ public class MyUltraSonicSensor extends lejos.nxt.UltrasonicSensor implements
 	 * @see sensors.UpdatingSensor#updateState()
 	 */
 	public void updateState() {
-		if (listeners.size() < 0) {
+		if (listeners.size() > 0) {
 			int tmp = (int) getRange();
 			if (tmp != value) {
 				for (UltrasonicSensorListener listener : listeners)

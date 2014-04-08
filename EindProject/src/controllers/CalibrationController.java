@@ -4,12 +4,13 @@ import gui.GUI;
 import sensors.MyColorSensor;
 import sensors.MyLightSensor;
 import lejos.nxt.ColorSensor.Color;
+import motors.MotorController;
 
 /**
  * This class calibrates the light and color sensors
  * 
- * @author Pim van Hespen <pimvanhespen@gmail.com>
- * @version 1.3
+ * @author Robert Bezem <robert.bezem@student.hu.nl
+ * @version 1.5
  * @since 02-04-2014
  * 
  *        This class calibrates both Light and MyColorSensor for further usage.
@@ -63,7 +64,7 @@ public class CalibrationController {
 		// Let the robot drive one 'CIRCLE' with a speed of 45 degrees per
 		// second. Then, while the robot is moving, also start measuring raw
 		// light values and add these values to their designated ArrayLists.
-		MotorController.setRotateSpeed(45);
+		MotorController.setRotateSpeed(100);// was 45
 		MotorController.rotate(CIRCLE, true);
 
 		// integers used to store all the required values for the calibration.
