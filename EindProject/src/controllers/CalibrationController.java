@@ -60,15 +60,15 @@ public class CalibrationController {
 		colorSensor.setFloodlight(true);
 		lightSensor.setFloodlight(true);
 
+		// integers used to store all the required values for the calibration.
+		int colorLow = 1023, colorHigh = 0, lightLow = 1023, lightHigh = 0;
+		int currentLightValue = 0, currentColorValue = 0;
+		
 		// Let the robot drive one 'CIRCLE' with a speed of 45 degrees per
 		// second. Then, while the robot is moving, also start measuring raw
 		// light values and add these values to their designated ArrayLists.
 		MotorController.setRotateSpeed(100); // was 45
 		MotorController.rotate(CIRCLE, true);
-
-		// integers used to store all the required values for the calibration.
-		int colorLow = 1023, colorHigh = 0, lightLow = 1023, lightHigh = 0;
-		int currentLightValue = 0, currentColorValue = 0;
 
 		while (MotorController.moving()) {
 
