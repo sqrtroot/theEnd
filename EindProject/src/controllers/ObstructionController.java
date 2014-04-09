@@ -24,11 +24,12 @@ public class ObstructionController implements LightSensorListener,
 
 	private boolean firstEvasion = true;
 
+	private final int ROTATE_SPEED = 100;
 	private final int SAFE_DISTANCE = 20;
 	private final int MEDIAN = 50;
-	private final int RADIUS = 600;
-	private final int FIRST_TURN_ANGLE = 90;
-	private final int SECOND_TURN_ANGLE = 40;
+	private final int RADIUS = 500;
+	private final int FIRST_TURN_ANGLE = -240;
+	private final int SECOND_TURN_ANGLE = -50;
 
 	private boolean noLineFound = true;
 	private boolean isExecuting = false;
@@ -61,10 +62,9 @@ public class ObstructionController implements LightSensorListener,
 	}
 
 	public void run() {
-
 		isExecuting = true;
 		LineFollowController.pauseLineFollower();
-		MotorController.setRotateSpeed(100);
+		MotorController.setRotateSpeed(ROTATE_SPEED);
 		if (firstEvasion) {
 			MotorController.rotate(FIRST_TURN_ANGLE, false);
 		} else {
@@ -95,10 +95,12 @@ public class ObstructionController implements LightSensorListener,
 	@Override
 	public void ultraSonicChanged(UpdatingSensor us, float oldValue,
 			float newValue) {
-		if (newValue < SAFE_DISTANCE && !isExecuting) {
-			startEvasion();
-		} else if (newValue < SAFE_DISTANCE) {
-			resetEvasion();
+		if (newValue < SAFE_DISTANCE) {
+			if (!isExecuting) {
+				startEvasion();
+			} else {
+				resetEvasion();
+			}
 		}
 	}
 
@@ -109,6 +111,7 @@ public class ObstructionController implements LightSensorListener,
 		firstEvasion = true;
 		thread = new Thread(this);
 		thread.start();
+		gui.showErrorPopUp("Object to close");
 
 	}
 

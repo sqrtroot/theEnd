@@ -43,7 +43,7 @@ public class Main {
 		new ObstructionController(cs, ls, us, gui);
 		new LineFollowController(cs, ls, gui);
 		Button.waitForAnyPress();
-		for (int i = 0; i < 50; i++) {
+		for (int i = 0; i < 2; i++) {
 			Sound.beepSequenceUp();
 			Sound.beepSequence();
 			
