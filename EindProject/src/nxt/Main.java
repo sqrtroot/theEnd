@@ -3,12 +3,13 @@ package nxt;
 import gui.GUI;
 import lejos.nxt.Button;
 import lejos.nxt.SensorPort;
+import lejos.nxt.Sound;
 import sensors.MyColorSensor;
 import sensors.MyLightSensor;
 import sensors.MyUltraSonicSensor;
 import sensors.Position;
 import controllers.CalibrationController;
-import controllers.CopyOfObstructionController;
+import controllers.ObstructionController;
 import controllers.LineFollowController;
 
 /**
@@ -39,9 +40,15 @@ public class Main {
 		Button.waitForAnyPress();
 
 		new CalibrationController(cs, ls, gui);
-		new CopyOfObstructionController(cs, ls, us, gui);
+		new ObstructionController(cs, ls, us, gui);
 		new LineFollowController(cs, ls, gui);
 		Button.waitForAnyPress();
+		for (int i = 0; i < 50; i++) {
+			Sound.beepSequenceUp();
+			Sound.beepSequence();
+			
+			
+		}
 		System.exit(1);
 
 	}

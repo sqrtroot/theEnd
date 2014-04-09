@@ -14,23 +14,26 @@ import motors.MotorController;
 /**
  * This class will evade objects
  * 
- * @author Pim van Hespen <Pimvanhespen@gmail.com>
+ * @author Robert Bezem <robert.bezem@student.hu.nl>
  * @version 1.2
  * @since 01-04-2014
  * 
  */
 public class ObstructionController implements LightSensorListener,
-		UltrasonicSensorListener {
+		UltrasonicSensorListener, Runnable {
 
-	private int currentDistance;
-	private int sensorValueLeft;
-	private int sensorValueRight;
+	private boolean firstEvasion = true;
 
 	private final int SAFE_DISTANCE = 20;
-	private final int ARC_DEGREES = 360;
 	private final int MEDIAN = 50;
+	private final int RADIUS = 600;
+	private final int FIRST_TURN_ANGLE = 90;
+	private final int SECOND_TURN_ANGLE = 40;
 
+	private boolean noLineFound = true;
 	private boolean isExecuting = false;
+
+	private Thread thread;
 
 	private GUI gui;
 
@@ -49,53 +52,42 @@ public class ObstructionController implements LightSensorListener,
 
 	public ObstructionController(MyColorSensor cs, MyLightSensor ls,
 			MyUltraSonicSensor us, GUI gui) {
-
+		System.out.println("linefollowcontroller");
 		this.gui = gui;
 
 		cs.addListener(this);
 		ls.addListener(this);
 		us.addListener(this);
-
-		currentDistance = 255;
-		sensorValueLeft = 0;
-		sensorValueRight = 0;
 	}
 
-	/**
-	 * This method checks the current distance to the object. Whenever the
-	 * object distance is smaller than the safe distance, this method will
-	 * perform a 360 degree circle around the found object and stops driving the
-	 * circle when the line has been found again.
-	 */
-	private void evasiveManeuver() {
+	public void run() {
 
-		boolean noLineFound = true;
+		isExecuting = true;
+		LineFollowController.pauseLineFollower();
+		MotorController.setRotateSpeed(100);
+		if (firstEvasion) {
+			MotorController.rotate(FIRST_TURN_ANGLE, false);
+		} else {
+			MotorController.rotate(SECOND_TURN_ANGLE, false);
+		}
+		MotorController.driveArc(RADIUS, true);
+		noLineFound = true;
 		while (noLineFound) {
 
-			LineFollowController.pauseLineFollower();
-			MotorController.rotate(-90, false);
-			MotorController.driveArc((SAFE_DISTANCE * 10), ARC_DEGREES, true);
-
-
-			while (MotorController.moving()) {
-				if (sensorValueLeft < MEDIAN || sensorValueRight < MEDIAN) {
-					MotorController.stop();
-					noLineFound = false;
-				}
-
-			}
-
 		}
-
 		LineFollowController.continueLineFollower();
+		gui.cancelPopUp();
+		firstEvasion = true;
+		isExecuting = false;
+
 	}
 
 	/**
 	 * If the measured value from the ultrasonic sensor changes this method is
 	 * called. When called this method checks of the new value is smaller than
-	 * the safe value, if that's true the robot plays sounds, displays a message
-	 * and starts a evasive maneuver. When the new value is bigger than the save
-	 * distance any messages on the display disappear.
+	 * the safe value, if that's true the robot displays a message and starts a
+	 * evasive maneuver. When the new value is bigger than the save distance any
+	 * messages on the display disappear. *
 	 * 
 	 * @see sensors.UltrasonicSensorListener#ultraSonicChanged(sensors.UpdatingSensor,
 	 *      float, float)
@@ -103,17 +95,32 @@ public class ObstructionController implements LightSensorListener,
 	@Override
 	public void ultraSonicChanged(UpdatingSensor us, float oldValue,
 			float newValue) {
-
-		currentDistance = (int) newValue;
-		if (!isExecuting) {
-			if (newValue < SAFE_DISTANCE) {
-				gui.showErrorPopUp("Object to close");
-				evasiveManeuver();
-			} else {
-				gui.cancelPopUp();
-			}
-
+		if (newValue < SAFE_DISTANCE && !isExecuting) {
+			startEvasion();
+		} else if (newValue < SAFE_DISTANCE) {
+			resetEvasion();
 		}
+	}
+
+	/**
+	 * this starts the evasion thread for the first time.
+	 */
+	private void startEvasion() {
+		firstEvasion = true;
+		thread = new Thread(this);
+		thread.start();
+
+	}
+
+	/**
+	 * this resets the thread and starts it again.
+	 */
+	private void resetEvasion() {
+		thread.interrupt();
+		thread = null;
+		firstEvasion = false;
+		thread = new Thread(this);
+		thread.start();
 	}
 
 	/**
@@ -127,9 +134,14 @@ public class ObstructionController implements LightSensorListener,
 	@Override
 	public void lightSensorChanged(Position position,
 			UpdatingSensor updatingsensor, float oldValue, float newValue) {
-		if (position == Position.Left)
-			sensorValueLeft = (int) newValue;
-		else if (position == Position.Right)
-			sensorValueRight = (int) newValue;
+		if (isExecuting) {
+			if (position == Position.Left && newValue < MEDIAN) {
+				noLineFound = false;
+			} else if (position == Position.Right && newValue < MEDIAN) {
+				noLineFound = false;
+
+			}
+		}
+
 	}
 }

@@ -35,6 +35,8 @@ public class LineFollowController extends Thread implements LightSensorListener 
 	private final int INCREASED_SPEED_FORWARD = BASE_SPEED_FORWARD + 40;
 	private final int THRESHOLD = 50;
 
+	private final long SLEEP_INTERVAL = 50;
+
 	public LineFollowController(MyColorSensor cs, MyLightSensor ls, GUI gui) {
 		cs.addListener(this);
 		ls.addListener(this);
@@ -74,7 +76,7 @@ public class LineFollowController extends Thread implements LightSensorListener 
 					}
 				}
 				try {
-					Thread.sleep(50);
+					Thread.sleep(SLEEP_INTERVAL);
 				} catch (InterruptedException ie) {
 				}
 
