@@ -179,7 +179,11 @@ public class MotorController {
 		RIGHT_MOTOR.setSpeed(speed);
 	}
 
-	public static double getCurrentSpeed() {
+	public static double getRotatepeed() {
 		return differentialPilot.getRotateSpeed();
+	}
+
+	public static double getTravelSpeed() {
+		return differentialPilot.getTravelSpeed();
 	}
 }

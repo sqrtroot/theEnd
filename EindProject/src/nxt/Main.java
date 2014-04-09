@@ -2,6 +2,7 @@ package nxt;
 
 import gui.GUI;
 import controllers.CalibrationController;
+import controllers.CopyOfLineFollowController;
 import controllers.CopyOfObstructionController;
 import controllers.LineFollowController;
 import controllers.ObstructionController;
