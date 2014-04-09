@@ -12,7 +12,6 @@ import sensors.UpdatingSensor;
  * This class will guide a Lego NXT Robot via a black trail on a white surface.
  * 
  * @author Pim van Hespen <PimvanHespen@gmail.com>
- * @author Jacob Visser <Jacob.Visser@student.hu.nl>
  * @version 1.5
  * @since 04-04-2014
  * 
@@ -129,7 +128,7 @@ public class LineFollowController extends Thread implements LightSensorListener 
 	 * the robot will either go straight forward or slightly increase the speed
 	 * of one of two motors.
 	 * 
-	 * @param pos
+	 * @param pos the position of the sensor
 	 */
 	private void forward(Position pos) {
 		gui.showAlrightPopUp("driving");
