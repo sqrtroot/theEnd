@@ -9,7 +9,7 @@ import motors.MotorController;
 /**
  * This class calibrates the light and color sensors
  * 
- * @author Jacob Visser <jacob.visser@student.hu.nl>
+ * @author Pim van Hespen <PimvanHespen@gmail.com>
  * @version 1.5
  * @since 02-04-2014
  * 
@@ -18,7 +18,7 @@ import motors.MotorController;
 public class CalibrationController {
 
 	private MyColorSensor colorSensor; // /< MyColorSensor object.
-	private MyLightSensor lightSensor; // /< Lightsensor object.
+	private MyLightSensor lightSensor; // /< LightSensor object.
 
 	private final int CIRCLE = 360; // /< 360, the amount of degrees in a
 									// circle, therefore called CIRCLE
