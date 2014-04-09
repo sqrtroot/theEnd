@@ -10,7 +10,8 @@ import motors.MotorController;
  * This class calibrates the light and color sensors
  * 
  * @author Pim van Hespen <PimvanHespen@gmail.com>
- * @version 1.5
+ * @author Jacob Visser <Jacob.Visser@student.hu.nl>
+ * @version 1.6
  * @since 02-04-2014
  * 
  *        This class calibrates both Light and MyColorSensor for further usage.
@@ -22,8 +23,6 @@ public class CalibrationController {
 
 	private final int CIRCLE = 360; // /< 360, the amount of degrees in a
 									// circle, therefore called CIRCLE
-	private final int MEDIAN = 50; // /< 50 is the MEDIAN of 0 and 100. used to
-									// distinguish between high and low values.
 
 	/**
 	 * Constructor for the CalibrationController class.
@@ -64,7 +63,7 @@ public class CalibrationController {
 		// Let the robot drive one 'CIRCLE' with a speed of 45 degrees per
 		// second. Then, while the robot is moving, also start measuring raw
 		// light values and add these values to their designated ArrayLists.
-		MotorController.setRotateSpeed(100);// was 45
+		MotorController.setRotateSpeed(100); // was 45
 		MotorController.rotate(CIRCLE, true);
 
 		// integers used to store all the required values for the calibration.
@@ -94,16 +93,6 @@ public class CalibrationController {
 		lightSensor.setLow(lightLow);
 		colorSensor.setHigh(colorHigh);
 		colorSensor.setLow(colorLow);
-
-		// Drive another circle until the black line is found.
-		MotorController.rotate(CIRCLE, true);
-
-		while (MotorController.moving()) {
-			if (lightSensor.getLightValue() < MEDIAN
-					&& colorSensor.getLightValue() > MEDIAN) {
-				MotorController.stop();
-			}
-		}
 	}
 
 }

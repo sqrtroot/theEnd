@@ -12,8 +12,11 @@ import sensors.UpdatingSensor;
  * This class will guide a Lego NXT Robot via a black trail on a white surface.
  * 
  * @author Pim van Hespen <PimvanHespen@gmail.com>
- * @version 1.4
+ * @author Jacob Visser <Jacob.Visser@student.hu.nl>
+ * @version 1.5
  * @since 04-04-2014
+ * 
+ * 
  */
 public class LineFollowController extends Thread implements LightSensorListener {
 
@@ -27,13 +30,13 @@ public class LineFollowController extends Thread implements LightSensorListener 
 	private boolean headedTowardsLine = true;
 
 	private Position mostRecentDark;
-	private Position direction;
 
 	private final int ROTATION_PER_TURN = 5;
 	private final int MOTOR_ROTATION_SPEED = 240;
 	private final int BASE_SPEED_FORWARD = 160;
 	private final int INCREASED_SPEED_FORWARD = BASE_SPEED_FORWARD + 40;
 	private final int THRESHOLD = 50;
+	private final int CIRCLE = 360;
 
 	private final long SLEEP_INTERVAL = 50;
 
@@ -51,6 +54,15 @@ public class LineFollowController extends Thread implements LightSensorListener 
 	 */
 	@Override
 	public void run() {
+		
+		// Drive another circle until the black line is found.
+		MotorController.rotate(CIRCLE, true);
+
+		while (MotorController.moving()) {
+			if (leftIsDark && !rightIsDark) {
+				MotorController.stop();
+			}
+		}
 
 		MotorController.setTravelSpeed(BASE_SPEED_FORWARD);
 		MotorController.setRotateSpeed(MOTOR_ROTATION_SPEED);

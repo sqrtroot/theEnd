@@ -8,7 +8,6 @@ import sensors.MyUltraSonicSensor;
 import sensors.Position;
 import sensors.UltrasonicSensorListener;
 import sensors.UpdatingSensor;
-import lejos.nxt.Sound;
 import motors.MotorController;
 
 /**
