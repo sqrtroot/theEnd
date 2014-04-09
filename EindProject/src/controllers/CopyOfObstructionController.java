@@ -22,10 +22,13 @@ import motors.MotorController;
 public class CopyOfObstructionController implements LightSensorListener,
 		UltrasonicSensorListener, Runnable {
 
-	private boolean first = true;
+	private boolean firstEvasion = true;
 
 	private final int SAFE_DISTANCE = 20;
 	private final int MEDIAN = 50;
+	private final int RADIUS = 600;
+	private final int FIRST_TURN_ANGLE = -90;
+	private final int SECOND_TURN_ANGLE = -40;
 
 	private boolean noLineFound = true;
 	private boolean isExecuting = false;
@@ -62,19 +65,19 @@ public class CopyOfObstructionController implements LightSensorListener,
 		isExecuting = true;
 		LineFollowController.pauseLineFollower();
 		MotorController.setRotateSpeed(100);
-		if (first) {
-			MotorController.rotate(-40, false);
+		if (firstEvasion) {
+			MotorController.rotate(FIRST_TURN_ANGLE, false);
 		} else {
-			MotorController.rotate(-20, false);
+			MotorController.rotate(SECOND_TURN_ANGLE, false);
 		}
-		MotorController.driveArc(SAFE_DISTANCE * 10, false);
+		MotorController.driveArc(RADIUS, true);
 		noLineFound = true;
 		while (noLineFound) {
 
 		}
 		LineFollowController.continueLineFollower();
 		gui.cancelPopUp();
-		first = true;
+		firstEvasion = true;
 		isExecuting = false;
 
 	}
@@ -103,7 +106,7 @@ public class CopyOfObstructionController implements LightSensorListener,
 	 * this starts the evasion thread for the first time.
 	 */
 	private void startEvasion() {
-		first = true;
+		firstEvasion = true;
 		thread = new Thread(this);
 		thread.start();
 
@@ -115,7 +118,7 @@ public class CopyOfObstructionController implements LightSensorListener,
 	private void resetEvasion() {
 		thread.interrupt();
 		thread = null;
-		first = false;
+		firstEvasion = false;
 		thread = new Thread(this);
 		thread.start();
 	}
@@ -135,7 +138,6 @@ public class CopyOfObstructionController implements LightSensorListener,
 			if (position == Position.Left && newValue < MEDIAN) {
 				noLineFound = false;
 			} else if (position == Position.Right && newValue < MEDIAN) {
-				System.out.println("restart");
 				noLineFound = false;
 
 			}

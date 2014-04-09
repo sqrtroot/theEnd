@@ -1,17 +1,15 @@
 package nxt;
 
 import gui.GUI;
-import controllers.CalibrationController;
-import controllers.CopyOfLineFollowController;
-import controllers.CopyOfObstructionController;
-import controllers.LineFollowController;
-import controllers.ObstructionController;
+import lejos.nxt.Button;
+import lejos.nxt.SensorPort;
 import sensors.MyColorSensor;
 import sensors.MyLightSensor;
 import sensors.MyUltraSonicSensor;
 import sensors.Position;
-import lejos.nxt.Button;
-import lejos.nxt.SensorPort;
+import controllers.CalibrationController;
+import controllers.CopyOfObstructionController;
+import controllers.LineFollowController;
 
 /**
  * This class starts all required controllers to control the robot.

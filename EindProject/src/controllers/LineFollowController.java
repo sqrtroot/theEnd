@@ -30,7 +30,7 @@ public class LineFollowController extends Thread implements LightSensorListener 
 	private Position direction;
 
 	private final int ROTATION_PER_TURN = 2;
-	private final int MOTOR_ROTATION_SPEED = 80;
+	private final int MOTOR_ROTATION_SPEED = 150;
 	private final int BASE_SPEED_FORWARD = 160;
 	private final int INCREASED_SPEED_FORWARD = BASE_SPEED_FORWARD + 40;
 	private final int THRESHOLD = 50;

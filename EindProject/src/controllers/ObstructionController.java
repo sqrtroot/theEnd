@@ -74,7 +74,7 @@ public class ObstructionController implements LightSensorListener,
 
 			LineFollowController.pauseLineFollower();
 			MotorController.rotate(-90, false);
-			MotorController.DriveArc((SAFE_DISTANCE * 10), ARC_DEGREES, true);
+			MotorController.driveArc((SAFE_DISTANCE * 10), ARC_DEGREES, true);
 
 
 			while (MotorController.moving()) {

@@ -99,7 +99,7 @@ public class MotorController {
 	 *            executing the arc
 	 * 
 	 */
-	public static void DriveArc(int radius, int degrees,
+	public static void driveArc(int radius, int degrees,
 			boolean immmediateReturn) {
 		differentialPilot.arc(radius, degrees, immmediateReturn);
 	}
