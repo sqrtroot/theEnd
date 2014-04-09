@@ -10,7 +10,6 @@ import motors.MotorController;
  * This class calibrates the light and color sensors
  * 
  * @author Pim van Hespen <PimvanHespen@gmail.com>
- * @author Jacob Visser <Jacob.Visser@student.hu.nl>
  * @version 1.6
  * @since 02-04-2014
  * 
@@ -30,7 +29,7 @@ public class CalibrationController {
 	 * @param myColorSensor
 	 *            the MyColorSensor that has to be calibrated.
 	 * @param myLightSensor
-	 *            the Lightsensor that has to be calibrated.
+	 *            the Mylightsensor that has to be calibrated.
 	 * @see MyColorSensor
 	 * @see MyLightSensor
 	 * 
@@ -50,7 +49,7 @@ public class CalibrationController {
 
 	/**
 	 * This class will calibrate all given Sensors, as of now there are only two
-	 * Sensors: one MyColorSensor and one Lightsensor.
+	 * Sensors: one color sensor and one light sensor.
 	 */
 	public void calibrateAllSensors() {
 
