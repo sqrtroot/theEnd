@@ -1,0 +1,202 @@
+\hypertarget{classsensors_1_1_my_color_sensor}{\section{sensors.\-My\-Color\-Sensor Class Reference}
+\label{classsensors_1_1_my_color_sensor}\index{sensors.\-My\-Color\-Sensor@{sensors.\-My\-Color\-Sensor}}
+}
+Inheritance diagram for sensors.\-My\-Color\-Sensor\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classsensors_1_1_my_color_sensor}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classsensors_1_1_my_color_sensor_a9058deb72ccfa0f38def0b10e971be76}{My\-Color\-Sensor} (Sensor\-Port sensorport, \hyperlink{enumsensors_1_1_position}{Position} position)
+\item 
+void \hyperlink{classsensors_1_1_my_color_sensor_a17324aa0de8fa9ab45bb2c1450e0119a}{update\-State} ()
+\item 
+void \hyperlink{classsensors_1_1_my_color_sensor_aed2d2c661c0d980695bbfc4bb21a9f2f}{add\-Listener} (\hyperlink{interfacesensors_1_1_light_sensor_listener}{Light\-Sensor\-Listener} listener)
+\item 
+void \hyperlink{classsensors_1_1_my_color_sensor_a2cc8382833eeb064afde388d243efe08}{delete\-Listener} (\hyperlink{interfacesensors_1_1_light_sensor_listener}{Light\-Sensor\-Listener} listener)
+\item 
+int \hyperlink{classsensors_1_1_my_color_sensor_aa61cdd8b3ed7ab6355a79173949d816d}{get\-Light\-Value} ()
+\item 
+int \hyperlink{classsensors_1_1_my_color_sensor_a33a47875addf7ccd00aa6fa63e5a9219}{get\-Low} ()
+\item 
+int \hyperlink{classsensors_1_1_my_color_sensor_aa988dadec2aafa7fcf6636b12244ef1a}{get\-High} ()
+\item 
+void \hyperlink{classsensors_1_1_my_color_sensor_a1dc583efb6f3f4e978af6d52c8a702b0}{set\-High} (int value)
+\item 
+void \hyperlink{classsensors_1_1_my_color_sensor_a8929a9791cbdc348082600c01a63f17a}{set\-Low} (int value)
+\item 
+\hyperlink{enumsensors_1_1_sensor_type}{Sensor\-Type} \hyperlink{classsensors_1_1_my_color_sensor_a62eaf9476cb88ab8e77f720e7953c6cd}{get\-Sensor\-Type} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+Robert Bezem \href{mailto:robert.bezem@student.hu.nl}{\tt robert.\-bezem@student.\-hu.\-nl} 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\-0 
+\end{DoxyVersion}
+\begin{DoxySince}{Since}
+01-\/04-\/2014 
+\end{DoxySince}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classsensors_1_1_my_color_sensor_a9058deb72ccfa0f38def0b10e971be76}{\index{sensors\-::\-My\-Color\-Sensor@{sensors\-::\-My\-Color\-Sensor}!My\-Color\-Sensor@{My\-Color\-Sensor}}
+\index{My\-Color\-Sensor@{My\-Color\-Sensor}!sensors::MyColorSensor@{sensors\-::\-My\-Color\-Sensor}}
+\subsubsection[{My\-Color\-Sensor}]{\setlength{\rightskip}{0pt plus 5cm}sensors.\-My\-Color\-Sensor.\-My\-Color\-Sensor (
+\begin{DoxyParamCaption}
+\item[{Sensor\-Port}]{sensorport, }
+\item[{{\bf Position}}]{position}
+\end{DoxyParamCaption}
+)}}\label{classsensors_1_1_my_color_sensor_a9058deb72ccfa0f38def0b10e971be76}
+The constructor for the \hyperlink{classsensors_1_1_my_color_sensor}{My\-Color\-Sensor}
+
+
+\begin{DoxyParams}{Parameters}
+{\em sensorport} & the port on which the color sensor is attached to the N\-X\-T \\
+\hline
+{\em position} & the position the N\-X\-T \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See Also}
+Sensor\-Port 
+
+Sensor\-Position 
+\end{DoxySeeAlso}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classsensors_1_1_my_color_sensor_aed2d2c661c0d980695bbfc4bb21a9f2f}{\index{sensors\-::\-My\-Color\-Sensor@{sensors\-::\-My\-Color\-Sensor}!add\-Listener@{add\-Listener}}
+\index{add\-Listener@{add\-Listener}!sensors::MyColorSensor@{sensors\-::\-My\-Color\-Sensor}}
+\subsubsection[{add\-Listener}]{\setlength{\rightskip}{0pt plus 5cm}void sensors.\-My\-Color\-Sensor.\-add\-Listener (
+\begin{DoxyParamCaption}
+\item[{{\bf Light\-Sensor\-Listener}}]{listener}
+\end{DoxyParamCaption}
+)}}\label{classsensors_1_1_my_color_sensor_aed2d2c661c0d980695bbfc4bb21a9f2f}
+adds the listener to the list of listeners
+
+
+\begin{DoxyParams}{Parameters}
+{\em listener} & the listener that needs to be added \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See Also}
+\hyperlink{interfacesensors_1_1_light_sensor_listener}{Light\-Sensor\-Listener} 
+\end{DoxySeeAlso}
+\hypertarget{classsensors_1_1_my_color_sensor_a2cc8382833eeb064afde388d243efe08}{\index{sensors\-::\-My\-Color\-Sensor@{sensors\-::\-My\-Color\-Sensor}!delete\-Listener@{delete\-Listener}}
+\index{delete\-Listener@{delete\-Listener}!sensors::MyColorSensor@{sensors\-::\-My\-Color\-Sensor}}
+\subsubsection[{delete\-Listener}]{\setlength{\rightskip}{0pt plus 5cm}void sensors.\-My\-Color\-Sensor.\-delete\-Listener (
+\begin{DoxyParamCaption}
+\item[{{\bf Light\-Sensor\-Listener}}]{listener}
+\end{DoxyParamCaption}
+)}}\label{classsensors_1_1_my_color_sensor_a2cc8382833eeb064afde388d243efe08}
+deletes the listener from the list of listeners
+
+
+\begin{DoxyParams}{Parameters}
+{\em listener} & the listener that has to be deleted \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See Also}
+\hyperlink{interfacesensors_1_1_light_sensor_listener}{Light\-Sensor\-Listener} 
+\end{DoxySeeAlso}
+\hypertarget{classsensors_1_1_my_color_sensor_aa988dadec2aafa7fcf6636b12244ef1a}{\index{sensors\-::\-My\-Color\-Sensor@{sensors\-::\-My\-Color\-Sensor}!get\-High@{get\-High}}
+\index{get\-High@{get\-High}!sensors::MyColorSensor@{sensors\-::\-My\-Color\-Sensor}}
+\subsubsection[{get\-High}]{\setlength{\rightskip}{0pt plus 5cm}int sensors.\-My\-Color\-Sensor.\-get\-High (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classsensors_1_1_my_color_sensor_aa988dadec2aafa7fcf6636b12244ef1a}
+returns the highest value that has been used to calibrate the sensor
+
+\begin{DoxyReturn}{Returns}
+hundred the value set as 100\% 
+\end{DoxyReturn}
+\hypertarget{classsensors_1_1_my_color_sensor_aa61cdd8b3ed7ab6355a79173949d816d}{\index{sensors\-::\-My\-Color\-Sensor@{sensors\-::\-My\-Color\-Sensor}!get\-Light\-Value@{get\-Light\-Value}}
+\index{get\-Light\-Value@{get\-Light\-Value}!sensors::MyColorSensor@{sensors\-::\-My\-Color\-Sensor}}
+\subsubsection[{get\-Light\-Value}]{\setlength{\rightskip}{0pt plus 5cm}int sensors.\-My\-Color\-Sensor.\-get\-Light\-Value (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classsensors_1_1_my_color_sensor_aa61cdd8b3ed7ab6355a79173949d816d}
+returns the calibrated light value
+
+\begin{DoxyReturn}{Returns}
+integer ranging from 0-\/100 
+\end{DoxyReturn}
+\hypertarget{classsensors_1_1_my_color_sensor_a33a47875addf7ccd00aa6fa63e5a9219}{\index{sensors\-::\-My\-Color\-Sensor@{sensors\-::\-My\-Color\-Sensor}!get\-Low@{get\-Low}}
+\index{get\-Low@{get\-Low}!sensors::MyColorSensor@{sensors\-::\-My\-Color\-Sensor}}
+\subsubsection[{get\-Low}]{\setlength{\rightskip}{0pt plus 5cm}int sensors.\-My\-Color\-Sensor.\-get\-Low (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classsensors_1_1_my_color_sensor_a33a47875addf7ccd00aa6fa63e5a9219}
+returns the lowest value that has been used to calibrate the sensor
+
+\begin{DoxyReturn}{Returns}
+zero the value set as 0\% 
+\end{DoxyReturn}
+\hypertarget{classsensors_1_1_my_color_sensor_a62eaf9476cb88ab8e77f720e7953c6cd}{\index{sensors\-::\-My\-Color\-Sensor@{sensors\-::\-My\-Color\-Sensor}!get\-Sensor\-Type@{get\-Sensor\-Type}}
+\index{get\-Sensor\-Type@{get\-Sensor\-Type}!sensors::MyColorSensor@{sensors\-::\-My\-Color\-Sensor}}
+\subsubsection[{get\-Sensor\-Type}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Sensor\-Type} sensors.\-My\-Color\-Sensor.\-get\-Sensor\-Type (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classsensors_1_1_my_color_sensor_a62eaf9476cb88ab8e77f720e7953c6cd}
+returns the type of sensor
+
+\begin{DoxyReturn}{Returns}
+S\-E\-N\-S\-O\-R\-T\-Y\-P\-E returns the type of the sensor 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{interfacesensors_1_1_updating_sensor_aecdbf523b2bfe67a125b5587f71c4cf1}{sensors.\-Updating\-Sensor}.
+
+\hypertarget{classsensors_1_1_my_color_sensor_a1dc583efb6f3f4e978af6d52c8a702b0}{\index{sensors\-::\-My\-Color\-Sensor@{sensors\-::\-My\-Color\-Sensor}!set\-High@{set\-High}}
+\index{set\-High@{set\-High}!sensors::MyColorSensor@{sensors\-::\-My\-Color\-Sensor}}
+\subsubsection[{set\-High}]{\setlength{\rightskip}{0pt plus 5cm}void sensors.\-My\-Color\-Sensor.\-set\-High (
+\begin{DoxyParamCaption}
+\item[{int}]{value}
+\end{DoxyParamCaption}
+)}}\label{classsensors_1_1_my_color_sensor_a1dc583efb6f3f4e978af6d52c8a702b0}
+sets the highest value used for calibration
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & the highest value \\
+\hline
+\end{DoxyParams}
+\hypertarget{classsensors_1_1_my_color_sensor_a8929a9791cbdc348082600c01a63f17a}{\index{sensors\-::\-My\-Color\-Sensor@{sensors\-::\-My\-Color\-Sensor}!set\-Low@{set\-Low}}
+\index{set\-Low@{set\-Low}!sensors::MyColorSensor@{sensors\-::\-My\-Color\-Sensor}}
+\subsubsection[{set\-Low}]{\setlength{\rightskip}{0pt plus 5cm}void sensors.\-My\-Color\-Sensor.\-set\-Low (
+\begin{DoxyParamCaption}
+\item[{int}]{value}
+\end{DoxyParamCaption}
+)}}\label{classsensors_1_1_my_color_sensor_a8929a9791cbdc348082600c01a63f17a}
+sets the lowest value used for calibration
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & the lowest value \\
+\hline
+\end{DoxyParams}
+\hypertarget{classsensors_1_1_my_color_sensor_a17324aa0de8fa9ab45bb2c1450e0119a}{\index{sensors\-::\-My\-Color\-Sensor@{sensors\-::\-My\-Color\-Sensor}!update\-State@{update\-State}}
+\index{update\-State@{update\-State}!sensors::MyColorSensor@{sensors\-::\-My\-Color\-Sensor}}
+\subsubsection[{update\-State}]{\setlength{\rightskip}{0pt plus 5cm}void sensors.\-My\-Color\-Sensor.\-update\-State (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classsensors_1_1_my_color_sensor_a17324aa0de8fa9ab45bb2c1450e0119a}
+This method updates the currently read light value from the surface and forwards it to all listeners 
+
+Implements \hyperlink{interfacesensors_1_1_updating_sensor_ac0b2a4f75f4a0e0f121a1aa6150d93a6}{sensors.\-Updating\-Sensor}.
+
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+C\-:/\-Users/hp/git/the\-End/\-Eind\-Project/src/sensors/\hyperlink{_my_color_sensor_8java}{My\-Color\-Sensor.\-java}\end{DoxyCompactItemize}

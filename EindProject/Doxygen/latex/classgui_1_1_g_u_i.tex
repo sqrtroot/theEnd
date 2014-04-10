@@ -1,0 +1,124 @@
+\hypertarget{classgui_1_1_g_u_i}{\section{gui.\-G\-U\-I Class Reference}
+\label{classgui_1_1_g_u_i}\index{gui.\-G\-U\-I@{gui.\-G\-U\-I}}
+}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classgui_1_1_g_u_i_a2615d0a83cbc5e536a84b34f4f5fed77}{G\-U\-I} ()
+\item 
+void \hyperlink{classgui_1_1_g_u_i_a7f3457e6364a1918bdc9ee076ce7987c}{show\-Error\-Pop\-Up} (String error\-Message)
+\item 
+void \hyperlink{classgui_1_1_g_u_i_a0bd183726fb08c503d415fbe01b977a3}{show\-Pop\-Up} (String message)
+\item 
+void \hyperlink{classgui_1_1_g_u_i_a1e2c70edff7557e9d1828bbce70cc052}{show\-Alright\-Pop\-Up} (String message)
+\item 
+void \hyperlink{classgui_1_1_g_u_i_a680939303c766a1d1b1c86dcfd074255}{light\-Sensor\-Alright} (\hyperlink{enumsensors_1_1_position}{Position} position)
+\item 
+void \hyperlink{classgui_1_1_g_u_i_a8912704162cb5ae17664a4f5f13297a6}{lightensor\-Error} (\hyperlink{enumsensors_1_1_position}{Position} position)
+\item 
+void \hyperlink{classgui_1_1_g_u_i_a40263a862e3eceee24f000abbfb10fa5}{cancel\-Pop\-Up} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+Robert Bezem \href{mailto:robert.bezem@student.hu.nl}{\tt robert.\-bezem@student.\-hu.\-nl} 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\-0 
+\end{DoxyVersion}
+\begin{DoxySince}{Since}
+01-\/04-\/2014 
+\end{DoxySince}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classgui_1_1_g_u_i_a2615d0a83cbc5e536a84b34f4f5fed77}{\index{gui\-::\-G\-U\-I@{gui\-::\-G\-U\-I}!G\-U\-I@{G\-U\-I}}
+\index{G\-U\-I@{G\-U\-I}!gui::GUI@{gui\-::\-G\-U\-I}}
+\subsubsection[{G\-U\-I}]{\setlength{\rightskip}{0pt plus 5cm}gui.\-G\-U\-I.\-G\-U\-I (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classgui_1_1_g_u_i_a2615d0a83cbc5e536a84b34f4f5fed77}
+the constructor for the G\-U\-I-\/class 
+
+\subsection{Member Function Documentation}
+\hypertarget{classgui_1_1_g_u_i_a40263a862e3eceee24f000abbfb10fa5}{\index{gui\-::\-G\-U\-I@{gui\-::\-G\-U\-I}!cancel\-Pop\-Up@{cancel\-Pop\-Up}}
+\index{cancel\-Pop\-Up@{cancel\-Pop\-Up}!gui::GUI@{gui\-::\-G\-U\-I}}
+\subsubsection[{cancel\-Pop\-Up}]{\setlength{\rightskip}{0pt plus 5cm}void gui.\-G\-U\-I.\-cancel\-Pop\-Up (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classgui_1_1_g_u_i_a40263a862e3eceee24f000abbfb10fa5}
+cancel the pop-\/up and clear the screen \hypertarget{classgui_1_1_g_u_i_a8912704162cb5ae17664a4f5f13297a6}{\index{gui\-::\-G\-U\-I@{gui\-::\-G\-U\-I}!lightensor\-Error@{lightensor\-Error}}
+\index{lightensor\-Error@{lightensor\-Error}!gui::GUI@{gui\-::\-G\-U\-I}}
+\subsubsection[{lightensor\-Error}]{\setlength{\rightskip}{0pt plus 5cm}void gui.\-G\-U\-I.\-lightensor\-Error (
+\begin{DoxyParamCaption}
+\item[{{\bf Position}}]{position}
+\end{DoxyParamCaption}
+)}}\label{classgui_1_1_g_u_i_a8912704162cb5ae17664a4f5f13297a6}
+shows if a sensor is facing a dark surface
+
+
+\begin{DoxyParams}{Parameters}
+{\em position} & the position of the sensor, left or right, on the robot \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRefDesc}{Deprecated}
+\item[\hyperlink{deprecated__deprecated000002}{Deprecated}]use \hyperlink{classgui_1_1_g_u_i_a7f3457e6364a1918bdc9ee076ce7987c}{show\-Error\-Pop\-Up(\-String message)} instead \end{DoxyRefDesc}
+\hypertarget{classgui_1_1_g_u_i_a680939303c766a1d1b1c86dcfd074255}{\index{gui\-::\-G\-U\-I@{gui\-::\-G\-U\-I}!light\-Sensor\-Alright@{light\-Sensor\-Alright}}
+\index{light\-Sensor\-Alright@{light\-Sensor\-Alright}!gui::GUI@{gui\-::\-G\-U\-I}}
+\subsubsection[{light\-Sensor\-Alright}]{\setlength{\rightskip}{0pt plus 5cm}void gui.\-G\-U\-I.\-light\-Sensor\-Alright (
+\begin{DoxyParamCaption}
+\item[{{\bf Position}}]{position}
+\end{DoxyParamCaption}
+)}}\label{classgui_1_1_g_u_i_a680939303c766a1d1b1c86dcfd074255}
+shows if the sensor is facing a light surface
+
+
+\begin{DoxyParams}{Parameters}
+{\em position} & the position of the sensor, left or right, on the robot \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRefDesc}{Deprecated}
+\item[\hyperlink{deprecated__deprecated000001}{Deprecated}]use \hyperlink{classgui_1_1_g_u_i_a1e2c70edff7557e9d1828bbce70cc052}{show\-Alright\-Pop\-Up(\-String message)} instead \end{DoxyRefDesc}
+\hypertarget{classgui_1_1_g_u_i_a1e2c70edff7557e9d1828bbce70cc052}{\index{gui\-::\-G\-U\-I@{gui\-::\-G\-U\-I}!show\-Alright\-Pop\-Up@{show\-Alright\-Pop\-Up}}
+\index{show\-Alright\-Pop\-Up@{show\-Alright\-Pop\-Up}!gui::GUI@{gui\-::\-G\-U\-I}}
+\subsubsection[{show\-Alright\-Pop\-Up}]{\setlength{\rightskip}{0pt plus 5cm}void gui.\-G\-U\-I.\-show\-Alright\-Pop\-Up (
+\begin{DoxyParamCaption}
+\item[{String}]{message}
+\end{DoxyParamCaption}
+)}}\label{classgui_1_1_g_u_i_a1e2c70edff7557e9d1828bbce70cc052}
+\hypertarget{classgui_1_1_g_u_i_a7f3457e6364a1918bdc9ee076ce7987c}{\index{gui\-::\-G\-U\-I@{gui\-::\-G\-U\-I}!show\-Error\-Pop\-Up@{show\-Error\-Pop\-Up}}
+\index{show\-Error\-Pop\-Up@{show\-Error\-Pop\-Up}!gui::GUI@{gui\-::\-G\-U\-I}}
+\subsubsection[{show\-Error\-Pop\-Up}]{\setlength{\rightskip}{0pt plus 5cm}void gui.\-G\-U\-I.\-show\-Error\-Pop\-Up (
+\begin{DoxyParamCaption}
+\item[{String}]{error\-Message}
+\end{DoxyParamCaption}
+)}}\label{classgui_1_1_g_u_i_a7f3457e6364a1918bdc9ee076ce7987c}
+shows an error Pop-\/up with the given string 'error\-Message'
+
+
+\begin{DoxyParams}{Parameters}
+{\em error\-Message} & the string to be displayed \\
+\hline
+\end{DoxyParams}
+\hypertarget{classgui_1_1_g_u_i_a0bd183726fb08c503d415fbe01b977a3}{\index{gui\-::\-G\-U\-I@{gui\-::\-G\-U\-I}!show\-Pop\-Up@{show\-Pop\-Up}}
+\index{show\-Pop\-Up@{show\-Pop\-Up}!gui::GUI@{gui\-::\-G\-U\-I}}
+\subsubsection[{show\-Pop\-Up}]{\setlength{\rightskip}{0pt plus 5cm}void gui.\-G\-U\-I.\-show\-Pop\-Up (
+\begin{DoxyParamCaption}
+\item[{String}]{message}
+\end{DoxyParamCaption}
+)}}\label{classgui_1_1_g_u_i_a0bd183726fb08c503d415fbe01b977a3}
+shows a Pop-\/up with the given string 'message' displayed
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & the message to be displayed \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+C\-:/\-Users/hp/git/the\-End/\-Eind\-Project/src/gui/\hyperlink{_g_u_i_8java}{G\-U\-I.\-java}\end{DoxyCompactItemize}
