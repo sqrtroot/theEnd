@@ -12,8 +12,6 @@ import sensors.UpdatingSensor;
  * This class will guide a Lego NXT Robot via a black trail on a white surface.
  * 
  * @author Pim van Hespen <PimvanHespen@gmail.com>
- * @author Jacob Visser <Jacob.Visser@student.hu.nl>
- * @author Robert Bezem <Robert.Bezem@student.hu.nl>
  * @version 1.5
  * @since 04-04-2014
  * 
