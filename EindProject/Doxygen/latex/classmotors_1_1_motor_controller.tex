@@ -1,0 +1,262 @@
+\hypertarget{classmotors_1_1_motor_controller}{\section{motors.\-Motor\-Controller Class Reference}
+\label{classmotors_1_1_motor_controller}\index{motors.\-Motor\-Controller@{motors.\-Motor\-Controller}}
+}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \hyperlink{classmotors_1_1_motor_controller_a27a982c9114f012616ede0c49dd26880}{drive\-Arc} (float turn\-Radius)
+\item 
+static void \hyperlink{classmotors_1_1_motor_controller_a7010c7902838c03055daf3176c093bc4}{drive\-Forward} ()
+\item 
+static void \hyperlink{classmotors_1_1_motor_controller_ab4b6b46388aab6adb952e222d2d53f31}{stop} ()
+\item 
+static void \hyperlink{classmotors_1_1_motor_controller_af036b71f8836e9fcf32e0c7590b3e3e0}{drive\-Backwards} ()
+\item 
+static void \hyperlink{classmotors_1_1_motor_controller_ac200a0e610365d4d7f501d760e0fb5dc}{drive\-Distance} (float distance)
+\item 
+static boolean \hyperlink{classmotors_1_1_motor_controller_ab171d0d83a4ddcc87062b2c20721928f}{moving} ()
+\item 
+static void \hyperlink{classmotors_1_1_motor_controller_a6d617fcbcc35b8067bf10cdaafc94406}{drive\-Arc} (float turn\-Radius, boolean immediate\-Return)
+\item 
+static void \hyperlink{classmotors_1_1_motor_controller_ab99c3b5ae070cbe7034e8a49db9a59ef}{drive\-Arc} (int radius, int degrees, boolean immmediate\-Return)
+\item 
+static void \hyperlink{classmotors_1_1_motor_controller_a30bba3cbbbfe8fe774b21a58fba75e3b}{rotate} (int degrees, boolean immediate\-Return)
+\item 
+static void \hyperlink{classmotors_1_1_motor_controller_a129bd9d50a6d50c7d69e76415f798f17}{set\-Rotate\-Speed} (float degrees)
+\item 
+static void \hyperlink{classmotors_1_1_motor_controller_af3781222ae2e4fe3df581b14d79f3a40}{set\-Travel\-Speed} (float speed)
+\item 
+static void \hyperlink{classmotors_1_1_motor_controller_a13919e49cdf9aa70573a4beef99cda3c}{set\-Individiual\-Traval\-Speed} (int left\-Motor\-Speed, int right\-Motor\-Speed)
+\item 
+static void \hyperlink{classmotors_1_1_motor_controller_a5faee69ef82085ae5c1bf9e8f786387c}{set\-Left\-Motor\-Speed} (int speed)
+\item 
+static void \hyperlink{classmotors_1_1_motor_controller_a9a49fc2ea035ba507c97a8f20bead2f0}{set\-Right\-Motor\-Speed} (int speed)
+\item 
+static double \hyperlink{classmotors_1_1_motor_controller_a1cf8566e8b8fca27a1ac16aab1b93c2a}{get\-Rotatepeed} ()
+\item 
+static double \hyperlink{classmotors_1_1_motor_controller_a84c24ed7d98b6e818506182321402d9f}{get\-Travel\-Speed} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This class allows other classes to steer the motor
+
+\begin{DoxyAuthor}{Author}
+Robert Bezem \href{mailto:robert.bezem@student.hu.nl}{\tt robert.\-bezem@student.\-hu.\-nl} 
+
+Jacob Visser \href{mailto:jacob.visser@student.hu.nl}{\tt jacob.\-visser@student.\-hu.\-nl} 
+
+Pim van Hespen \href{mailto:pimvanhespen@gmail.com}{\tt pimvanhespen@gmail.\-com} 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\-5 
+\end{DoxyVersion}
+\begin{DoxySince}{Since}
+01-\/04-\/2014 
+\end{DoxySince}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classmotors_1_1_motor_controller_a27a982c9114f012616ede0c49dd26880}{\index{motors\-::\-Motor\-Controller@{motors\-::\-Motor\-Controller}!drive\-Arc@{drive\-Arc}}
+\index{drive\-Arc@{drive\-Arc}!motors::MotorController@{motors\-::\-Motor\-Controller}}
+\subsubsection[{drive\-Arc}]{\setlength{\rightskip}{0pt plus 5cm}static void motors.\-Motor\-Controller.\-drive\-Arc (
+\begin{DoxyParamCaption}
+\item[{float}]{turn\-Radius}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classmotors_1_1_motor_controller_a27a982c9114f012616ede0c49dd26880}
+Will make the robot drive arc with the given radius. Stops when motor is stopped
+
+
+\begin{DoxyParams}{Parameters}
+{\em turn\-Radius} & radius in millimeter \\
+\hline
+\end{DoxyParams}
+\hypertarget{classmotors_1_1_motor_controller_a6d617fcbcc35b8067bf10cdaafc94406}{\index{motors\-::\-Motor\-Controller@{motors\-::\-Motor\-Controller}!drive\-Arc@{drive\-Arc}}
+\index{drive\-Arc@{drive\-Arc}!motors::MotorController@{motors\-::\-Motor\-Controller}}
+\subsubsection[{drive\-Arc}]{\setlength{\rightskip}{0pt plus 5cm}static void motors.\-Motor\-Controller.\-drive\-Arc (
+\begin{DoxyParamCaption}
+\item[{float}]{turn\-Radius, }
+\item[{boolean}]{immediate\-Return}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classmotors_1_1_motor_controller_a6d617fcbcc35b8067bf10cdaafc94406}
+Makes the robot drive a circle with the given radius 'turn\-Radius'
+
+
+\begin{DoxyParams}{Parameters}
+{\em turn\-Radius} & radius in millimeters \\
+\hline
+{\em immediate\-Return} & if true, immediately returns to the next line of code while executing the arc \\
+\hline
+\end{DoxyParams}
+\hypertarget{classmotors_1_1_motor_controller_ab99c3b5ae070cbe7034e8a49db9a59ef}{\index{motors\-::\-Motor\-Controller@{motors\-::\-Motor\-Controller}!drive\-Arc@{drive\-Arc}}
+\index{drive\-Arc@{drive\-Arc}!motors::MotorController@{motors\-::\-Motor\-Controller}}
+\subsubsection[{drive\-Arc}]{\setlength{\rightskip}{0pt plus 5cm}static void motors.\-Motor\-Controller.\-drive\-Arc (
+\begin{DoxyParamCaption}
+\item[{int}]{radius, }
+\item[{int}]{degrees, }
+\item[{boolean}]{immmediate\-Return}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classmotors_1_1_motor_controller_ab99c3b5ae070cbe7034e8a49db9a59ef}
+
+\begin{DoxyParams}{Parameters}
+{\em radius} & of the arc in millimeters \\
+\hline
+{\em degrees} & of the arc to drive \\
+\hline
+{\em immmediate\-Return} & if true, immediately returns to the next line of code while executing the arc \\
+\hline
+\end{DoxyParams}
+\hypertarget{classmotors_1_1_motor_controller_af036b71f8836e9fcf32e0c7590b3e3e0}{\index{motors\-::\-Motor\-Controller@{motors\-::\-Motor\-Controller}!drive\-Backwards@{drive\-Backwards}}
+\index{drive\-Backwards@{drive\-Backwards}!motors::MotorController@{motors\-::\-Motor\-Controller}}
+\subsubsection[{drive\-Backwards}]{\setlength{\rightskip}{0pt plus 5cm}static void motors.\-Motor\-Controller.\-drive\-Backwards (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classmotors_1_1_motor_controller_af036b71f8836e9fcf32e0c7590b3e3e0}
+Will move the robot backwards until stopped \hypertarget{classmotors_1_1_motor_controller_ac200a0e610365d4d7f501d760e0fb5dc}{\index{motors\-::\-Motor\-Controller@{motors\-::\-Motor\-Controller}!drive\-Distance@{drive\-Distance}}
+\index{drive\-Distance@{drive\-Distance}!motors::MotorController@{motors\-::\-Motor\-Controller}}
+\subsubsection[{drive\-Distance}]{\setlength{\rightskip}{0pt plus 5cm}static void motors.\-Motor\-Controller.\-drive\-Distance (
+\begin{DoxyParamCaption}
+\item[{float}]{distance}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classmotors_1_1_motor_controller_ac200a0e610365d4d7f501d760e0fb5dc}
+Moves the robot for a set amount
+
+
+\begin{DoxyParams}{Parameters}
+{\em distance} & in millimeters \\
+\hline
+\end{DoxyParams}
+\hypertarget{classmotors_1_1_motor_controller_a7010c7902838c03055daf3176c093bc4}{\index{motors\-::\-Motor\-Controller@{motors\-::\-Motor\-Controller}!drive\-Forward@{drive\-Forward}}
+\index{drive\-Forward@{drive\-Forward}!motors::MotorController@{motors\-::\-Motor\-Controller}}
+\subsubsection[{drive\-Forward}]{\setlength{\rightskip}{0pt plus 5cm}static void motors.\-Motor\-Controller.\-drive\-Forward (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classmotors_1_1_motor_controller_a7010c7902838c03055daf3176c093bc4}
+Will move the robot forward until canceled \hypertarget{classmotors_1_1_motor_controller_a1cf8566e8b8fca27a1ac16aab1b93c2a}{\index{motors\-::\-Motor\-Controller@{motors\-::\-Motor\-Controller}!get\-Rotatepeed@{get\-Rotatepeed}}
+\index{get\-Rotatepeed@{get\-Rotatepeed}!motors::MotorController@{motors\-::\-Motor\-Controller}}
+\subsubsection[{get\-Rotatepeed}]{\setlength{\rightskip}{0pt plus 5cm}static double motors.\-Motor\-Controller.\-get\-Rotatepeed (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classmotors_1_1_motor_controller_a1cf8566e8b8fca27a1ac16aab1b93c2a}
+\hypertarget{classmotors_1_1_motor_controller_a84c24ed7d98b6e818506182321402d9f}{\index{motors\-::\-Motor\-Controller@{motors\-::\-Motor\-Controller}!get\-Travel\-Speed@{get\-Travel\-Speed}}
+\index{get\-Travel\-Speed@{get\-Travel\-Speed}!motors::MotorController@{motors\-::\-Motor\-Controller}}
+\subsubsection[{get\-Travel\-Speed}]{\setlength{\rightskip}{0pt plus 5cm}static double motors.\-Motor\-Controller.\-get\-Travel\-Speed (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classmotors_1_1_motor_controller_a84c24ed7d98b6e818506182321402d9f}
+\hypertarget{classmotors_1_1_motor_controller_ab171d0d83a4ddcc87062b2c20721928f}{\index{motors\-::\-Motor\-Controller@{motors\-::\-Motor\-Controller}!moving@{moving}}
+\index{moving@{moving}!motors::MotorController@{motors\-::\-Motor\-Controller}}
+\subsubsection[{moving}]{\setlength{\rightskip}{0pt plus 5cm}static boolean motors.\-Motor\-Controller.\-moving (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classmotors_1_1_motor_controller_ab171d0d83a4ddcc87062b2c20721928f}
+Tells if the robot is moving (true) or isn't (false)
+
+\begin{DoxyReturn}{Returns}
+if the robot is moving 
+\end{DoxyReturn}
+\hypertarget{classmotors_1_1_motor_controller_a30bba3cbbbfe8fe774b21a58fba75e3b}{\index{motors\-::\-Motor\-Controller@{motors\-::\-Motor\-Controller}!rotate@{rotate}}
+\index{rotate@{rotate}!motors::MotorController@{motors\-::\-Motor\-Controller}}
+\subsubsection[{rotate}]{\setlength{\rightskip}{0pt plus 5cm}static void motors.\-Motor\-Controller.\-rotate (
+\begin{DoxyParamCaption}
+\item[{int}]{degrees, }
+\item[{boolean}]{immediate\-Return}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classmotors_1_1_motor_controller_a30bba3cbbbfe8fe774b21a58fba75e3b}
+
+\begin{DoxyParams}{Parameters}
+{\em degrees} & to turn \\
+\hline
+{\em immmediate\-Return} & if true, immediately returns to the next line of code while executing the rotation \\
+\hline
+\end{DoxyParams}
+\hypertarget{classmotors_1_1_motor_controller_a13919e49cdf9aa70573a4beef99cda3c}{\index{motors\-::\-Motor\-Controller@{motors\-::\-Motor\-Controller}!set\-Individiual\-Traval\-Speed@{set\-Individiual\-Traval\-Speed}}
+\index{set\-Individiual\-Traval\-Speed@{set\-Individiual\-Traval\-Speed}!motors::MotorController@{motors\-::\-Motor\-Controller}}
+\subsubsection[{set\-Individiual\-Traval\-Speed}]{\setlength{\rightskip}{0pt plus 5cm}static void motors.\-Motor\-Controller.\-set\-Individiual\-Traval\-Speed (
+\begin{DoxyParamCaption}
+\item[{int}]{left\-Motor\-Speed, }
+\item[{int}]{right\-Motor\-Speed}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classmotors_1_1_motor_controller_a13919e49cdf9aa70573a4beef99cda3c}
+set individual motor speeds
+
+
+\begin{DoxyParams}{Parameters}
+{\em left\-Motor\-Speed} & in degrees per second \\
+\hline
+{\em right\-Motor\-Speed} & in degrees per second \\
+\hline
+\end{DoxyParams}
+\hypertarget{classmotors_1_1_motor_controller_a5faee69ef82085ae5c1bf9e8f786387c}{\index{motors\-::\-Motor\-Controller@{motors\-::\-Motor\-Controller}!set\-Left\-Motor\-Speed@{set\-Left\-Motor\-Speed}}
+\index{set\-Left\-Motor\-Speed@{set\-Left\-Motor\-Speed}!motors::MotorController@{motors\-::\-Motor\-Controller}}
+\subsubsection[{set\-Left\-Motor\-Speed}]{\setlength{\rightskip}{0pt plus 5cm}static void motors.\-Motor\-Controller.\-set\-Left\-Motor\-Speed (
+\begin{DoxyParamCaption}
+\item[{int}]{speed}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classmotors_1_1_motor_controller_a5faee69ef82085ae5c1bf9e8f786387c}
+sets speed for the left motor
+
+
+\begin{DoxyParams}{Parameters}
+{\em speed} & in degrees per second \\
+\hline
+\end{DoxyParams}
+\hypertarget{classmotors_1_1_motor_controller_a9a49fc2ea035ba507c97a8f20bead2f0}{\index{motors\-::\-Motor\-Controller@{motors\-::\-Motor\-Controller}!set\-Right\-Motor\-Speed@{set\-Right\-Motor\-Speed}}
+\index{set\-Right\-Motor\-Speed@{set\-Right\-Motor\-Speed}!motors::MotorController@{motors\-::\-Motor\-Controller}}
+\subsubsection[{set\-Right\-Motor\-Speed}]{\setlength{\rightskip}{0pt plus 5cm}static void motors.\-Motor\-Controller.\-set\-Right\-Motor\-Speed (
+\begin{DoxyParamCaption}
+\item[{int}]{speed}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classmotors_1_1_motor_controller_a9a49fc2ea035ba507c97a8f20bead2f0}
+sets speed for the right motor
+
+
+\begin{DoxyParams}{Parameters}
+{\em speed} & in degrees per second \\
+\hline
+\end{DoxyParams}
+\hypertarget{classmotors_1_1_motor_controller_a129bd9d50a6d50c7d69e76415f798f17}{\index{motors\-::\-Motor\-Controller@{motors\-::\-Motor\-Controller}!set\-Rotate\-Speed@{set\-Rotate\-Speed}}
+\index{set\-Rotate\-Speed@{set\-Rotate\-Speed}!motors::MotorController@{motors\-::\-Motor\-Controller}}
+\subsubsection[{set\-Rotate\-Speed}]{\setlength{\rightskip}{0pt plus 5cm}static void motors.\-Motor\-Controller.\-set\-Rotate\-Speed (
+\begin{DoxyParamCaption}
+\item[{float}]{degrees}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classmotors_1_1_motor_controller_a129bd9d50a6d50c7d69e76415f798f17}
+set the degrees to turn per second
+
+
+\begin{DoxyParams}{Parameters}
+{\em degrees} & per second \\
+\hline
+\end{DoxyParams}
+\hypertarget{classmotors_1_1_motor_controller_af3781222ae2e4fe3df581b14d79f3a40}{\index{motors\-::\-Motor\-Controller@{motors\-::\-Motor\-Controller}!set\-Travel\-Speed@{set\-Travel\-Speed}}
+\index{set\-Travel\-Speed@{set\-Travel\-Speed}!motors::MotorController@{motors\-::\-Motor\-Controller}}
+\subsubsection[{set\-Travel\-Speed}]{\setlength{\rightskip}{0pt plus 5cm}static void motors.\-Motor\-Controller.\-set\-Travel\-Speed (
+\begin{DoxyParamCaption}
+\item[{float}]{speed}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classmotors_1_1_motor_controller_af3781222ae2e4fe3df581b14d79f3a40}
+sets the travel\-Speed
+
+
+\begin{DoxyParams}{Parameters}
+{\em speed} & in wheel diameter/units per second \\
+\hline
+\end{DoxyParams}
+\hypertarget{classmotors_1_1_motor_controller_ab4b6b46388aab6adb952e222d2d53f31}{\index{motors\-::\-Motor\-Controller@{motors\-::\-Motor\-Controller}!stop@{stop}}
+\index{stop@{stop}!motors::MotorController@{motors\-::\-Motor\-Controller}}
+\subsubsection[{stop}]{\setlength{\rightskip}{0pt plus 5cm}static void motors.\-Motor\-Controller.\-stop (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classmotors_1_1_motor_controller_ab4b6b46388aab6adb952e222d2d53f31}
+stops all movement. 
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+C\-:/\-Users/hp/git/the\-End/\-Eind\-Project/src/motors/\hyperlink{_motor_controller_8java}{Motor\-Controller.\-java}\end{DoxyCompactItemize}

@@ -1,0 +1,112 @@
+\hypertarget{classcontrollers_1_1_obstruction_controller}{\section{controllers.\-Obstruction\-Controller Class Reference}
+\label{classcontrollers_1_1_obstruction_controller}\index{controllers.\-Obstruction\-Controller@{controllers.\-Obstruction\-Controller}}
+}
+Inheritance diagram for controllers.\-Obstruction\-Controller\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=1.786284cm]{classcontrollers_1_1_obstruction_controller}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classcontrollers_1_1_obstruction_controller_a68a1a050f3f7a25a6b11565a1a19386d}{Obstruction\-Controller} (\hyperlink{classsensors_1_1_my_color_sensor}{My\-Color\-Sensor} cs, \hyperlink{classsensors_1_1_my_light_sensor}{My\-Light\-Sensor} ls, \hyperlink{classsensors_1_1_my_ultra_sonic_sensor}{My\-Ultra\-Sonic\-Sensor} us, \hyperlink{classgui_1_1_g_u_i}{G\-U\-I} gui)
+\item 
+void \hyperlink{classcontrollers_1_1_obstruction_controller_ab6f90766f733da01b7022b32f55b9d50}{run} ()
+\item 
+void \hyperlink{classcontrollers_1_1_obstruction_controller_a3b97c6803b754642db14268a7f0ce170}{ultra\-Sonic\-Changed} (\hyperlink{interfacesensors_1_1_updating_sensor}{Updating\-Sensor} us, float old\-Value, float new\-Value)
+\item 
+void \hyperlink{classcontrollers_1_1_obstruction_controller_ae8627b8e53bd16dcefeb5b84dfc55ee5}{light\-Sensor\-Changed} (\hyperlink{enumsensors_1_1_position}{Position} position, \hyperlink{interfacesensors_1_1_updating_sensor}{Updating\-Sensor} updatingsensor, float old\-Value, float new\-Value)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This class will evade objects
+
+\begin{DoxyAuthor}{Author}
+Robert Bezem \href{mailto:robert.bezem@student.hu.nl}{\tt robert.\-bezem@student.\-hu.\-nl} 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\-2 
+\end{DoxyVersion}
+\begin{DoxySince}{Since}
+01-\/04-\/2014 
+\end{DoxySince}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classcontrollers_1_1_obstruction_controller_a68a1a050f3f7a25a6b11565a1a19386d}{\index{controllers\-::\-Obstruction\-Controller@{controllers\-::\-Obstruction\-Controller}!Obstruction\-Controller@{Obstruction\-Controller}}
+\index{Obstruction\-Controller@{Obstruction\-Controller}!controllers::ObstructionController@{controllers\-::\-Obstruction\-Controller}}
+\subsubsection[{Obstruction\-Controller}]{\setlength{\rightskip}{0pt plus 5cm}controllers.\-Obstruction\-Controller.\-Obstruction\-Controller (
+\begin{DoxyParamCaption}
+\item[{{\bf My\-Color\-Sensor}}]{cs, }
+\item[{{\bf My\-Light\-Sensor}}]{ls, }
+\item[{{\bf My\-Ultra\-Sonic\-Sensor}}]{us, }
+\item[{{\bf G\-U\-I}}]{gui}
+\end{DoxyParamCaption}
+)}}\label{classcontrollers_1_1_obstruction_controller_a68a1a050f3f7a25a6b11565a1a19386d}
+The constructor for the \hyperlink{classcontrollers_1_1_obstruction_controller}{Obstruction\-Controller} class
+
+
+\begin{DoxyParams}{Parameters}
+{\em cs} & The color sensor on the robot \\
+\hline
+{\em ls} & The light sensor on the robot \\
+\hline
+{\em us} & The ultrasonic sensor on the robot \\
+\hline
+{\em gui} & The G\-U\-I that is used \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classcontrollers_1_1_obstruction_controller_ae8627b8e53bd16dcefeb5b84dfc55ee5}{\index{controllers\-::\-Obstruction\-Controller@{controllers\-::\-Obstruction\-Controller}!light\-Sensor\-Changed@{light\-Sensor\-Changed}}
+\index{light\-Sensor\-Changed@{light\-Sensor\-Changed}!controllers::ObstructionController@{controllers\-::\-Obstruction\-Controller}}
+\subsubsection[{light\-Sensor\-Changed}]{\setlength{\rightskip}{0pt plus 5cm}void controllers.\-Obstruction\-Controller.\-light\-Sensor\-Changed (
+\begin{DoxyParamCaption}
+\item[{{\bf Position}}]{position, }
+\item[{{\bf Updating\-Sensor}}]{updatingsensor, }
+\item[{float}]{old\-Value, }
+\item[{float}]{new\-Value}
+\end{DoxyParamCaption}
+)}}\label{classcontrollers_1_1_obstruction_controller_ae8627b8e53bd16dcefeb5b84dfc55ee5}
+If the measured value from the light sensor changes this method is called. When called this method checks the position of the sensor who called this method, and sets the attribute corresponding to the position.
+
+\begin{DoxySeeAlso}{See Also}
+\hyperlink{interfacesensors_1_1_light_sensor_listener_ad454a7e5082bc820b4cc27cf173a111a}{sensors.\-Light\-Sensor\-Listener\-::light\-Sensor\-Changed}(sensors.\-Sensor\-Position, \hyperlink{interfacesensors_1_1_updating_sensor}{sensors.\-Updating\-Sensor}, float, float) 
+\end{DoxySeeAlso}
+
+
+Implements \hyperlink{interfacesensors_1_1_light_sensor_listener_ad454a7e5082bc820b4cc27cf173a111a}{sensors.\-Light\-Sensor\-Listener}.
+
+\hypertarget{classcontrollers_1_1_obstruction_controller_ab6f90766f733da01b7022b32f55b9d50}{\index{controllers\-::\-Obstruction\-Controller@{controllers\-::\-Obstruction\-Controller}!run@{run}}
+\index{run@{run}!controllers::ObstructionController@{controllers\-::\-Obstruction\-Controller}}
+\subsubsection[{run}]{\setlength{\rightskip}{0pt plus 5cm}void controllers.\-Obstruction\-Controller.\-run (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classcontrollers_1_1_obstruction_controller_ab6f90766f733da01b7022b32f55b9d50}
+\hypertarget{classcontrollers_1_1_obstruction_controller_a3b97c6803b754642db14268a7f0ce170}{\index{controllers\-::\-Obstruction\-Controller@{controllers\-::\-Obstruction\-Controller}!ultra\-Sonic\-Changed@{ultra\-Sonic\-Changed}}
+\index{ultra\-Sonic\-Changed@{ultra\-Sonic\-Changed}!controllers::ObstructionController@{controllers\-::\-Obstruction\-Controller}}
+\subsubsection[{ultra\-Sonic\-Changed}]{\setlength{\rightskip}{0pt plus 5cm}void controllers.\-Obstruction\-Controller.\-ultra\-Sonic\-Changed (
+\begin{DoxyParamCaption}
+\item[{{\bf Updating\-Sensor}}]{us, }
+\item[{float}]{old\-Value, }
+\item[{float}]{new\-Value}
+\end{DoxyParamCaption}
+)}}\label{classcontrollers_1_1_obstruction_controller_a3b97c6803b754642db14268a7f0ce170}
+If the measured value from the ultrasonic sensor changes this method is called. When called this method checks of the new value is smaller than the safe value, if that's true the robot displays a message and starts a evasive maneuver. When the new value is bigger than the save distance any messages on the display disappear. $\ast$
+
+\begin{DoxySeeAlso}{See Also}
+\hyperlink{interfacesensors_1_1_ultrasonic_sensor_listener_ac66510bffddde1ed90f98b5fe1858f21}{sensors.\-Ultrasonic\-Sensor\-Listener\-::ultra\-Sonic\-Changed}(\hyperlink{interfacesensors_1_1_updating_sensor}{sensors.\-Updating\-Sensor}, float, float) 
+\end{DoxySeeAlso}
+
+
+Implements \hyperlink{interfacesensors_1_1_ultrasonic_sensor_listener_ac66510bffddde1ed90f98b5fe1858f21}{sensors.\-Ultrasonic\-Sensor\-Listener}.
+
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+C\-:/\-Users/hp/git/the\-End/\-Eind\-Project/src/controllers/\hyperlink{_obstruction_controller_8java}{Obstruction\-Controller.\-java}\end{DoxyCompactItemize}

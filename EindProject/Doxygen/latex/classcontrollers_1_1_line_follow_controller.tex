@@ -1,0 +1,117 @@
+\hypertarget{classcontrollers_1_1_line_follow_controller}{\section{controllers.\-Line\-Follow\-Controller Class Reference}
+\label{classcontrollers_1_1_line_follow_controller}\index{controllers.\-Line\-Follow\-Controller@{controllers.\-Line\-Follow\-Controller}}
+}
+Inheritance diagram for controllers.\-Line\-Follow\-Controller\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classcontrollers_1_1_line_follow_controller}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classcontrollers_1_1_line_follow_controller_a3d348192dadb4523ea57a9165720a01d}{Line\-Follow\-Controller} (\hyperlink{classsensors_1_1_my_color_sensor}{My\-Color\-Sensor} cs, \hyperlink{classsensors_1_1_my_light_sensor}{My\-Light\-Sensor} ls, \hyperlink{classgui_1_1_g_u_i}{G\-U\-I} gui)
+\item 
+void \hyperlink{classcontrollers_1_1_line_follow_controller_ab0d8c9fa9e91633438c1e4ae778017fa}{run} ()
+\item 
+void \hyperlink{classcontrollers_1_1_line_follow_controller_afeee12743ec4cedb303c6b6cd72489bd}{set\-Active} (boolean incoming\-Value)
+\item 
+void \hyperlink{classcontrollers_1_1_line_follow_controller_a673cf765cff30bc14f9bfd8eb54dc6dd}{light\-Sensor\-Changed} (\hyperlink{enumsensors_1_1_position}{Position} position, \hyperlink{interfacesensors_1_1_updating_sensor}{Updating\-Sensor} updatingsensor, float old\-Value, float new\-Value)
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \hyperlink{classcontrollers_1_1_line_follow_controller_a304089767b35529b1aa8e0d6c9355109}{pause\-Line\-Follower} ()
+\item 
+static void \hyperlink{classcontrollers_1_1_line_follow_controller_aefc55f5d77bcc8a1ac339e08adc5bccb}{continue\-Line\-Follower} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This class will guide a Lego N\-X\-T Robot via a black trail on a white surface.
+
+\begin{DoxyAuthor}{Author}
+Pim van Hespen \href{mailto:PimvanHespen@gmail.com}{\tt Pimvan\-Hespen@gmail.\-com} 
+
+Jacob Visser \href{mailto:Jacob.Visser@student.hu.nl}{\tt Jacob.\-Visser@student.\-hu.\-nl} 
+
+Robert Bezem \href{mailto:Robert.Bezem@student.hu.nl}{\tt Robert.\-Bezem@student.\-hu.\-nl} 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\-5 
+\end{DoxyVersion}
+\begin{DoxySince}{Since}
+04-\/04-\/2014 
+\end{DoxySince}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classcontrollers_1_1_line_follow_controller_a3d348192dadb4523ea57a9165720a01d}{\index{controllers\-::\-Line\-Follow\-Controller@{controllers\-::\-Line\-Follow\-Controller}!Line\-Follow\-Controller@{Line\-Follow\-Controller}}
+\index{Line\-Follow\-Controller@{Line\-Follow\-Controller}!controllers::LineFollowController@{controllers\-::\-Line\-Follow\-Controller}}
+\subsubsection[{Line\-Follow\-Controller}]{\setlength{\rightskip}{0pt plus 5cm}controllers.\-Line\-Follow\-Controller.\-Line\-Follow\-Controller (
+\begin{DoxyParamCaption}
+\item[{{\bf My\-Color\-Sensor}}]{cs, }
+\item[{{\bf My\-Light\-Sensor}}]{ls, }
+\item[{{\bf G\-U\-I}}]{gui}
+\end{DoxyParamCaption}
+)}}\label{classcontrollers_1_1_line_follow_controller_a3d348192dadb4523ea57a9165720a01d}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classcontrollers_1_1_line_follow_controller_aefc55f5d77bcc8a1ac339e08adc5bccb}{\index{controllers\-::\-Line\-Follow\-Controller@{controllers\-::\-Line\-Follow\-Controller}!continue\-Line\-Follower@{continue\-Line\-Follower}}
+\index{continue\-Line\-Follower@{continue\-Line\-Follower}!controllers::LineFollowController@{controllers\-::\-Line\-Follow\-Controller}}
+\subsubsection[{continue\-Line\-Follower}]{\setlength{\rightskip}{0pt plus 5cm}static void controllers.\-Line\-Follow\-Controller.\-continue\-Line\-Follower (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classcontrollers_1_1_line_follow_controller_aefc55f5d77bcc8a1ac339e08adc5bccb}
+\hypertarget{classcontrollers_1_1_line_follow_controller_a673cf765cff30bc14f9bfd8eb54dc6dd}{\index{controllers\-::\-Line\-Follow\-Controller@{controllers\-::\-Line\-Follow\-Controller}!light\-Sensor\-Changed@{light\-Sensor\-Changed}}
+\index{light\-Sensor\-Changed@{light\-Sensor\-Changed}!controllers::LineFollowController@{controllers\-::\-Line\-Follow\-Controller}}
+\subsubsection[{light\-Sensor\-Changed}]{\setlength{\rightskip}{0pt plus 5cm}void controllers.\-Line\-Follow\-Controller.\-light\-Sensor\-Changed (
+\begin{DoxyParamCaption}
+\item[{{\bf Position}}]{position, }
+\item[{{\bf Updating\-Sensor}}]{updatingsensor, }
+\item[{float}]{old\-Value, }
+\item[{float}]{new\-Value}
+\end{DoxyParamCaption}
+)}}\label{classcontrollers_1_1_line_follow_controller_a673cf765cff30bc14f9bfd8eb54dc6dd}
+\begin{DoxySeeAlso}{See Also}
+\hyperlink{interfacesensors_1_1_light_sensor_listener_ad454a7e5082bc820b4cc27cf173a111a}{sensors.\-Light\-Sensor\-Listener\-::light\-Sensor\-Changed}(sensors.\-Sensor\-Position, \hyperlink{interfacesensors_1_1_updating_sensor}{sensors.\-Updating\-Sensor}, float, float) 
+\end{DoxySeeAlso}
+
+
+Implements \hyperlink{interfacesensors_1_1_light_sensor_listener_ad454a7e5082bc820b4cc27cf173a111a}{sensors.\-Light\-Sensor\-Listener}.
+
+\hypertarget{classcontrollers_1_1_line_follow_controller_a304089767b35529b1aa8e0d6c9355109}{\index{controllers\-::\-Line\-Follow\-Controller@{controllers\-::\-Line\-Follow\-Controller}!pause\-Line\-Follower@{pause\-Line\-Follower}}
+\index{pause\-Line\-Follower@{pause\-Line\-Follower}!controllers::LineFollowController@{controllers\-::\-Line\-Follow\-Controller}}
+\subsubsection[{pause\-Line\-Follower}]{\setlength{\rightskip}{0pt plus 5cm}static void controllers.\-Line\-Follow\-Controller.\-pause\-Line\-Follower (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classcontrollers_1_1_line_follow_controller_a304089767b35529b1aa8e0d6c9355109}
+\hypertarget{classcontrollers_1_1_line_follow_controller_ab0d8c9fa9e91633438c1e4ae778017fa}{\index{controllers\-::\-Line\-Follow\-Controller@{controllers\-::\-Line\-Follow\-Controller}!run@{run}}
+\index{run@{run}!controllers::LineFollowController@{controllers\-::\-Line\-Follow\-Controller}}
+\subsubsection[{run}]{\setlength{\rightskip}{0pt plus 5cm}void controllers.\-Line\-Follow\-Controller.\-run (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classcontrollers_1_1_line_follow_controller_ab0d8c9fa9e91633438c1e4ae778017fa}
+\hypertarget{classcontrollers_1_1_line_follow_controller_afeee12743ec4cedb303c6b6cd72489bd}{\index{controllers\-::\-Line\-Follow\-Controller@{controllers\-::\-Line\-Follow\-Controller}!set\-Active@{set\-Active}}
+\index{set\-Active@{set\-Active}!controllers::LineFollowController@{controllers\-::\-Line\-Follow\-Controller}}
+\subsubsection[{set\-Active}]{\setlength{\rightskip}{0pt plus 5cm}void controllers.\-Line\-Follow\-Controller.\-set\-Active (
+\begin{DoxyParamCaption}
+\item[{boolean}]{incoming\-Value}
+\end{DoxyParamCaption}
+)}}\label{classcontrollers_1_1_line_follow_controller_afeee12743ec4cedb303c6b6cd72489bd}
+This is the setter for boolean 'active'.
+
+
+\begin{DoxyParams}{Parameters}
+{\em incoming\-Value} & the value to set active to. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+C\-:/\-Users/hp/git/the\-End/\-Eind\-Project/src/controllers/\hyperlink{_line_follow_controller_8java}{Line\-Follow\-Controller.\-java}\end{DoxyCompactItemize}

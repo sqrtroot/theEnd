@@ -1,0 +1,119 @@
+\hypertarget{classsensors_1_1_my_light_sensor}{\section{sensors.\-My\-Light\-Sensor Class Reference}
+\label{classsensors_1_1_my_light_sensor}\index{sensors.\-My\-Light\-Sensor@{sensors.\-My\-Light\-Sensor}}
+}
+Inheritance diagram for sensors.\-My\-Light\-Sensor\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classsensors_1_1_my_light_sensor}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classsensors_1_1_my_light_sensor_a66871b7c407c55db943fa287f5a05546}{My\-Light\-Sensor} (Sensor\-Port sensorport, \hyperlink{enumsensors_1_1_position}{Position} position)
+\item 
+void \hyperlink{classsensors_1_1_my_light_sensor_a53d99d3eb2357a4a8bcaa4374a0cd322}{update\-State} ()
+\item 
+void \hyperlink{classsensors_1_1_my_light_sensor_a9f1363af86ed6a3684c0c5350893eaad}{add\-Listener} (\hyperlink{interfacesensors_1_1_light_sensor_listener}{Light\-Sensor\-Listener} listener)
+\item 
+void \hyperlink{classsensors_1_1_my_light_sensor_a5b7da6d342b87ca4dda0c22c29d352be}{delete\-Listener} (\hyperlink{interfacesensors_1_1_light_sensor_listener}{Light\-Sensor\-Listener} listener)
+\item 
+\hyperlink{enumsensors_1_1_sensor_type}{Sensor\-Type} \hyperlink{classsensors_1_1_my_light_sensor_a5a65a835bf1f749adf47e2f57d55047b}{get\-Sensor\-Type} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This class holds all the utilities to control the light sensor. Also this is a boundary class for the actual light sensor
+
+\begin{DoxyAuthor}{Author}
+Robert Bezem \href{mailto:robert.bezem@student.hu.nl}{\tt robert.\-bezem@student.\-hu.\-nl} 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\-0 
+\end{DoxyVersion}
+\begin{DoxySince}{Since}
+01-\/04-\/2014 
+\end{DoxySince}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classsensors_1_1_my_light_sensor_a66871b7c407c55db943fa287f5a05546}{\index{sensors\-::\-My\-Light\-Sensor@{sensors\-::\-My\-Light\-Sensor}!My\-Light\-Sensor@{My\-Light\-Sensor}}
+\index{My\-Light\-Sensor@{My\-Light\-Sensor}!sensors::MyLightSensor@{sensors\-::\-My\-Light\-Sensor}}
+\subsubsection[{My\-Light\-Sensor}]{\setlength{\rightskip}{0pt plus 5cm}sensors.\-My\-Light\-Sensor.\-My\-Light\-Sensor (
+\begin{DoxyParamCaption}
+\item[{Sensor\-Port}]{sensorport, }
+\item[{{\bf Position}}]{position}
+\end{DoxyParamCaption}
+)}}\label{classsensors_1_1_my_light_sensor_a66871b7c407c55db943fa287f5a05546}
+the constructor for the light sensor
+
+
+\begin{DoxyParams}{Parameters}
+{\em sensorport} & the port the light sensor is attached to on the N\-X\-T \\
+\hline
+{\em position} & the position the N\-X\-T \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classsensors_1_1_my_light_sensor_a9f1363af86ed6a3684c0c5350893eaad}{\index{sensors\-::\-My\-Light\-Sensor@{sensors\-::\-My\-Light\-Sensor}!add\-Listener@{add\-Listener}}
+\index{add\-Listener@{add\-Listener}!sensors::MyLightSensor@{sensors\-::\-My\-Light\-Sensor}}
+\subsubsection[{add\-Listener}]{\setlength{\rightskip}{0pt plus 5cm}void sensors.\-My\-Light\-Sensor.\-add\-Listener (
+\begin{DoxyParamCaption}
+\item[{{\bf Light\-Sensor\-Listener}}]{listener}
+\end{DoxyParamCaption}
+)}}\label{classsensors_1_1_my_light_sensor_a9f1363af86ed6a3684c0c5350893eaad}
+adds the listener to the list of listeners
+
+
+\begin{DoxyParams}{Parameters}
+{\em listener} & the listener that is added \\
+\hline
+\end{DoxyParams}
+\hypertarget{classsensors_1_1_my_light_sensor_a5b7da6d342b87ca4dda0c22c29d352be}{\index{sensors\-::\-My\-Light\-Sensor@{sensors\-::\-My\-Light\-Sensor}!delete\-Listener@{delete\-Listener}}
+\index{delete\-Listener@{delete\-Listener}!sensors::MyLightSensor@{sensors\-::\-My\-Light\-Sensor}}
+\subsubsection[{delete\-Listener}]{\setlength{\rightskip}{0pt plus 5cm}void sensors.\-My\-Light\-Sensor.\-delete\-Listener (
+\begin{DoxyParamCaption}
+\item[{{\bf Light\-Sensor\-Listener}}]{listener}
+\end{DoxyParamCaption}
+)}}\label{classsensors_1_1_my_light_sensor_a5b7da6d342b87ca4dda0c22c29d352be}
+deletes the listener from the list of listeners
+
+
+\begin{DoxyParams}{Parameters}
+{\em listener} & the listener that has to be deleted \\
+\hline
+\end{DoxyParams}
+\hypertarget{classsensors_1_1_my_light_sensor_a5a65a835bf1f749adf47e2f57d55047b}{\index{sensors\-::\-My\-Light\-Sensor@{sensors\-::\-My\-Light\-Sensor}!get\-Sensor\-Type@{get\-Sensor\-Type}}
+\index{get\-Sensor\-Type@{get\-Sensor\-Type}!sensors::MyLightSensor@{sensors\-::\-My\-Light\-Sensor}}
+\subsubsection[{get\-Sensor\-Type}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Sensor\-Type} sensors.\-My\-Light\-Sensor.\-get\-Sensor\-Type (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classsensors_1_1_my_light_sensor_a5a65a835bf1f749adf47e2f57d55047b}
+returns the type of sensor
+
+\begin{DoxyReturn}{Returns}
+S\-E\-N\-S\-O\-R\-T\-Y\-P\-E returns the type of the sensor 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{interfacesensors_1_1_updating_sensor_aecdbf523b2bfe67a125b5587f71c4cf1}{sensors.\-Updating\-Sensor}.
+
+\hypertarget{classsensors_1_1_my_light_sensor_a53d99d3eb2357a4a8bcaa4374a0cd322}{\index{sensors\-::\-My\-Light\-Sensor@{sensors\-::\-My\-Light\-Sensor}!update\-State@{update\-State}}
+\index{update\-State@{update\-State}!sensors::MyLightSensor@{sensors\-::\-My\-Light\-Sensor}}
+\subsubsection[{update\-State}]{\setlength{\rightskip}{0pt plus 5cm}void sensors.\-My\-Light\-Sensor.\-update\-State (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classsensors_1_1_my_light_sensor_a53d99d3eb2357a4a8bcaa4374a0cd322}
+used to update the sensors value and if the have changed pass them to the listeners 
+
+Implements \hyperlink{interfacesensors_1_1_updating_sensor_ac0b2a4f75f4a0e0f121a1aa6150d93a6}{sensors.\-Updating\-Sensor}.
+
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+C\-:/\-Users/hp/git/the\-End/\-Eind\-Project/src/sensors/\hyperlink{_my_light_sensor_8java}{My\-Light\-Sensor.\-java}\end{DoxyCompactItemize}

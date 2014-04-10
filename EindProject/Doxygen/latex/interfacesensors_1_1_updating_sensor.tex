@@ -1,0 +1,60 @@
+\hypertarget{interfacesensors_1_1_updating_sensor}{\section{sensors.\-Updating\-Sensor Interface Reference}
+\label{interfacesensors_1_1_updating_sensor}\index{sensors.\-Updating\-Sensor@{sensors.\-Updating\-Sensor}}
+}
+Inheritance diagram for sensors.\-Updating\-Sensor\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{interfacesensors_1_1_updating_sensor}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{interfacesensors_1_1_updating_sensor_ac0b2a4f75f4a0e0f121a1aa6150d93a6}{update\-State} ()
+\item 
+\hyperlink{enumsensors_1_1_sensor_type}{Sensor\-Type} \hyperlink{interfacesensors_1_1_updating_sensor_aecdbf523b2bfe67a125b5587f71c4cf1}{get\-Sensor\-Type} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This is the updating\-Sensor interface which is implemented by all sensors so that the sensor\-Handler can update all sensors
+
+\begin{DoxyAuthor}{Author}
+Robert Bezem \href{mailto:robert.bezem@student.hu.nl}{\tt robert.\-bezem@student.\-hu.\-nl} 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\-0 
+\end{DoxyVersion}
+\begin{DoxySince}{Since}
+01-\/04-\/2014 
+\end{DoxySince}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{interfacesensors_1_1_updating_sensor_aecdbf523b2bfe67a125b5587f71c4cf1}{\index{sensors\-::\-Updating\-Sensor@{sensors\-::\-Updating\-Sensor}!get\-Sensor\-Type@{get\-Sensor\-Type}}
+\index{get\-Sensor\-Type@{get\-Sensor\-Type}!sensors::UpdatingSensor@{sensors\-::\-Updating\-Sensor}}
+\subsubsection[{get\-Sensor\-Type}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Sensor\-Type} sensors.\-Updating\-Sensor.\-get\-Sensor\-Type (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{interfacesensors_1_1_updating_sensor_aecdbf523b2bfe67a125b5587f71c4cf1}
+Every sensor is from a different type, with this method you can determine the sensor type 
+
+Implemented in \hyperlink{classsensors_1_1_my_color_sensor_a62eaf9476cb88ab8e77f720e7953c6cd}{sensors.\-My\-Color\-Sensor}, \hyperlink{classsensors_1_1_my_light_sensor_a5a65a835bf1f749adf47e2f57d55047b}{sensors.\-My\-Light\-Sensor}, and \hyperlink{classsensors_1_1_my_ultra_sonic_sensor_a8ca6bc8d9caaa7bc63256bf37653bff8}{sensors.\-My\-Ultra\-Sonic\-Sensor}.
+
+\hypertarget{interfacesensors_1_1_updating_sensor_ac0b2a4f75f4a0e0f121a1aa6150d93a6}{\index{sensors\-::\-Updating\-Sensor@{sensors\-::\-Updating\-Sensor}!update\-State@{update\-State}}
+\index{update\-State@{update\-State}!sensors::UpdatingSensor@{sensors\-::\-Updating\-Sensor}}
+\subsubsection[{update\-State}]{\setlength{\rightskip}{0pt plus 5cm}void sensors.\-Updating\-Sensor.\-update\-State (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{interfacesensors_1_1_updating_sensor_ac0b2a4f75f4a0e0f121a1aa6150d93a6}
+When implemented this method can update the measured values from a sensor 
+
+Implemented in \hyperlink{classsensors_1_1_my_color_sensor_a17324aa0de8fa9ab45bb2c1450e0119a}{sensors.\-My\-Color\-Sensor}, \hyperlink{classsensors_1_1_my_light_sensor_a53d99d3eb2357a4a8bcaa4374a0cd322}{sensors.\-My\-Light\-Sensor}, and \hyperlink{classsensors_1_1_my_ultra_sonic_sensor_a3c921c279968baa6629f9590cb5c5adc}{sensors.\-My\-Ultra\-Sonic\-Sensor}.
+
+
+
+The documentation for this interface was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+C\-:/\-Users/hp/git/the\-End/\-Eind\-Project/src/sensors/\hyperlink{_updating_sensor_8java}{Updating\-Sensor.\-java}\end{DoxyCompactItemize}
