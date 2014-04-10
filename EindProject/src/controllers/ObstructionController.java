@@ -26,8 +26,8 @@ public class ObstructionController implements LightSensorListener,
 	private final int ROTATE_SPEED = 100;
 	private final int SAFE_DISTANCE = 20;
 	private final int MEDIAN = 50;
-	private final int RADIUS = 500;
-	private final int FIRST_TURN_ANGLE = -240;
+	private final int RADIUS = 400;
+	private final int FIRST_TURN_ANGLE = -90;
 	private final int SECOND_TURN_ANGLE = -50;
 
 	private boolean noLineFound = true;
